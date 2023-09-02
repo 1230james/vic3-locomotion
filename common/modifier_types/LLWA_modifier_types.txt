@@ -1,0 +1,4 @@
+﻿building_input_luxury_furniture_add = {
+    good = no
+    percent = no    
+}

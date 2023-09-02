@@ -1,0 +1,20 @@
+﻿# Canal status
+# Used to indicate whether ships can be used; see scripted triggers for criteria
+# PMs are set up such that this PM cannot be moved off of by the player and must be controlled by events/JEs/whatever
+
+LLWA_pm_canals_disallowed = {
+    texture = "gfx/interface/icons/production_method_icons/experimental_trains.dds"
+    is_default = yes
+    
+    unlocking_production_methods = {
+        LLWA_pm_canals_disallowed
+    }
+}
+
+LLWA_pm_canals_allowed = {
+    texture = "gfx/interface/icons/production_method_icons/experimental_trains.dds"
+    
+    unlocking_production_methods = {
+        LLWA_pm_canals_allowed
+    }
+}
