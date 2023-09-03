@@ -2,7 +2,7 @@
 
 # Rail vehicles
 LLWA_pm_no_trains = {
-    texture = "gfx/interface/icons/production_method_icons/experimental_trains.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWC_no_rail_veh.dds"
 }
 
 LLWA_pm_early_trains = {

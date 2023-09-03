@@ -1,10 +1,10 @@
 ﻿# Road vehicles
 LLWA_pm_no_road_vehicles = {
-    texture = "gfx/interface/icons/production_method_icons/trains_steam.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWC_no_road_veh.dds"
 }
 
 LLWA_pm_horse_wagons = {
-    texture = "gfx/interface/icons/production_method_icons/trains_steam.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWC_wagons.dds"
     is_default = yes
 
     building_modifiers = {
@@ -30,7 +30,7 @@ LLWA_pm_horse_wagons = {
 }
 
 LLWA_pm_hand_carts = {
-    texture = "gfx/interface/icons/production_method_icons/trains_steam.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWC_hand_carts.dds"
 
     building_modifiers = {
         workforce_scaled = {
@@ -52,7 +52,7 @@ LLWA_pm_hand_carts = {
 }
 
 LLWA_pm_steam_trucks = {
-    texture = "gfx/interface/icons/production_method_icons/trains_steam.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWC_steam_trucks.dds"
     pollution_generation = 10
     
     unlocking_technologies = {
@@ -80,7 +80,7 @@ LLWA_pm_steam_trucks = {
 }
 
 LLWA_pm_petrol_trucks = {
-    texture = "gfx/interface/icons/production_method_icons/trains_steam.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWC_petrol_trucks.dds"
     pollution_generation = 10
     
     unlocking_technologies = {
@@ -109,11 +109,11 @@ LLWA_pm_petrol_trucks = {
 
 # Road traffic
 LLWA_pm_no_buses = {
-    texture = "gfx/interface/icons/production_method_icons/trains_steam.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWC_no_buses.dds"
 }
 
 LLWA_pm_rickshaws = {
-    texture = "gfx/interface/icons/production_method_icons/passenger_trains.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWC_rickshaws.dds"
     
     unlocking_production_methods = {
 		LLWA_pm_hand_carts
@@ -132,7 +132,7 @@ LLWA_pm_rickshaws = {
 }
 
 LLWA_pm_stagecoaches = {
-    texture = "gfx/interface/icons/production_method_icons/passenger_trains.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWC_stagecoaches.dds"
     
     unlocking_production_methods = {
 		LLWA_pm_horse_wagons
@@ -151,7 +151,7 @@ LLWA_pm_stagecoaches = {
 }
 
 LLWA_pm_steam_buses = {
-    texture = "gfx/interface/icons/production_method_icons/passenger_trains.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWC_steam_buses.dds"
     pollution_generation = 10
     
     unlocking_production_methods = {
@@ -173,7 +173,7 @@ LLWA_pm_steam_buses = {
 }
 
 LLWA_pm_motor_buses = {
-    texture = "gfx/interface/icons/production_method_icons/passenger_trains.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWC_motor_buses.dds"
     pollution_generation = 10
     
     unlocking_production_methods = {

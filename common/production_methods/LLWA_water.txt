@@ -1,10 +1,10 @@
 ﻿# Water vessels
 LLWA_pm_no_ships = {
-    texture = "gfx/interface/icons/production_method_icons/experimental_trains.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWC_no_ships.dds"
 }
 
 LLWA_pm_sailing_barges = {
-    texture = "gfx/interface/icons/production_method_icons/experimental_trains.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWC_sailing_barges.dds"
     
     unlocking_production_methods = {
         LLWA_pm_canals_allowed
@@ -30,7 +30,7 @@ LLWA_pm_sailing_barges = {
 }
 
 LLWA_pm_steamboats = {
-    texture = "gfx/interface/icons/production_method_icons/experimental_trains.dds"
+    texture = "gfx/interface/icons/production_method_icons/reinforced_steam_ships.dds"
     pollution_generation = 15
     
     unlocking_production_methods = {
@@ -65,7 +65,7 @@ LLWA_pm_steamboats = {
 }
 
 LLWA_pm_motor_vessels = {
-    texture = "gfx/interface/icons/production_method_icons/experimental_trains.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWC_diesel_ships.dds"
     pollution_generation = 10
     
     unlocking_production_methods = {
@@ -99,11 +99,11 @@ LLWA_pm_motor_vessels = {
 
 # Water traffic
 LLWA_pm_no_ferries = {
-    texture = "gfx/interface/icons/production_method_icons/experimental_trains.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWC_no_ferries.dds"
 }
 
 LLWA_pm_riverboats = {
-    texture = "gfx/interface/icons/production_method_icons/experimental_trains.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWC_riverboats.dds"
     
     unlocking_production_methods = {
         LLWA_pm_sailing_barges
@@ -122,7 +122,7 @@ LLWA_pm_riverboats = {
 }
 
 LLWA_pm_steam_ferries = {
-    texture = "gfx/interface/icons/production_method_icons/experimental_trains.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWC_steamboats.dds"
     pollution_generation = 15
     
     unlocking_production_methods = {
@@ -149,7 +149,7 @@ LLWA_pm_steam_ferries = {
 }
 
 LLWA_pm_motor_ferries = {
-    texture = "gfx/interface/icons/production_method_icons/experimental_trains.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWC_motor_ferries.dds"
     pollution_generation = 10
     
     unlocking_production_methods = {
