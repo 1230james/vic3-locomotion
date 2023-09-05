@@ -21,7 +21,7 @@
 
     required_construction = construction_cost_high
     
-    ai_value = 2000 # Railways are important
+    ai_value = 2000
     
     should_auto_expand = { 
         occupancy >= 0.8

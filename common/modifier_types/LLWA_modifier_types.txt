@@ -1,4 +1,11 @@
-﻿building_input_luxury_furniture_add = {
+﻿# Input goods
+building_input_luxury_furniture_add = {
     good = no
     percent = no    
+}
+
+# Water distance tracking
+LLWA_mt_dist_from_water_add = {
+    good = yes
+    percent = no
 }

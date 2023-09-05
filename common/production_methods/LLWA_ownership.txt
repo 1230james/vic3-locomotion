@@ -1,47 +1,47 @@
 ﻿# Ownership PMs
-LLWA_pm_merchant_guilds = {
-	texture = "gfx/interface/icons/production_method_icons/merchant_guilds.dds"
-
-	unlocking_production_methods = {
-        LLWA_pm_no_road_vehicles
-		LLWA_pm_horse_wagons
-        LLWA_pm_hand_carts
-        LLWA_pm_sailing_barges
-	}
-
-	disallowing_laws = {
-		law_command_economy
-		law_cooperative_ownership
-	}
-
-	building_modifiers = {
-		level_scaled = {
-			building_employment_shopkeepers_add = 500
-		}
-		unscaled = {
-			building_shopkeepers_shares_add = 10
-		}
-	}
-}
+# LLWA_pm_merchant_guilds = {
+#      texture = "gfx/interface/icons/production_method_icons/merchant_guilds.dds"
+#
+#      unlocking_production_methods = {
+#          LLWA_pm_no_road_vehicles
+#          LLWA_pm_horse_wagons
+#          LLWA_pm_hand_carts
+#          LLWA_pm_sailing_barges
+#      }
+#
+#      disallowing_laws = {
+#           law_command_economy
+#           law_cooperative_ownership
+#      }
+#
+#      building_modifiers = {
+#           level_scaled = {
+#                building_employment_shopkeepers_add = 500
+#           }
+#           unscaled = {
+#                building_shopkeepers_shares_add = 10
+#           }
+#      }
+# }
 
 LLWA_pm_privately_owned = {
     texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
     
-    unlocking_production_methods = {
-        LLWA_pm_steam_trucks
-        LLWA_pm_petrol_trucks
-        
-        LLWA_pm_early_trains
-        LLWA_pm_steam_trains
-        LLWA_pm_electric_trains
-        LLWA_pm_diesel_trains
-        
-        LLWA_pm_steamboats
-        LLWA_pm_motor_vessels
-        
-        LLWA_pm_airships
-        LLWA_pm_airplanes
-	}
+    #unlocking_production_methods = {
+    #    LLWA_pm_steam_trucks
+    #    LLWA_pm_petrol_trucks
+    #    
+    #    LLWA_pm_early_trains
+    #    LLWA_pm_steam_trains
+    #    LLWA_pm_electric_trains
+    #    LLWA_pm_diesel_trains
+    #    
+    #    LLWA_pm_steamboats
+    #    LLWA_pm_motor_vessels
+    #    
+    #    LLWA_pm_airships
+    #    LLWA_pm_airplanes
+	#}
     
     disallowing_laws = {
         law_command_economy
@@ -50,7 +50,7 @@ LLWA_pm_privately_owned = {
     
     building_modifiers = { 
         level_scaled = {
-            building_employment_capitalists_add = 250
+            building_employment_capitalists_add = 500 # 250
         }
         unscaled = {
             building_capitalists_shares_add = 10
@@ -61,21 +61,21 @@ LLWA_pm_privately_owned = {
 LLWA_pm_publicly_traded = {
     texture = "gfx/interface/icons/production_method_icons/publicly_traded.dds"
     
-    unlocking_production_methods = {
-        LLWA_pm_steam_trucks
-        LLWA_pm_petrol_trucks
-        
-        LLWA_pm_early_trains
-        LLWA_pm_steam_trains
-        LLWA_pm_electric_trains
-        LLWA_pm_diesel_trains
-        
-        LLWA_pm_steamboats
-        LLWA_pm_motor_vessels
-        
-        LLWA_pm_airships
-        LLWA_pm_airplanes
-	}
+    #unlocking_production_methods = {
+    #    LLWA_pm_steam_trucks
+    #    LLWA_pm_petrol_trucks
+    #    
+    #    LLWA_pm_early_trains
+    #    LLWA_pm_steam_trains
+    #    LLWA_pm_electric_trains
+    #    LLWA_pm_diesel_trains
+    #    
+    #    LLWA_pm_steamboats
+    #    LLWA_pm_motor_vessels
+    #    
+    #    LLWA_pm_airships
+    #    LLWA_pm_airplanes
+	#}
 
     disallowing_laws = {
         law_command_economy
@@ -88,7 +88,7 @@ LLWA_pm_publicly_traded = {
     
     building_modifiers = { 
         level_scaled = {
-            building_employment_capitalists_add = 350
+            building_employment_capitalists_add = 700 # 350
         }
         unscaled = {
             building_capitalists_shares_add = 10
@@ -98,7 +98,7 @@ LLWA_pm_publicly_traded = {
 
 LLWA_pm_government_run = {
     texture = "gfx/interface/icons/production_method_icons/government_run.dds"
-
+    
     unlocking_laws = {
         law_command_economy
         law_interventionism
@@ -107,7 +107,7 @@ LLWA_pm_government_run = {
     
     building_modifiers = { 
         level_scaled = {
-            building_employment_bureaucrats_add = 400
+            building_employment_bureaucrats_add = 800 # 400
         }
         unscaled = {
             building_government_shares_add = 1
@@ -124,7 +124,7 @@ LLWA_pm_worker_coop = {
     
     building_modifiers = {
         level_scaled = {
-            building_employment_shopkeepers_add = 250
+            building_employment_shopkeepers_add = 500 # 250
         }
         unscaled = {
             building_workforce_shares_add = 1

@@ -1,10 +1,10 @@
 ﻿# Aircraft
 LLWA_pm_no_aircraft = {
-    texture = "gfx/interface/icons/production_method_icons/LLWC_no_aircraft.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWA_no_aircraft.dds"
 }
 
 LLWA_pm_airships = {
-    texture = "gfx/interface/icons/production_method_icons/LLWC_airships.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWA_airships.dds"
     pollution_generation = 5
     
     unlocking_technologies = {
@@ -67,11 +67,11 @@ LLWA_pm_airplanes = {
 
 # Air traffic
 LLWA_pm_no_air_travel = {
-    texture = "gfx/interface/icons/production_method_icons/LLWC_no_air_travel.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWA_no_air_travel.dds"
 }
 
 LLWA_pm_air_mail = {
-    texture = "gfx/interface/icons/production_method_icons/LLWC_air_mail.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWA_air_mail.dds"
     
     unlocking_production_methods = {
         LLWA_pm_airships
@@ -90,7 +90,7 @@ LLWA_pm_air_mail = {
 }
 
 LLWA_pm_air_travel = {
-    texture = "gfx/interface/icons/production_method_icons/LLWC_air_fare.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWA_air_fare.dds"
     
     unlocking_production_methods = {
         LLWA_pm_airships

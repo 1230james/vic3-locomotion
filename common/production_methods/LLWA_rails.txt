@@ -2,7 +2,7 @@
 
 # Rail vehicles
 LLWA_pm_no_trains = {
-    texture = "gfx/interface/icons/production_method_icons/LLWC_no_rail_veh.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWA_no_rail_veh.dds"
 }
 
 LLWA_pm_early_trains = {
@@ -115,10 +115,6 @@ LLWA_pm_diesel_trains = {
             state_infrastructure_add = 40
         }
     }
-}
-
-LLWA_pm_no_rail_vehicles = {
-    texture = "gfx/interface/icons/production_method_icons/trains_steam.dds"
 }
 
 # Rail traffic

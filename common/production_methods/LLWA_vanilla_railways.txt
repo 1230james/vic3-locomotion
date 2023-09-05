@@ -46,3 +46,31 @@ pm_steel_passenger_carriages = {
 		pm_steel_passenger_carriages
 	}
 }
+
+pm_privately_owned_building_railway = {
+	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
+    unlocking_production_methods = {
+		pm_privately_owned_building_railway
+	}
+}
+
+pm_publicly_traded_building_railway = {
+	texture = "gfx/interface/icons/production_method_icons/publicly_traded.dds"
+    unlocking_production_methods = {
+		pm_publicly_traded_building_railway
+	}
+}
+
+pm_government_run_building_railway = {
+	texture = "gfx/interface/icons/production_method_icons/government_run.dds"
+    unlocking_production_methods = {
+		pm_government_run_building_railway
+	}
+}
+
+pm_worker_cooperative_building_railway = {
+	texture = "gfx/interface/icons/production_method_icons/worker_cooperative.dds"
+    unlocking_production_methods = {
+		pm_worker_cooperative_building_railway
+	}
+}

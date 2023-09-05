@@ -1,0 +1,293 @@
+﻿# Basically scripted effects? lol
+# I'm feeling lazy, sooooo /shrug
+LLWA_oa_activate_canals = {
+    effect = {
+        # Canals allowed
+        if = {
+            limit = {
+                is_building_type = LLWA_building_transport_sector
+                state = {
+                    LLWA_st_can_have_canal = yes
+                }
+            }
+            state = {
+                # Activate canals in this state
+                activate_production_method = {
+                    building_type     = LLWA_building_transport_sector
+                    production_method = LLWA_pm_canals_allowed
+                }
+                
+                # If this state has a water source, then activate canals in adjacent states
+                if = {
+                    limit = {
+                        LLWA_st_has_water_source = yes
+                        root.level > 0
+                    }
+                    every_neighbouring_state = {
+                        limit = {
+                            this.owner   = prev.owner
+                            has_building = LLWA_building_transport_sector
+                            LLWA_st_can_have_canal = yes
+                        }
+                        activate_production_method = {
+                            building_type     = LLWA_building_transport_sector
+                            production_method = LLWA_pm_canals_allowed
+                        }
+                    }
+                }
+            }
+        }
+        
+        # Canals disallowed
+        else_if = {
+            limit = {
+                is_building_type = LLWA_building_transport_sector
+                state = {
+                    LLWA_st_can_have_canal = no
+                }
+            }
+            state = {
+                activate_production_method = {
+                    building_type     = LLWA_building_transport_sector
+                    production_method = LLWA_pm_canals_disallowed
+                }
+                activate_production_method = {
+                    building_type     = LLWA_building_transport_sector
+                    production_method = LLWA_pm_no_ships
+                }
+                activate_production_method = {
+                    building_type     = LLWA_building_transport_sector
+                    production_method = LLWA_pm_no_ferries
+                }
+            }
+        }
+    }
+}
+
+# LLWA disables building vanilla Railways and neuters them to have no effects & makes them unbuildable. We manage them
+# for the player for cosmetic reasons (i.e. turning roads into rails on the map), since there seems to be no way to
+# change what building (or PMs) dictates when railroads should appear instead of roads, and for compatibility with JEs
+# and events that check against the level and PMs of Railways buildings.
+LLWA_oa_manage_railways_level = {
+    effect = {
+        if = {
+            limit = {
+                is_building_type = LLWA_building_transport_sector
+            }
+            
+            # Make Railways level match Transport Sector's if rails are in use
+            if = {
+                limit = {
+                    NOT = {
+                        has_active_production_method = LLWA_pm_no_trains
+                    }
+                }
+                state = {
+                    if = {
+                        limit = {
+                            has_building = building_railway
+                        }
+                        remove_building = building_railway
+                    }
+                    create_building = {
+                        building   = building_railway
+                        subsidized = no
+                        reserves   = 0
+                        level      = 1 # ROOT.level
+                    }
+                }
+            }
+            
+            # Destroy railways if rails not in use
+            else = {
+                state = {
+                    if = {
+                        limit = {
+                            has_building = building_railway
+                        }
+                        remove_building = building_railway
+                    }
+                }
+            }
+        }
+        
+        # Destroy railways if no Transport Sector
+        else_if = {
+            limit = {
+                state = {
+                    has_building = building_railway
+                    NOT = {
+                        has_building = LLWA_building_transport_sector
+                    }
+                }
+            }
+            state = {
+                remove_building = building_railway
+            }
+        }
+    }
+}
+
+LLWA_oa_manage_railways_pms = {
+    effect = {
+        if = {
+            limit = {
+                is_building_type = LLWA_building_transport_sector
+                state = {
+                    has_building = building_railway
+                }
+            }
+            
+            # Base PM
+            if = {
+                limit = {
+                    has_active_production_method = LLWA_pm_diesel_trains
+                }
+                state = {
+                    activate_production_method = {
+                        building_type     = building_railway
+                        production_method = pm_diesel_trains
+                    }
+                }
+            }
+            else_if = {
+                limit = {
+                    has_active_production_method = LLWA_pm_electric_trains
+                }
+                state = {
+                    activate_production_method = {
+                        building_type     = building_railway
+                        production_method = pm_electric_trains
+                    }
+                }
+            }
+            #else_if = { # Saving for 1.5
+            #    limit = {
+            #        has_active_production_method = LLWA_pm_steam_trains
+            #    }
+            #    state = {
+            #        activate_production_method = {
+            #            building_type     = building_railway
+            #            production_method = pm_steam_trains
+            #        }
+            #    }
+            #}
+            else = {
+                state = {
+                    activate_production_method = {
+                        building_type     = building_railway
+                        production_method = pm_steam_trains # pm_early_trains
+                    }
+                }
+            }
+            
+            # Passengers PM
+            if = {
+                limit = {
+                    has_active_production_method = LLWA_pm_steel_passenger_carriages
+                }
+                state = {
+                    activate_production_method = {
+                        building_type     = building_railway
+                        production_method = pm_steel_passenger_carriages
+                    }
+                }
+            }
+            else_if = {
+                limit = {
+                    has_active_production_method = LLWA_pm_wooden_passenger_carriages
+                }
+                state = {
+                    activate_production_method = {
+                        building_type     = building_railway
+                        production_method = pm_wooden_passenger_carriages
+                    }
+                }
+            }
+            else = {
+                state = {
+                    activate_production_method = {
+                        building_type     = building_railway
+                        production_method = pm_no_passenger_trains
+                    }
+                }
+            }
+            
+            # Ownership PM
+            if = {
+                limit = {
+                    has_active_production_method = LLWA_pm_worker_coop
+                }
+                state = {
+                    activate_production_method = {
+                        building_type     = building_railway
+                        production_method = pm_worker_cooperative_building_railway
+                    }
+                }
+            }
+            else_if = {
+                limit = {
+                    has_active_production_method = LLWA_pm_government_run
+                }
+                state = {
+                    activate_production_method = {
+                        building_type     = building_railway
+                        production_method = pm_government_run_building_railway
+                    }
+                }
+            }
+            else_if = {
+                limit = {
+                    has_active_production_method = LLWA_pm_publicly_traded
+                }
+                state = {
+                    activate_production_method = {
+                        building_type     = building_railway
+                        production_method = pm_publicly_traded_building_railway
+                    }
+                }
+            }
+            else = {
+                state = {
+                    activate_production_method = {
+                        building_type     = building_railway
+                        production_method = pm_privately_owned_building_railway
+                    }
+                }
+            }
+        }
+    }
+}
+
+# ==================================================================================================================== #
+
+# Root = Building
+on_building_built = {
+    on_actions = {
+        LLWA_oa_activate_canals
+        #LLWA_oa_manage_railways_level # TODO: Figure out which one of these is causing crashes and why
+        #LLWA_oa_manage_railways_pms
+    }
+}
+
+# Root = Building
+on_start_expanding_building = {
+    on_actions = {
+        #LLWA_oa_manage_railways_level
+    }
+}
+
+# Root = Building
+on_building_expanded = {
+    on_actions = {
+        #LLWA_oa_manage_railways_level
+    }
+}
+
+# Root = Building
+on_production_method_changed = {
+    on_actions = {
+        #LLWA_oa_manage_railways_level
+        #LLWA_oa_manage_railways_pms
+    }
+}
