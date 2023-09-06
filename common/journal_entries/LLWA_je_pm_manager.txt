@@ -132,7 +132,7 @@ LLWA_je_pm_manager = {
                     }
                 }
                 
-                # Bump water PM - normal check (rails prioritized)
+                # Bump water PM - normal check (rails are prioritized)
                 else_if = {
                     limit = {
                         is_production_method_active = {

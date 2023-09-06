@@ -93,7 +93,7 @@ LLWA_oa_manage_railways_level = {
                         building   = building_railway
                         subsidized = no
                         reserves   = 0
-                        level      = 1 # ROOT.level
+                        level      = 10 # A Fascism JE needs >= 2 and Underground Railway needs > 5 # ROOT.level
                     }
                 }
             }
@@ -112,17 +112,42 @@ LLWA_oa_manage_railways_level = {
         }
         
         # Destroy railways if no Transport Sector
-        else_if = {
+        # else_if = { # DO NOT UNCOMMENT THIS BLOCK - it causes CTDs; see LLWA_oa_delete_orphaned_railways instead
+        #     limit = {
+        #         state = {
+        #             has_building = building_railway
+        #             NOT = {
+        #                 has_building = LLWA_building_transport_sector
+        #             }
+        #         }
+        #     }
+        #     state = {
+        #         remove_building = building_railway
+        #     }
+        # }
+    }
+}
+
+# Separated into its own on_action to prevent CTD
+LLWA_oa_delete_orphaned_railways = {
+    effect = {
+        if = {
             limit = {
-                state = {
-                    has_building = building_railway
-                    NOT = {
-                        has_building = LLWA_building_transport_sector
-                    }
+                NOR = {
+                    is_building_type = LLWA_building_transport_sector
+                    is_building_type = building_railway # CTDs might also have been the lack of this line previously
                 }
             }
             state = {
-                remove_building = building_railway
+                if = {
+                    limit = {
+                        has_building = building_railway
+                        NOT = {
+                            has_building = LLWA_building_transport_sector
+                        }
+                    }
+                    remove_building = building_railway
+                }
             }
         }
     }
@@ -265,29 +290,32 @@ LLWA_oa_manage_railways_pms = {
 on_building_built = {
     on_actions = {
         LLWA_oa_activate_canals
-        #LLWA_oa_manage_railways_level # TODO: Figure out which one of these is causing crashes and why
-        #LLWA_oa_manage_railways_pms
+        LLWA_oa_manage_railways_level
+        LLWA_oa_manage_railways_pms
+        LLWA_oa_delete_orphaned_railways
     }
 }
 
 # Root = Building
 on_start_expanding_building = {
     on_actions = {
-        #LLWA_oa_manage_railways_level
+        LLWA_oa_manage_railways_level
+        LLWA_oa_delete_orphaned_railways
     }
 }
 
 # Root = Building
 on_building_expanded = {
     on_actions = {
-        #LLWA_oa_manage_railways_level
+        LLWA_oa_manage_railways_level
+        LLWA_oa_delete_orphaned_railways
     }
 }
 
 # Root = Building
 on_production_method_changed = {
     on_actions = {
-        #LLWA_oa_manage_railways_level
-        #LLWA_oa_manage_railways_pms
+        LLWA_oa_manage_railways_level
+        LLWA_oa_manage_railways_pms
     }
 }

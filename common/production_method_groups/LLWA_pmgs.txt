@@ -107,7 +107,7 @@ LLWA_pmg_air_traffic = {
 }
 
 LLWA_pmg_canals_status = {
-    texture = "gfx/interface/icons/generic_icons/LLWA_canals_yes.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWA_canals_yes.dds"
     
     production_methods = {
         LLWA_pm_canals_disallowed
