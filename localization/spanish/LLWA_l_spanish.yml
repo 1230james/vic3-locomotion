@@ -1,4 +1,4 @@
-﻿l_english:
+﻿l_spanish:
     # Buildings
     LLWA_building_transport_sector: "Transportation Sector"
     
@@ -72,8 +72,8 @@
     LLWA_pm_canals_allowed:    "Waterways Available"
     
     # Modifiers
-    modifier_building_input_luxury_furniture_add:      "@luxury_furniture! $luxury_furniture$ input per level"
-    modifier_building_input_luxury_furniture_add_desc: "The amount of @luxury_furniture! $luxury_furniture$ consumed by buildings"
+    modifier_building_input_luxury_furniture_add:      "Insumo de muebles de lujo @luxury_furniture! por nivel"
+    modifier_building_input_luxury_furniture_add_desc: "La cantidad de muebles de lujo @luxury_furniture! consumida por los edificios"
     
     # Unused strings - defined as empty to silence errors
     LLWA_md_dist_from_water: ""

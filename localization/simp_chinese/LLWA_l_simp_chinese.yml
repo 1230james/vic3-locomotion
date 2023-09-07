@@ -1,4 +1,4 @@
-﻿l_english:
+﻿l_simp_chinese:
     # Buildings
     LLWA_building_transport_sector: "Transportation Sector"
     
@@ -72,8 +72,8 @@
     LLWA_pm_canals_allowed:    "Waterways Available"
     
     # Modifiers
-    modifier_building_input_luxury_furniture_add:      "@luxury_furniture! $luxury_furniture$ input per level"
-    modifier_building_input_luxury_furniture_add_desc: "The amount of @luxury_furniture! $luxury_furniture$ consumed by buildings"
+    modifier_building_input_luxury_furniture_add:      "每级@luxury_furniture!高档家具投入"
+    modifier_building_input_luxury_furniture_add_desc: "建筑消费的@luxury_furniture!高档家具数量"
     
     # Unused strings - defined as empty to silence errors
     LLWA_md_dist_from_water: ""
