@@ -1,6 +1,6 @@
 ﻿LLWA_building_transport_sector = {
     building_group = bg_private_infrastructure	
-    texture = "gfx/interface/icons/building_icons/building_railway.dds"
+    texture = "gfx/interface/icons/building_icons/LLWA_transport_sector.dds"
     
     unlocking_technologies = {
         urbanization
