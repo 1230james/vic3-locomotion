@@ -13,6 +13,8 @@
                     LLWA_pm_early_trains
                     LLWA_pm_wooden_passenger_carriages
                     LLWA_pm_canals_allowed # Turn on canals for buildings we place on rivers and coasts
+                    LLWA_pm_sailing_barges # Although, for GBR specifically, they have A LOT of canals all over England and Wales
+                    LLWA_pm_riverboats
                 }
             }
         }
@@ -29,6 +31,8 @@
                     LLWA_pm_early_trains
                     LLWA_pm_wooden_passenger_carriages
                     LLWA_pm_canals_allowed
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
                 }
             }
         }
@@ -45,6 +49,8 @@
                     LLWA_pm_early_trains
                     LLWA_pm_wooden_passenger_carriages
                     LLWA_pm_canals_allowed
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
                 }
             }
         }
@@ -61,6 +67,8 @@
                     LLWA_pm_early_trains
                     LLWA_pm_wooden_passenger_carriages
                     LLWA_pm_canals_allowed
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
                 }
             }
         }
@@ -77,6 +85,8 @@
                     LLWA_pm_early_trains
                     LLWA_pm_wooden_passenger_carriages
                     LLWA_pm_canals_allowed
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
                 }
             }
         }
@@ -93,6 +103,8 @@
                     LLWA_pm_early_trains
                     LLWA_pm_wooden_passenger_carriages
                     LLWA_pm_canals_allowed
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
                 }
             }
         }
@@ -109,6 +121,8 @@
                     LLWA_pm_early_trains
                     LLWA_pm_wooden_passenger_carriages
                     LLWA_pm_canals_allowed
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
                 }
             }
         }
@@ -125,6 +139,7 @@
                     LLWA_pm_early_trains
                     LLWA_pm_wooden_passenger_carriages
                     LLWA_pm_canals_allowed
+                    LLWA_pm_no_ships # Manually turn off boats since it turns on automatically to match other buildings by now
                 }
             }
         }
@@ -157,6 +172,8 @@
                     LLWA_pm_early_trains
                     LLWA_pm_no_passenger_trains
                     LLWA_pm_canals_allowed # They also have a river
+                    LLWA_pm_sailing_barges # Historical waterway traffic
+                    LLWA_pm_riverboats
                 }
             }
         }
@@ -195,14 +212,270 @@
     }
     
     # Historical canals
-    # TODO: More canals
-    
     # Erie Canal
     s:STATE_NEW_YORK = {
         region_state:USA = {
             create_building = {
                 building = LLWA_building_transport_sector
                 level    = 2
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_no_road_vehicles
+                    LLWA_pm_canals_allowed
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    
+    # Rideau Canal & Trent-Severn Waterway
+    s:STATE_ONTARIO = {
+        region_state:ONT = {
+            create_building = {
+                building = LLWA_building_transport_sector
+                level    = 2
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_no_road_vehicles
+                    LLWA_pm_canals_allowed
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    
+    # Kiel Canal
+    s:STATE_SCHLESWIG_HOLSTEIN = {
+        region_state:HOL = {
+            create_building = {
+                building = LLWA_building_transport_sector
+                level    = 1
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_no_road_vehicles
+                    LLWA_pm_canals_allowed
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    
+    # Vinh Te Canal
+    s:STATE_MEKONG = {
+        region_state:DAI = {
+            create_building = {
+                building = LLWA_building_transport_sector
+                level    = 1
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_no_road_vehicles
+                    LLWA_pm_canals_allowed
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    
+    # Rhone River 
+    s:STATE_PROVENCE = { # Rhone (state) section initialized as part of vanilla starting railways init
+        region_state:FRA = {
+            create_building = {
+                building = LLWA_building_transport_sector
+                level    = 2
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_no_road_vehicles
+                    LLWA_pm_canals_allowed
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                    LLWA_pm_no_trains # Experimental Trains are the default PM by this point, so turn them off here
+                }
+            }
+        }
+    }
+    
+    # Trollhätte & Göta Canals
+    s:STATE_SVEALAND = {
+        region_state:SWE = {
+            create_building = {
+                building = LLWA_building_transport_sector
+                level    = 1
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_no_road_vehicles
+                    LLWA_pm_canals_allowed
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_GOTALAND = {
+        region_state:SWE = {
+            create_building = {
+                building = LLWA_building_transport_sector
+                level    = 1
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_no_road_vehicles
+                    LLWA_pm_canals_allowed
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    
+    # Canal des Deux Mers
+    s:STATE_LANGUEDOC = {
+        region_state:FRA = {
+            create_building = {
+                building = LLWA_building_transport_sector
+                level    = 2
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_no_road_vehicles
+                    LLWA_pm_canals_allowed
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                    LLWA_pm_no_trains
+                }
+            }
+        }
+    }
+    s:STATE_GUYENNE = {
+        region_state:FRA = {
+            create_building = {
+                building = LLWA_building_transport_sector
+                level    = 2
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_no_road_vehicles
+                    LLWA_pm_canals_allowed
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                    LLWA_pm_no_trains
+                }
+            }
+        }
+    }
+    s:STATE_AQUITAINE = {
+        region_state:FRA = {
+            create_building = {
+                building = LLWA_building_transport_sector
+                level    = 2
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_no_road_vehicles
+                    LLWA_pm_canals_allowed
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                    LLWA_pm_no_trains
+                }
+            }
+        }
+    }
+    
+    # Volga-Baltic Waterway & Northern Dvina Canal
+    s:STATE_INGRIA = {
+        region_state:RUS = {
+            create_building = {
+                building = LLWA_building_transport_sector
+                level    = 2
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_no_road_vehicles
+                    LLWA_pm_canals_allowed
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_NOVGOROD = {
+        region_state:RUS = {
+            create_building = {
+                building = LLWA_building_transport_sector
+                level    = 2
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_no_road_vehicles
+                    LLWA_pm_canals_allowed
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_TVER = {
+        region_state:RUS = {
+            create_building = {
+                building = LLWA_building_transport_sector
+                level    = 3
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_no_road_vehicles
+                    LLWA_pm_canals_allowed
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_MOSCOW = {
+        region_state:RUS = {
+            create_building = {
+                building = LLWA_building_transport_sector
+                level    = 1
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_no_road_vehicles
+                    LLWA_pm_canals_allowed
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_KAZAN = {
+        region_state:RUS = {
+            create_building = {
+                building = LLWA_building_transport_sector
+                level    = 1
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_no_road_vehicles
+                    LLWA_pm_canals_allowed
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_TARTARIA = {
+        region_state:RUS = {
+            create_building = {
+                building = LLWA_building_transport_sector
+                level    = 1
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_no_road_vehicles
+                    LLWA_pm_canals_allowed
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_ASTRAKHAN = {
+        region_state:RUS = {
+            create_building = {
+                building = LLWA_building_transport_sector
+                level    = 1
                 reserves = 1
                 activate_production_methods = {
                     LLWA_pm_no_road_vehicles
