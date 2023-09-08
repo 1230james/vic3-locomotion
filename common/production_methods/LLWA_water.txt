@@ -44,8 +44,8 @@ LLWA_pm_steamboats = {
     building_modifiers = {
         workforce_scaled = {
             building_input_wood_add     = 8
-			building_input_hardwood_add = 4
-			building_input_engines_add  = 2
+            building_input_hardwood_add = 4
+            building_input_engines_add  = 2
             building_input_coal_add     = 1
             building_output_transportation_add = 35
         }
@@ -78,7 +78,7 @@ LLWA_pm_motor_vessels = {
     building_modifiers = {
         workforce_scaled = {
             building_input_steel_add   = 16
-			building_input_engines_add = 8
+            building_input_engines_add = 8
             building_input_oil_add     = 4
             building_output_transportation_add = 40
         }
@@ -136,8 +136,8 @@ LLWA_pm_steam_ferries = {
     building_modifiers = {
         workforce_scaled = {
             building_input_wood_add     = 4
-			building_input_hardwood_add = 2
-			building_input_engines_add  = 1
+            building_input_hardwood_add = 2
+            building_input_engines_add  = 1
             building_input_coal_add     = 1
             building_output_transportation_add = 15
         }
@@ -163,7 +163,7 @@ LLWA_pm_motor_ferries = {
     building_modifiers = {
         workforce_scaled = {
             building_input_steel_add   = 8
-			building_input_engines_add = 4
+            building_input_engines_add = 4
             building_input_oil_add     = 2
             building_output_transportation_add = 25
         }

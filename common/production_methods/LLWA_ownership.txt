@@ -41,7 +41,7 @@ LLWA_pm_privately_owned = {
     #    
     #    LLWA_pm_airships
     #    LLWA_pm_airplanes
-	#}
+    #}
     
     disallowing_laws = {
         law_command_economy
@@ -75,7 +75,7 @@ LLWA_pm_publicly_traded = {
     #    
     #    LLWA_pm_airships
     #    LLWA_pm_airplanes
-	#}
+    #}
 
     disallowing_laws = {
         law_command_economy

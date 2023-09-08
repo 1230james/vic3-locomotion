@@ -1,6 +1,8 @@
 ﻿LLWA_building_transport_sector = {
-    building_group = bg_private_infrastructure	
+    building_group = bg_private_infrastructure
     texture = "gfx/interface/icons/building_icons/LLWA_transport_sector.dds"
+    
+    enable_air_connection = yes
     
     unlocking_technologies = {
         urbanization
@@ -33,7 +35,7 @@
             owner = {
                 market = {
                     mg:transportation = { 
-                        market_goods_pricier > 0.5 
+                        market_goods_pricier > 0.5
                     }
                 }
             }
@@ -47,7 +49,7 @@
 # Overwrite vanilla Railways building for smooth compatibility with vanilla JEs, map, third-party mods, etc.
 # Construction & PMs will be handled via on_action based on number of Transport Sectors with railway-related PMs enabled
 building_railway = {
-    building_group = bg_private_infrastructure	
+    building_group = bg_private_infrastructure    
     texture = "gfx/interface/icons/building_icons/building_railway.dds"
     
     unlocking_technologies = {
@@ -61,6 +63,6 @@ building_railway = {
     }
     
     buildable = no
-	expandable = no
-	downsizeable = no	
+    expandable = no
+    downsizeable = no
 }

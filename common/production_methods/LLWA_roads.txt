@@ -116,8 +116,8 @@ LLWA_pm_rickshaws = {
     texture = "gfx/interface/icons/production_method_icons/LLWA_rickshaws.dds"
     
     unlocking_production_methods = {
-		LLWA_pm_hand_carts
-	}
+        LLWA_pm_hand_carts
+    }
 
     building_modifiers = {
         workforce_scaled = {
@@ -135,8 +135,8 @@ LLWA_pm_stagecoaches = {
     texture = "gfx/interface/icons/production_method_icons/LLWA_stagecoaches.dds"
     
     unlocking_production_methods = {
-		LLWA_pm_horse_wagons
-	}
+        LLWA_pm_horse_wagons
+    }
 
     building_modifiers = {
         workforce_scaled = {
@@ -155,9 +155,9 @@ LLWA_pm_steam_buses = {
     pollution_generation = 10
     
     unlocking_production_methods = {
-		LLWA_pm_steam_trucks
+        LLWA_pm_steam_trucks
         LLWA_pm_petrol_trucks
-	}
+    }
 
     building_modifiers = {
         workforce_scaled = {
@@ -177,9 +177,9 @@ LLWA_pm_motor_buses = {
     pollution_generation = 10
     
     unlocking_production_methods = {
-		LLWA_pm_steam_trucks
+        LLWA_pm_steam_trucks
         LLWA_pm_petrol_trucks
-	}
+    }
 
     building_modifiers = {
         workforce_scaled = {

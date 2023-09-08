@@ -127,11 +127,11 @@ LLWA_pm_wooden_passenger_carriages = {
     pollution_generation = 10
     
     unlocking_production_methods = {
-		LLWA_pm_early_trains
+        LLWA_pm_early_trains
         LLWA_pm_steam_trains
         LLWA_pm_electric_trains
         LLWA_pm_diesel_trains
-	}
+    }
     
     building_modifiers = {
         workforce_scaled = {
@@ -149,11 +149,11 @@ LLWA_pm_steel_passenger_carriages = {
     pollution_generation = 10
     
     unlocking_production_methods = {
-		LLWA_pm_early_trains
+        LLWA_pm_early_trains
         LLWA_pm_steam_trains
         LLWA_pm_electric_trains
         LLWA_pm_diesel_trains
-	}
+    }
 
     unlocking_technologies = {
         steel_railway_cars

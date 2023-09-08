@@ -1,37 +1,37 @@
 ﻿l_german:
     # Buildings
-    LLWA_building_transport_sector: "Transportation Sector"
+    LLWA_building_transport_sector: "Transportsektor"
     
     # PMGs
-    LLWA_pmg_road_base:  "Roadways"
-    LLWA_pmg_rail_base:  "Railways"
-    LLWA_pmg_water_base: "Waterways"
-    LLWA_pmg_air_base:   "Airways"
+    LLWA_pmg_road_base:  "Straßentransport"
+    LLWA_pmg_rail_base:  "Zugtransport"
+    LLWA_pmg_water_base: "Wassertransport"
+    LLWA_pmg_air_base:   "Lufttransport"
     
-    LLWA_pmg_road_traffic:  "Passenger Buses"
+    LLWA_pmg_road_traffic:  "Passagierbusse"
     LLWA_pmg_rail_traffic:  "$pmg_passenger_trains$"
-    LLWA_pmg_water_traffic: "Passenger Vessels"
-    LLWA_pmg_air_traffic:   "Airline Focus"
+    LLWA_pmg_water_traffic: "Passagierschiffe"
+    LLWA_pmg_air_traffic:   "Lufttransportfokus"
     
     LLWA_pmg_ownership:     "$pmg_ownership$"
-    LLWA_pmg_canals_status: "Canals"
+    LLWA_pmg_canals_status: "Kanäle"
     
     # PMs - Roads
-    LLWA_pm_no_road_vehicles: "No Roadways"
-    LLWA_pm_hand_carts:       "Hand Carts"
-    LLWA_pm_horse_wagons:     "Wagons"
-    LLWA_pm_steam_trucks:     "Steam Trucks"
-    LLWA_pm_petrol_trucks:    "Petrol Trucks"
+    LLWA_pm_no_road_vehicles: "Keine Straßen"
+    LLWA_pm_hand_carts:       "Handkarren"
+    LLWA_pm_horse_wagons:     "Wagen"
+    LLWA_pm_steam_trucks:     "Dampf-LKW"
+    LLWA_pm_petrol_trucks:    "Benzin-LKW"
     
     LLWA_pm_no_buses:     "$pm_no_passenger_trains$"
-    LLWA_pm_rickshaws:    "Rickshaws"
-    LLWA_pm_stagecoaches: "Stagecoaches"
-    LLWA_pm_steam_buses:  "Steam Buses"
-    LLWA_pm_motor_buses:  "Motorbuses"
+    LLWA_pm_rickshaws:    "Rikschas"
+    LLWA_pm_stagecoaches: "Postkutschen"
+    LLWA_pm_steam_buses:  "Dampfbusse"
+    LLWA_pm_motor_buses:  "Motorbusse"
     
     # PMs - Rails
-    LLWA_pm_no_trains:       "No Railways"
-    LLWA_pm_early_trains:    "Experimental Trains" # TODO: Use 1.5 loc key
+    LLWA_pm_no_trains:       "Keine Zugtrassen"
+    LLWA_pm_early_trains:    "Experimentelle Züge" # TODO: Use 1.5 loc key
     LLWA_pm_steam_trains:    "$pm_steam_trains$"
     LLWA_pm_electric_trains: "$pm_electric_trains$"
     LLWA_pm_diesel_trains:   "$pm_diesel_trains$"
@@ -41,24 +41,24 @@
     LLWA_pm_steel_passenger_carriages:  "$pm_steel_passenger_carriages$"
     
     # PMs - Ships
-    LLWA_pm_no_ships:       "No Waterways"
-    LLWA_pm_sailing_barges: "Sailing Barges"
-    LLWA_pm_steamboats:     "Steamships"
-    LLWA_pm_motor_vessels:  "Motor Vessels"
+    LLWA_pm_no_ships:       "Kein Schifftransport"
+    LLWA_pm_sailing_barges: "Segelhäfen"
+    LLWA_pm_steamboats:     "Dampfschiffe"
+    LLWA_pm_motor_vessels:  "Motorschiffe"
     
     LLWA_pm_no_ferries:    "$pm_no_passenger_trains$"
-    LLWA_pm_riverboats:    "Riverboats"
-    LLWA_pm_steam_ferries: "Steamboats"
-    LLWA_pm_motor_ferries: "Diesel Ferries"
+    LLWA_pm_riverboats:    "Flussschiffe"
+    LLWA_pm_steam_ferries: "Dampfscbiffe"
+    LLWA_pm_motor_ferries: "Dieselfähren"
     
     # PMs - Airlines
-    LLWA_pm_no_aircraft: "No Airways"    
+    LLWA_pm_no_aircraft: "Kein Lufttransport"    
     LLWA_pm_airships:    "$pmg_airship_mooring_post$"
     LLWA_pm_airplanes:   "$pmg_aeroplanes$"
     
     LLWA_pm_no_air_travel: "$pm_no_passenger_trains$"
-    LLWA_pm_air_mail:      "Air Mail"
-    LLWA_pm_air_travel:    "Passenger Flights"
+    LLWA_pm_air_mail:      "Luftpost"
+    LLWA_pm_air_travel:    "Passagierflüge"
     
     # PMs - Ownership
     LLWA_pm_merchant_guilds: "$pm_merchant_guilds$"
@@ -68,16 +68,16 @@
     LLWA_pm_worker_coop:     "$pm_worker_cooperative$"
     
     # PMs - Canal status
-    LLWA_pm_canals_disallowed: "Waterways Unavailable"
-    LLWA_pm_canals_allowed:    "Waterways Available"
+    LLWA_pm_canals_disallowed: "Wassertransport nicht verfügbar"
+    LLWA_pm_canals_allowed:    "Wassertransport verfügbar"
     
     # Modifiers
     modifier_building_input_luxury_furniture_add:      "@luxury_furniture! Luxusmöbel-Zufuhr pro Stufe"
     modifier_building_input_luxury_furniture_add_desc: "Die Menge an @luxury_furniture! Luxusmöbel, die das Gebäude verbraucht."
     
     # Unused strings - defined as empty to silence errors
-    LLWA_md_dist_from_water: ""
-    LLWA_je_pm_manager:      ""
+    LLWA_md_dist_from_water:   ""
+    LLWA_je_pm_manager:        ""
     LLWA_je_pm_manager_reason: ""
     modifier_LLWA_mt_dist_from_water_add:      ""
     modifier_LLWA_mt_dist_from_water_add_desc: ""
