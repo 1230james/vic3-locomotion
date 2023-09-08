@@ -1,0 +1,5 @@
+﻿# Water distance tracking
+LLWA_md_dist_from_water = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    LLWA_mt_dist_from_water_add = 1 # Who needs variables anyway :clueless: (buildings don't accept variables)
+}

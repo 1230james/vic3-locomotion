@@ -1,0 +1,58 @@
+﻿# Overwrite of vanilla JE to make it compatible with LLWA
+
+# JE definition as of 1.4.2
+je_steam_engines = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	is_shown_when_inactive = {
+		is_player = yes
+		has_technology_researched = railways
+		NOT = { has_technology_researched = electric_railway }
+		any_scope_state = {
+			any_neighbouring_state = {
+				owner = ROOT
+			}
+		}
+	}
+
+	possible = {
+		any_scope_building = {
+			is_building_type = building_motor_industry
+		}
+	}
+
+	complete = {
+		any_scope_building = {
+			is_building_type = building_motor_industry
+			occupancy > 0.75
+			cash_reserves_ratio > 0.25
+			weekly_profit > 0
+			level >= 3
+		}
+		any_scope_state = {
+			any_scope_building = {
+				is_building_type = LLWA_building_transport_sector # LLWA
+                NOT = { has_active_production_method = LLWA_pm_no_trains } # LLWA
+				occupancy > 0.75
+			}
+			custom_tooltip = {
+				text = has_adjacent_railway_tt
+				any_neighbouring_state = {
+					owner = ROOT
+					any_scope_building = {
+						is_building_type = LLWA_building_transport_sector # LLWA
+                        NOT = { has_active_production_method = LLWA_pm_no_trains } # LLWA
+						occupancy > 0.75
+					}
+				}
+			}
+		}
+		
+	}
+
+	on_complete = {
+		trigger_event = { id = production_tech_events.700 }
+	}
+
+	timeout = 3650
+}

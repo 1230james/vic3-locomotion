@@ -1,0 +1,109 @@
+﻿# Aircraft
+LLWA_pm_no_aircraft = {
+    texture = "gfx/interface/icons/production_method_icons/LLWA_no_aircraft.dds"
+}
+
+LLWA_pm_airships = {
+    texture = "gfx/interface/icons/production_method_icons/LLWA_airships.dds"
+    pollution_generation = 5
+    
+    unlocking_technologies = {
+        zeppelins
+    }
+
+    building_modifiers = {
+        workforce_scaled = {
+            building_input_engines_add = 10
+            building_input_iron_add    = 20
+            building_input_fabric_add  = 50
+            building_input_oil_add     = 5
+            building_input_radios_add  = 2
+            building_output_transportation_add = 40
+        }
+        level_scaled = {
+            building_employment_laborers_add   = 2000
+            building_employment_machinists_add = 2000
+            building_employment_engineers_add  = 500
+            building_employment_clerks_add     = 500
+        }
+    }
+
+    state_modifiers = {
+        workforce_scaled = {
+            state_infrastructure_add = 15
+        }
+    }
+}
+
+LLWA_pm_airplanes = {
+    texture = "gfx/interface/icons/production_method_icons/aeroplanes.dds"
+    pollution_generation = 5
+    
+    unlocking_technologies = {
+        military_aviation
+    }
+
+    building_modifiers = {
+        workforce_scaled = {
+            building_input_aeroplanes_add = 10
+            building_input_oil_add        = 5
+            building_input_radios_add     = 2
+            building_output_transportation_add = 60
+        }
+        level_scaled = {
+            building_employment_laborers_add   = 1500
+            building_employment_machinists_add = 2500
+            building_employment_engineers_add  = 500
+            building_employment_clerks_add     = 500
+        }
+    }
+
+    state_modifiers = {
+        workforce_scaled = {
+            state_infrastructure_add = 30
+        }
+    }
+}
+
+# Air traffic
+LLWA_pm_no_air_travel = {
+    texture = "gfx/interface/icons/production_method_icons/LLWA_no_air_travel.dds"
+}
+
+LLWA_pm_air_mail = {
+    texture = "gfx/interface/icons/production_method_icons/LLWA_air_mail.dds"
+    
+    unlocking_production_methods = {
+        LLWA_pm_airships
+        LLWA_pm_airplanes
+    }
+    
+    building_modifiers = {
+        workforce_scaled = {
+            building_input_paper_add = 10
+            building_output_transportation_add = 30
+        }
+        level_scaled = {
+            building_employment_clerks_add = 250
+        }
+    }
+}
+
+LLWA_pm_air_travel = {
+    texture = "gfx/interface/icons/production_method_icons/LLWA_air_fare.dds"
+    
+    unlocking_production_methods = {
+        LLWA_pm_airships
+        LLWA_pm_airplanes
+    }
+    
+    building_modifiers = {
+        workforce_scaled = {
+            building_input_luxury_furniture_add = 10
+            building_output_transportation_add  = 50
+        }
+        level_scaled = {
+            building_employment_clerks_add = 500
+        }
+    }
+}

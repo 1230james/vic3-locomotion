@@ -1,8 +1,8 @@
 {
-    "name" : "Locomotion: Rails, Roads, and Canals",
+    "name" : "Locomotion: Land, Water, & Air",
     "id" : "",
     "version" : "1.0.0",
-    "supported_game_version" : "1.*",
+    "supported_game_version" : "1.4.*",
     "short_description" : "",
     "tags" : [],
     "relationships" : [],

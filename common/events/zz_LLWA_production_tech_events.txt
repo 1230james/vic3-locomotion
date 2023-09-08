@@ -1,0 +1,100 @@
+﻿# Overwrite of vanilla events to make it compatible with LLWA
+# Event definitions as of 1.4.2
+
+namespace = production_tech_events
+
+# Steam Engines
+production_tech_events.700 = {
+	type = country_event
+
+	placement = scope:steam_engine_state
+
+	title = production_tech_events.700.t
+	desc = production_tech_events.700.d
+	flavor = production_tech_events.700.f
+
+	trigger = {
+	}
+
+	event_image = {
+		video = "unspecific_trains"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	duration = 3
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				any_scope_building = {
+					is_building_type = building_motor_industry
+					occupancy > 0.75
+					cash_reserves_ratio > 0.25
+					weekly_profit > 0
+					level >= 3
+				}
+			}
+			save_scope_as = steam_engine_state
+		}
+		random_scope_state = {
+			limit = {
+				any_scope_building = {
+					is_building_type = LLWA_building_transport_sector # LLWA
+                    NOT = { has_active_production_method = LLWA_pm_no_trains } # LLWA
+					occupancy > 0.75
+				}
+				any_neighbouring_state = {
+					owner = ROOT
+					any_scope_building = {
+						is_building_type = LLWA_building_transport_sector # LLWA
+                        NOT = { has_active_production_method = LLWA_pm_no_trains } # LLWA
+						occupancy > 0.75
+					}
+				}
+			}
+			save_scope_as = first_railway_state
+			random_neighbouring_state = {
+				limit = {
+					owner = ROOT
+					any_scope_building = {
+						is_building_type = LLWA_building_transport_sector # LLWA
+                        NOT = { has_active_production_method = LLWA_pm_no_trains } # LLWA
+						occupancy > 0.75
+					}
+				}
+				save_scope_as = second_railway_state
+			}
+		}
+	}
+
+	option = { # railway throughput
+		name = production_tech_events.700.a
+		default_option = yes
+		add_modifier = {
+			name = first_railway_modifier
+			months = normal_modifier_time
+		}
+	}
+
+	option = { # motor industry throughput
+		name = production_tech_events.700.b
+		scope:steam_engine_state = {
+			add_modifier = {
+				name = steam_engine_production
+				months = normal_modifier_time
+			}
+		}
+	}
+
+	option = { # railway car tech
+		name = production_tech_events.700.c
+		trigger = {
+			NOT = { has_technology_researched = steel_railway_cars }
+			can_research = steel_railway_cars
+		}
+		add_technology_progress = { progress = 4500 technology = steel_railway_cars }
+	}
+}

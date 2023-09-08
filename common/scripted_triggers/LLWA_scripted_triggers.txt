@@ -1,0 +1,43 @@
+﻿LLWA_st_can_have_canal = {
+    OR = {
+        LLWA_st_has_water_source = yes
+        AND = {
+            LLWA_st_in_mountains   = no
+            any_neighbouring_state = {
+                this.owner = prev.owner
+                has_building = LLWA_building_transport_sector
+                LLWA_st_has_water_source = yes
+            }
+        }
+    }
+}
+
+LLWA_st_has_water_source = {
+    OR = {
+        on_river   = yes
+        is_coastal = yes
+    }
+}
+
+LLWA_st_in_mountains = {
+    OR = {
+        has_state_trait = state_trait_scottish_highlands
+        has_state_trait = state_trait_cascades
+        has_state_trait = state_trait_sierra_nevada
+        has_state_trait = state_trait_rocky_mountains
+        has_state_trait = state_trait_appalachian_mountains
+        has_state_trait = state_trait_sierra_madre_occidental
+        has_state_trait = state_trait_sierra_madre_oriental
+        has_state_trait = state_trait_central_american_cordilleras
+        has_state_trait = state_trait_wasatch_range
+        has_state_trait = state_trait_andes
+        has_state_trait = state_trait_alps_mountains
+        has_state_trait = state_trait_pyrenees_mountains
+        has_state_trait = state_trait_ural_mountains
+        has_state_trait = state_trait_caucasus_mountains
+        has_state_trait = state_trait_atlas_mountains
+        has_state_trait = state_trait_zagros_mountains
+        has_state_trait = state_trait_himalayas_mountains
+        has_state_trait = state_trait_great_dividing_range
+    }
+}

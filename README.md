@@ -8,10 +8,10 @@ For Victoria 3
 
 With LLWA, adding infrastructure to your country before the invention of railroads beyond the capabilities of your ports becomes a reality. Simulating everything from primitive road traffic to the sprouting of air travel, infrastructure becomes both flavorful and manageable. LLWA aims to provide a solution to early infrastructure while also keeping private investments focused on a single building, easily tweakable with production methods, without sprawling out to multiple building types that may not always suit your needs.
 
-For full information, please visit the [Steam Workshop (TBA)]() page.
+For full information, please visit the [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3032533792) page.
 
 ## Installation
 
-1. Install via [Steam Workshop (TBA)](), OR
+1. Install via [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3032533792), OR
 
 2. Clone this repository and install into the Vic3 mods folder manually.

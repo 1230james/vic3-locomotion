@@ -1,0 +1,195 @@
+﻿# Road vehicles
+LLWA_pm_no_road_vehicles = {
+    texture = "gfx/interface/icons/production_method_icons/LLWA_no_road_veh.dds"
+}
+
+LLWA_pm_horse_wagons = {
+    texture = "gfx/interface/icons/production_method_icons/LLWA_wagons.dds"
+    is_default = yes
+
+    building_modifiers = {
+        workforce_scaled = {
+            building_input_grain_add  = 10
+            building_input_fruit_add  = 3
+            building_input_wood_add   = 5
+            building_input_fabric_add = 5
+            building_output_transportation_add = 15
+        }
+        level_scaled = {
+            building_employment_laborers_add    = 3000
+            building_employment_farmers_add     = 1000
+            building_employment_shopkeepers_add = 500
+        }
+    }
+
+    state_modifiers = {
+        workforce_scaled = {
+            state_infrastructure_add = 5
+        }
+    }
+}
+
+LLWA_pm_hand_carts = {
+    texture = "gfx/interface/icons/production_method_icons/LLWA_hand_carts.dds"
+
+    building_modifiers = {
+        workforce_scaled = {
+            building_input_wood_add   = 5
+            building_input_fabric_add = 5
+            building_output_transportation_add = 10
+        }
+        level_scaled = {
+            building_employment_laborers_add    = 5000
+            building_employment_shopkeepers_add = 500
+        }
+    }
+
+    state_modifiers = {
+        workforce_scaled = {
+            state_infrastructure_add = 5
+        }
+    }
+}
+
+LLWA_pm_steam_trucks = {
+    texture = "gfx/interface/icons/production_method_icons/LLWA_steam_trucks.dds"
+    pollution_generation = 10
+    
+    unlocking_technologies = {
+        threshing_machine
+    }
+
+    building_modifiers = {
+        workforce_scaled = {
+            building_input_engines_add = 10
+            building_input_coal_add    = 5
+            building_output_transportation_add = 20
+        }
+        level_scaled = {
+            building_employment_laborers_add   = 3000
+            building_employment_machinists_add = 1000
+            building_employment_clerks_add     = 500
+        }
+    }
+
+    state_modifiers = {
+        workforce_scaled = {
+            state_infrastructure_add = 15
+        }
+    }
+}
+
+LLWA_pm_petrol_trucks = {
+    texture = "gfx/interface/icons/production_method_icons/LLWA_petrol_trucks.dds"
+    pollution_generation = 10
+    
+    unlocking_technologies = {
+        combustion_engine
+    }
+
+    building_modifiers = {
+        workforce_scaled = {
+            building_input_automobiles_add = 10
+            building_input_oil_add         = 5
+            building_output_transportation_add = 40
+        }
+        level_scaled = {
+            building_employment_laborers_add   = 2000
+            building_employment_machinists_add = 2000
+            building_employment_clerks_add     = 500
+        }
+    }
+
+    state_modifiers = {
+        workforce_scaled = {
+            state_infrastructure_add = 25
+        }
+    }
+}
+
+# Road traffic
+LLWA_pm_no_buses = {
+    texture = "gfx/interface/icons/production_method_icons/LLWA_no_buses.dds"
+}
+
+LLWA_pm_rickshaws = {
+    texture = "gfx/interface/icons/production_method_icons/LLWA_rickshaws.dds"
+    
+    unlocking_production_methods = {
+        LLWA_pm_hand_carts
+    }
+
+    building_modifiers = {
+        workforce_scaled = {
+            building_input_wood_add   = 5
+            building_input_fabric_add = 5
+            building_output_transportation_add = 10
+        }
+        level_scaled = {
+            building_employment_shopkeepers_add = 100
+        }
+    }
+}
+
+LLWA_pm_stagecoaches = {
+    texture = "gfx/interface/icons/production_method_icons/LLWA_stagecoaches.dds"
+    
+    unlocking_production_methods = {
+        LLWA_pm_horse_wagons
+    }
+
+    building_modifiers = {
+        workforce_scaled = {
+            building_input_wood_add   = 5
+            building_input_fabric_add = 5
+            building_output_transportation_add = 10
+        }
+        level_scaled = {
+            building_employment_shopkeepers_add = 100
+        }
+    }
+}
+
+LLWA_pm_steam_buses = {
+    texture = "gfx/interface/icons/production_method_icons/LLWA_steam_buses.dds"
+    pollution_generation = 10
+    
+    unlocking_production_methods = {
+        LLWA_pm_steam_trucks
+        LLWA_pm_petrol_trucks
+    }
+
+    building_modifiers = {
+        workforce_scaled = {
+            building_input_engines_add = 5
+            building_input_coal_add    = 2
+            building_output_transportation_add = 10
+        }
+        level_scaled = {
+            building_employment_machinists_add = 100
+            building_employment_clerks_add     = 100
+        }
+    }
+}
+
+LLWA_pm_motor_buses = {
+    texture = "gfx/interface/icons/production_method_icons/LLWA_motor_buses.dds"
+    pollution_generation = 10
+    
+    unlocking_production_methods = {
+        LLWA_pm_steam_trucks
+        LLWA_pm_petrol_trucks
+    }
+
+    building_modifiers = {
+        workforce_scaled = {
+            building_input_automobiles_add = 5
+            building_input_oil_add         = 2
+            building_output_transportation_add = 20
+        }
+        level_scaled = {
+            building_employment_machinists_add = 250
+            building_employment_clerks_add     = 250
+        }
+    }
+}

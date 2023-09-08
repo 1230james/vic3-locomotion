@@ -1,0 +1,1 @@
+﻿LLWA_MAX_DIST_FROM_WATER_SOURCE = 1 # max num of states away from a water source canals are allowed to be
