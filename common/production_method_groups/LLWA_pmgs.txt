@@ -7,6 +7,7 @@
         LLWA_pm_hand_carts
         LLWA_pm_horse_wagons
         LLWA_pm_steam_trucks
+        LLWA_pm_electric_trucks
         LLWA_pm_petrol_trucks
     }
 }
@@ -68,6 +69,7 @@ LLWA_pmg_road_traffic = {
         LLWA_pm_rickshaws
         LLWA_pm_stagecoaches
         LLWA_pm_steam_buses
+        LLWA_pm_electric_buses
         LLWA_pm_motor_buses
     }
 }
