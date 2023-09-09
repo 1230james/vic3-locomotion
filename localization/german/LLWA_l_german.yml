@@ -21,13 +21,15 @@
     LLWA_pm_hand_carts:       "Handkarren"
     LLWA_pm_horse_wagons:     "Wagen"
     LLWA_pm_steam_trucks:     "Dampf-LKW"
+    LLWA_pm_electric_trucks:  "Elektro-LKW"
     LLWA_pm_petrol_trucks:    "Benzin-LKW"
     
-    LLWA_pm_no_buses:     "$pm_no_passenger_trains$"
-    LLWA_pm_rickshaws:    "Rikschas"
-    LLWA_pm_stagecoaches: "Postkutschen"
-    LLWA_pm_steam_buses:  "Dampfbusse"
-    LLWA_pm_motor_buses:  "Motorbusse"
+    LLWA_pm_no_buses:       "$pm_no_passenger_trains$"
+    LLWA_pm_rickshaws:      "Rikschas"
+    LLWA_pm_stagecoaches:   "Postkutschen"
+    LLWA_pm_steam_buses:    "Dampfbusse"
+    LLWA_pm_electric_buses: "Elektrobusse"
+    LLWA_pm_motor_buses:    "Motorbusse"
     
     # PMs - Rails
     LLWA_pm_no_trains:       "Keine Zugtrassen"
