@@ -158,6 +158,10 @@ LLWA_pm_steam_buses = {
         LLWA_pm_steam_trucks
         LLWA_pm_petrol_trucks
     }
+    
+    unlocking_technologies = {
+        threshing_machine
+    }
 
     building_modifiers = {
         workforce_scaled = {
@@ -179,6 +183,10 @@ LLWA_pm_motor_buses = {
     unlocking_production_methods = {
         LLWA_pm_steam_trucks
         LLWA_pm_petrol_trucks
+    }
+    
+    unlocking_technologies = {
+        combustion_engine
     }
 
     building_modifiers = {
