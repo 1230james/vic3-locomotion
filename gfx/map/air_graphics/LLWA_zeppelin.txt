@@ -1,0 +1,77 @@
+﻿zeppelin_01 = {
+	entities = {
+		
+		skin_1 = {
+			name = "zeppelin_02_entity"
+			possible = {
+			}
+			
+			weight = {
+				value = 1
+			}
+		}
+		
+		skin_2 = {
+			name = "zeppelin_02_alt01_entity"
+			possible = {
+			}
+			
+			weight = {
+				value = 1
+			}
+		}
+	}
+	
+	
+	possible = {
+		has_technology_researched = zeppelins
+        
+        # LLWA Start
+        scope:region = {
+            any_scope_state = {
+                OR = {
+                    AND = {
+                        has_building = LLWA_building_transport_sector
+                        is_production_method_active = {
+                            building_type     = LLWA_building_transport_sector
+                            production_method = LLWA_pm_airships
+                        }
+                    }
+                    AND = {
+                        has_building = building_skyscraper
+                        is_production_method_active = {
+                            building_type     = building_skyscraper
+                            production_method = pm_airship_mooring_post
+                        }
+                    }
+                }
+            }
+        }
+        scope:target_region = {
+            any_scope_state = {
+                OR = {
+                    AND = {
+                        has_building = LLWA_building_transport_sector
+                        is_production_method_active = {
+                            building_type     = LLWA_building_transport_sector
+                            production_method = LLWA_pm_airships
+                        }
+                    }
+                    AND = {
+                        has_building = building_skyscraper
+                        is_production_method_active = {
+                            building_type     = building_skyscraper
+                            production_method = pm_airship_mooring_post
+                        }
+                    }
+                }
+            }
+        }
+        # LLWA End
+	}
+	
+	entity_length = 3.0
+	speed = 0.5
+	max_count = 100
+	height = 2.0
+}
