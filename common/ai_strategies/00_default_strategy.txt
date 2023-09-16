@@ -1240,7 +1240,9 @@ ai_strategy_default = {
 		building_power_plant = should_have
 		building_railway = should_have
 		building_trade_center = should_have		
-		LLWA_building_transport_sector = should_have # LLWA
+		LLWA_building_roadway  = should_have # LLWA
+        LLWA_building_waterway = should_have # LLWA
+        LLWA_building_airway   = should_have # LLWA
 	}
 	
 	# Specifying values here will override subsidy priorities while at war
@@ -1253,7 +1255,7 @@ ai_strategy_default = {
 		transportation = { # LLWA
 			stance = wants_high_supply
 			trigger = {
-				has_building = LLWA_building_transport_sector
+				has_technology_researched = urbanization
 			}
 		}
 		small_arms = {
