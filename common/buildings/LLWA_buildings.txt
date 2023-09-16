@@ -2,7 +2,7 @@
 
 LLWA_building_roadway = {
     building_group = bg_private_infrastructure
-    texture = "gfx/interface/icons/building_icons/LLWA_transport_sector.dds"
+    texture = "gfx/interface/icons/building_icons/LLWA_roadway.dds"
     
     unlocking_technologies = {
         urbanization
@@ -41,7 +41,7 @@ LLWA_building_roadway = {
 
 LLWA_building_waterway = {
     building_group = bg_private_infrastructure
-    texture = "gfx/interface/icons/building_icons/LLWA_transport_sector.dds"
+    texture = "gfx/interface/icons/building_icons/LLWA_canal.dds"
     
     unlocking_technologies = {
         urbanization
@@ -80,7 +80,7 @@ LLWA_building_waterway = {
 
 LLWA_building_airway = {
     building_group = bg_private_infrastructure
-    texture = "gfx/interface/icons/building_icons/LLWA_transport_sector.dds"
+    texture = "gfx/interface/icons/building_icons/LLWA_airfield.dds"
     
     enable_air_connection = yes
     

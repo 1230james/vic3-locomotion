@@ -6,10 +6,10 @@
 # whether they want to allow or stop private investment from expanding them.
 
 LLWA_pm_yes_private_expansion = {
-    texture = "gfx/interface/icons/production_method_icons/LLWA_canals_yes.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWA_exp_private.dds"
     is_default = yes
 }
 
 LLWA_pm_no_private_expansion = {
-    texture = "gfx/interface/icons/production_method_icons/LLWA_canals_no.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWA_exp_gov.dds"
 }

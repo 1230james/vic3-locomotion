@@ -39,6 +39,8 @@ LLWA_pm_airplanes = {
     texture = "gfx/interface/icons/production_method_icons/aeroplanes.dds"
     pollution_generation = 5
     
+    is_default = yes
+    
     unlocking_technologies = {
         military_aviation
     }
