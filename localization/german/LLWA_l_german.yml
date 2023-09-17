@@ -1,6 +1,6 @@
 ﻿l_german:
     # Buildings
-    LLWA_building_roadway:  "Fahrbahn"
+    LLWA_building_roadway:  "Straßenweg"
     LLWA_building_waterway: "Wasserstraße"
     LLWA_building_airway:   "Flughafen"
     
