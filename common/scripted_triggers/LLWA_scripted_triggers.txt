@@ -14,8 +14,8 @@
 
 LLWA_st_has_water_source = {
     OR = {
-        on_river   = yes
-        is_coastal = yes
+        on_river        = yes
+        is_sea_adjacent = yes
     }
 }
 
