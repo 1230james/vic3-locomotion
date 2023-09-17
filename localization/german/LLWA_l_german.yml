@@ -1,28 +1,32 @@
 ﻿l_german:
     # Buildings
-    LLWA_building_transport_sector: "Transportsektor"
+    LLWA_building_roadway:  "Fahrbahn"
+    LLWA_building_waterway: "Schifffahrtsweg"
+    LLWA_building_airway:   "Flughafen"
     
     # PMGs
-    LLWA_pmg_road_base:  "Straßentransport"
-    LLWA_pmg_rail_base:  "Zugtransport"
-    LLWA_pmg_water_base: "Wassertransport"
-    LLWA_pmg_air_base:   "Lufttransport"
+    LLWA_pmg_road_base:  "$pm_base$"
+    LLWA_pmg_rail_base:  "$pm_base$"
+    LLWA_pmg_water_base: "$pm_base$"
+    LLWA_pmg_air_base:   "$pm_base$"
     
     LLWA_pmg_road_traffic:  "Passagierbusse"
     LLWA_pmg_rail_traffic:  "$pmg_passenger_trains$"
     LLWA_pmg_water_traffic: "Passagierschiffe"
     LLWA_pmg_air_traffic:   "Lufttransportfokus"
     
-    LLWA_pmg_ownership:     "$pmg_ownership$"
-    LLWA_pmg_canals_status: "Kanäle"
+    LLWA_pmg_road_ownership:  "$pmg_ownership$"
+    LLWA_pmg_water_ownership: "$pmg_ownership$"
+    LLWA_pmg_air_ownership:   "$pmg_ownership$"
+    
+    LLWA_pmg_private_expansion: "Privaterweiterung"
     
     # PMs - Roads
-    LLWA_pm_no_road_vehicles: "Keine Straßen"
-    LLWA_pm_hand_carts:       "Handkarren"
-    LLWA_pm_horse_wagons:     "Wagen"
-    LLWA_pm_steam_trucks:     "Dampf-LKW"
-    LLWA_pm_electric_trucks:  "Elektro-LKW"
-    LLWA_pm_petrol_trucks:    "Benzin-LKW"
+    LLWA_pm_hand_carts:      "Handkarren"
+    LLWA_pm_horse_wagons:    "Wagen"
+    LLWA_pm_steam_trucks:    "Dampf-LKW"
+    LLWA_pm_electric_trucks: "Elektro-LKW"
+    LLWA_pm_petrol_trucks:   "Benzin-LKW"
     
     LLWA_pm_no_buses:       "$pm_no_passenger_trains$"
     LLWA_pm_rickshaws:      "Rikschas"
@@ -32,18 +36,9 @@
     LLWA_pm_motor_buses:    "Motorbusse"
     
     # PMs - Rails
-    LLWA_pm_no_trains:       "Keine Zugtrassen"
-    LLWA_pm_early_trains:    "Experimentelle Züge" # TODO: Use 1.5 loc key
-    LLWA_pm_steam_trains:    "$pm_steam_trains$"
-    LLWA_pm_electric_trains: "$pm_electric_trains$"
-    LLWA_pm_diesel_trains:   "$pm_diesel_trains$"
-    
-    LLWA_pm_no_passenger_trains:        "$pm_no_passenger_trains$"
-    LLWA_pm_wooden_passenger_carriages: "$pm_wooden_passenger_carriages$"
-    LLWA_pm_steel_passenger_carriages:  "$pm_steel_passenger_carriages$"
+    pm_early_trains: "Experimentelle Züge" # TODO: Use 1.5 loc key
     
     # PMs - Ships
-    LLWA_pm_no_ships:       "Kein Schifftransport"
     LLWA_pm_sailing_barges: "Segelhäfen"
     LLWA_pm_steamboats:     "Dampfschiffe"
     LLWA_pm_motor_vessels:  "Motorschiffe"
@@ -53,25 +48,32 @@
     LLWA_pm_steam_ferries: "Dampfscbiffe"
     LLWA_pm_motor_ferries: "Dieselfähren"
     
-    # PMs - Airlines
-    LLWA_pm_no_aircraft: "Kein Lufttransport"    
-    LLWA_pm_airships:    "$pmg_airship_mooring_post$"
-    LLWA_pm_airplanes:   "$pmg_aeroplanes$"
+    # PMs - Airlines  
+    LLWA_pm_airships:  "$pmg_airship_mooring_post$"
+    LLWA_pm_airplanes: "$pmg_aeroplanes$"
     
     LLWA_pm_no_air_travel: "$pm_no_passenger_trains$"
     LLWA_pm_air_mail:      "Luftpost"
     LLWA_pm_air_travel:    "Passagierflüge"
     
     # PMs - Ownership
-    LLWA_pm_merchant_guilds: "$pm_merchant_guilds$"
-    LLWA_pm_privately_owned: "$pm_privately_owned$"
-    LLWA_pm_publicly_traded: "$pm_publicly_traded$"    
-    LLWA_pm_government_run:  "$pm_government_run$"
-    LLWA_pm_worker_coop:     "$pm_worker_cooperative$"
+    LLWA_pm_road_merchant_guilds:  "$pm_merchant_guilds$"
+    LLWA_pm_water_merchant_guilds: "$pm_merchant_guilds$"
     
-    # PMs - Canal status
-    LLWA_pm_canals_disallowed: "Wassertransport nicht verfügbar"
-    LLWA_pm_canals_allowed:    "Wassertransport verfügbar"
+    LLWA_pm_privately_owned:       "$pm_privately_owned$"
+    LLWA_pm_road_privately_owned:  "$pm_privately_owned$"
+    LLWA_pm_water_privately_owned: "$pm_privately_owned$"
+    
+    LLWA_pm_publicly_traded:       "$pm_publicly_traded$"
+    LLWA_pm_road_publicly_traded:  "$pm_publicly_traded$"
+    LLWA_pm_water_publicly_traded: "$pm_publicly_traded$"
+    
+    LLWA_pm_government_run: "$pm_government_run$"
+    LLWA_pm_worker_coop:    "$pm_worker_cooperative$"
+    
+    # PMs - Private expansion
+    LLWA_pm_yes_private_expansion: "Privaterweiterung erlaubt"
+    LLWA_pm_no_private_expansion:  "Nur Staatserweiterung"
     
     # Modifiers
     modifier_building_input_luxury_furniture_add:      "@luxury_furniture! Luxusmöbel-Zufuhr pro Stufe"
