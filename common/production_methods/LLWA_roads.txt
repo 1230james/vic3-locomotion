@@ -1,8 +1,4 @@
 ﻿# Road vehicles
-LLWA_pm_no_road_vehicles = {
-    texture = "gfx/interface/icons/production_method_icons/LLWA_no_road_veh.dds"
-}
-
 LLWA_pm_horse_wagons = {
     texture = "gfx/interface/icons/production_method_icons/LLWA_wagons.dds"
     is_default = yes

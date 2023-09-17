@@ -1,11 +1,4 @@
-﻿# Forces AI nations to stop using "No X" PMs if there's an infrastructure deficit.
-
-# From testing + observation, AI has a tendency to pick "No X" PMs, especially at game start or with newly built
-# Transport Sectors. Since the AI is not smart enough to move off of them by itself to solve infrastructure deficits
-# (and will even cause them by itself), this AI-only JE with a weekly pulse selects PMs if there is a "No X" PM
-# currently active. It will only select the most advanced PM available in the corresponding PMG and it only picks from
-# the base PMs. AI is free to choose whatever PMs it likes as long as it's not a "No X" PM that causes an infrastructure
-# deficit.
+﻿# Forces AI nations to stop allowing private investment to expand roads after railways are researched
 
 LLWA_je_pm_manager = {
     icon = "gfx/interface/icons/event_icons/event_industry.dds"
@@ -20,257 +13,24 @@ LLWA_je_pm_manager = {
     
     possible = {
         is_ai = yes
+        has_technology_researched = railways
     }
     
     on_weekly_pulse = {
         effect = {
             every_scope_state = {
                 limit = {
-                    has_building = LLWA_building_transport_sector
-                    relative_infrastructure < 1
-                }
-                
-                # Bump water PM - early check exclusive for water sources to encourage canals (for immersion reasons)
-                if = {
-                    limit = {
-                        LLWA_st_has_water_source = yes
-                        
+                    has_building = LLWA_building_roadway
+                    NOT = {
                         is_production_method_active = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_no_ships
-                        }
-                        can_activate_production_method = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_sailing_barges
-                        }
-                    }
-                    if = {
-                        limit = {
-                            can_activate_production_method = {
-                                building_type     = LLWA_building_transport_sector
-                                production_method = LLWA_pm_motor_vessels
-                            }
-                        }
-                        activate_production_method = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_motor_vessels
-                        }
-                    }
-                    else_if = {
-                        limit = {
-                            can_activate_production_method = {
-                                building_type     = LLWA_building_transport_sector
-                                production_method = LLWA_pm_steamboats
-                            }
-                        }
-                        activate_production_method = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_steamboats
-                        }
-                    }
-                    else = {
-                        activate_production_method = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_sailing_barges
+                            building_type     = LLWA_building_roadway
+                            production_method = LLWA_pm_no_private_expansion
                         }
                     }
                 }
-                
-                # Bump rail PM
-                else_if = {
-                    limit = {
-                        is_production_method_active = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_no_trains
-                        }
-                        can_activate_production_method = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_early_trains
-                        }
-                    }
-                    if = {
-                        limit = {
-                            can_activate_production_method = {
-                                building_type     = LLWA_building_transport_sector
-                                production_method = LLWA_pm_diesel_trains
-                            }
-                        }
-                        activate_production_method = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_diesel_trains
-                        }
-                    }
-                    else_if = {
-                        limit = {
-                            can_activate_production_method = {
-                                building_type     = LLWA_building_transport_sector
-                                production_method = LLWA_pm_electric_trains
-                            }
-                        }
-                        activate_production_method = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_electric_trains
-                        }
-                    }
-                    else_if = {
-                        limit = {
-                            can_activate_production_method = {
-                                building_type     = LLWA_building_transport_sector
-                                production_method = LLWA_pm_steam_trains
-                            }
-                        }
-                        activate_production_method = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_steam_trains
-                        }
-                    }
-                    else = {
-                        activate_production_method = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_early_trains
-                        }
-                    }
-                }
-                
-                # Bump water PM - normal check (rails are prioritized)
-                else_if = {
-                    limit = {
-                        is_production_method_active = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_no_ships
-                        }
-                        can_activate_production_method = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_sailing_barges
-                        }
-                    }
-                    if = {
-                        limit = {
-                            can_activate_production_method = {
-                                building_type     = LLWA_building_transport_sector
-                                production_method = LLWA_pm_motor_vessels
-                            }
-                        }
-                        activate_production_method = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_motor_vessels
-                        }
-                    }
-                    else_if = {
-                        limit = {
-                            can_activate_production_method = {
-                                building_type     = LLWA_building_transport_sector
-                                production_method = LLWA_pm_steamboats
-                            }
-                        }
-                        activate_production_method = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_steamboats
-                        }
-                    }
-                    else = {
-                        activate_production_method = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_sailing_barges
-                        }
-                    }
-                }
-                
-                # Bump air PM
-                else_if = {
-                    limit = {
-                        is_production_method_active = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_no_aircraft
-                        }
-                        OR = {
-                            can_activate_production_method = {
-                                building_type     = LLWA_building_transport_sector
-                                production_method = LLWA_pm_airships
-                            }
-                            can_activate_production_method = {
-                                building_type     = LLWA_building_transport_sector
-                                production_method = LLWA_pm_airplanes
-                            }
-                        }
-                    }
-                    if = {
-                        limit = {
-                            can_activate_production_method = {
-                                building_type     = LLWA_building_transport_sector
-                                production_method = LLWA_pm_airplanes
-                            }
-                        }
-                        activate_production_method = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_airplanes
-                        }
-                    }
-                    else_if = {
-                        limit = {
-                            can_activate_production_method = {
-                                building_type     = LLWA_building_transport_sector
-                                production_method = LLWA_pm_airships
-                            }
-                        }
-                        activate_production_method = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_airships
-                        }
-                    }
-                }
-                
-                # Bump road PM
-                else_if = {
-                    limit = {
-                        is_production_method_active = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_no_road_vehicles
-                        }
-                        can_activate_production_method = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_horse_wagons
-                        }
-                    }
-                    if = {
-                        limit = {
-                            can_activate_production_method = {
-                                building_type     = LLWA_building_transport_sector
-                                production_method = LLWA_pm_petrol_trucks
-                            }
-                        }
-                        activate_production_method = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_petrol_trucks
-                        }
-                    }
-                    else_if = {
-                        limit = {
-                            can_activate_production_method = {
-                                building_type     = LLWA_building_transport_sector
-                                production_method = LLWA_pm_steam_trucks
-                            }
-                        }
-                        activate_production_method = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_steam_trucks
-                        }
-                    }
-                    else_if = {
-                        limit = {
-                            state_unemployment_rate >= 0.5
-                        }
-                        activate_production_method = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_hand_carts
-                        }
-                    }
-                    else = {
-                        activate_production_method = {
-                            building_type     = LLWA_building_transport_sector
-                            production_method = LLWA_pm_horse_wagons
-                        }
-                    }
+                activate_production_method = {
+                    building_type     = LLWA_building_roadway
+                    production_method = LLWA_pm_no_private_expansion
                 }
             }
         }

@@ -1,227 +1,13 @@
 ﻿GLOBAL = {
-    # Create Transport Sectors where Railways exist
-    # Hardcoded because create_building's level parameter only takes integer literals, not values read elsewhere :/
-    s:STATE_HOME_COUNTIES = {
-        region_state:GBR = {
-            create_building = {
-                building   = LLWA_building_transport_sector
-                subsidized = yes
-                reserves   = 1
-                level      = 4
-                activate_production_methods = {
-                    LLWA_pm_no_road_vehicles # Disable road vehicles at start; AI can figure out for themselves if they want it
-                    LLWA_pm_early_trains
-                    LLWA_pm_wooden_passenger_carriages
-                    LLWA_pm_canals_allowed # Turn on canals for buildings we place on rivers and coasts
-                    LLWA_pm_sailing_barges # Although, for GBR specifically, they have A LOT of canals all over England and Wales
-                    LLWA_pm_riverboats
-                }
-            }
-        }
-    }
-    s:STATE_LANCASHIRE = {
-        region_state:GBR = {
-            create_building = {
-                building   = LLWA_building_transport_sector
-                subsidized = yes
-                reserves   = 1
-                level      = 4
-                activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_early_trains
-                    LLWA_pm_wooden_passenger_carriages
-                    LLWA_pm_canals_allowed
-                    LLWA_pm_sailing_barges
-                    LLWA_pm_riverboats
-                }
-            }
-        }
-    }
-    s:STATE_WALES = {
-        region_state:GBR = {
-            create_building = {
-                building   = LLWA_building_transport_sector
-                subsidized = yes
-                reserves   = 1
-                level      = 1
-                activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_early_trains
-                    LLWA_pm_wooden_passenger_carriages
-                    LLWA_pm_canals_allowed
-                    LLWA_pm_sailing_barges
-                    LLWA_pm_riverboats
-                }
-            }
-        }
-    }
-    s:STATE_YORKSHIRE = {
-        region_state:GBR = {
-            create_building = {
-                building   = LLWA_building_transport_sector
-                subsidized = yes
-                reserves   = 1
-                level      = 5
-                activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_early_trains
-                    LLWA_pm_wooden_passenger_carriages
-                    LLWA_pm_canals_allowed
-                    LLWA_pm_sailing_barges
-                    LLWA_pm_riverboats
-                }
-            }
-        }
-    }
-    s:STATE_MIDLANDS = {
-        region_state:GBR = {
-            create_building = {
-                building   = LLWA_building_transport_sector
-                subsidized = yes
-                reserves   = 1
-                level      = 5
-                activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_early_trains
-                    LLWA_pm_wooden_passenger_carriages
-                    LLWA_pm_canals_allowed
-                    LLWA_pm_sailing_barges
-                    LLWA_pm_riverboats
-                }
-            }
-        }
-    }
-    s:STATE_EAST_ANGLIA = {
-        region_state:GBR = {
-            create_building = {
-                building   = LLWA_building_transport_sector
-                subsidized = yes
-                reserves   = 1
-                level      = 1
-                activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_early_trains
-                    LLWA_pm_wooden_passenger_carriages
-                    LLWA_pm_canals_allowed
-                    LLWA_pm_sailing_barges
-                    LLWA_pm_riverboats
-                }
-            }
-        }
-    }
-    s:STATE_WEST_COUNTRY = {
-        region_state:GBR = {
-            create_building = {
-                building   = LLWA_building_transport_sector
-                subsidized = yes
-                reserves   = 1
-                level      = 1
-                activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_early_trains
-                    LLWA_pm_wooden_passenger_carriages
-                    LLWA_pm_canals_allowed
-                    LLWA_pm_sailing_barges
-                    LLWA_pm_riverboats
-                }
-            }
-        }
-    }
-    s:STATE_LOWLANDS = {
-        region_state:GBR = {
-            create_building = {
-                building   = LLWA_building_transport_sector
-                subsidized = yes
-                reserves   = 1
-                level      = 1
-                activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_early_trains
-                    LLWA_pm_wooden_passenger_carriages
-                    LLWA_pm_canals_allowed
-                    LLWA_pm_no_ships # Manually turn off boats since it turns on automatically to match other buildings by now
-                }
-            }
-        }
-    }
-    s:STATE_ILE_DE_FRANCE = {
-        region_state:FRA = {
-            create_building = {
-                building   = LLWA_building_transport_sector
-                subsidized = yes
-                reserves   = 1
-                level      = 1
-                activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_early_trains
-                    LLWA_pm_no_passenger_trains
-                    LLWA_pm_canals_allowed # They have a river
-                }
-            }
-        }
-    }
-    s:STATE_RHONE = {
-        region_state:FRA = {
-            create_building = {
-                building   = LLWA_building_transport_sector
-                subsidized = yes
-                reserves   = 1
-                level      = 1
-                activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_early_trains
-                    LLWA_pm_no_passenger_trains
-                    LLWA_pm_canals_allowed # They also have a river
-                    LLWA_pm_sailing_barges # Historical waterway traffic
-                    LLWA_pm_riverboats
-                }
-            }
-        }
-    }
-    s:STATE_WALLONIA = {
-        region_state:BEL = {
-            create_building = {
-                building   = LLWA_building_transport_sector
-                subsidized = yes
-                reserves   = 1
-                level      = 1
-                activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_early_trains
-                    LLWA_pm_no_passenger_trains
-                    LLWA_pm_canals_allowed # Adjacent to Flanders, which is coastal + has transport sector
-                }
-            }
-        }
-    }
-    s:STATE_FLANDERS = {
-        region_state:BEL = {
-            create_building = {
-                building   = LLWA_building_transport_sector
-                subsidized = yes
-                reserves   = 1
-                level      = 1
-                activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_early_trains
-                    LLWA_pm_no_passenger_trains
-                    LLWA_pm_canals_allowed
-                }
-            }
-        }
-    }
-    
     # Historical canals
     # Erie Canal
     s:STATE_NEW_YORK = {
         region_state:USA = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building = LLWA_building_waterway
                 level    = 2
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
                 }
@@ -233,12 +19,10 @@
     s:STATE_ONTARIO = {
         region_state:ONT = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building = LLWA_building_waterway
                 level    = 2
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
                 }
@@ -250,12 +34,10 @@
     s:STATE_SCHLESWIG_HOLSTEIN = {
         region_state:HOL = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building = LLWA_building_waterway
                 level    = 1
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
                 }
@@ -267,12 +49,10 @@
     s:STATE_MEKONG = {
         region_state:DAI = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building = LLWA_building_waterway
                 level    = 1
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
                 }
@@ -280,19 +60,30 @@
         }
     }
     
-    # Rhone River 
-    s:STATE_PROVENCE = { # Rhone (state) section initialized as part of vanilla starting railways init
+    # Rhone River (Historical waterway traffic)
+    s:STATE_RHONE = {
         region_state:FRA = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building   = LLWA_building_waterway
+                subsidized = yes
+                reserves   = 1
+                level      = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_PROVENCE = {
+        region_state:FRA = {
+            create_building = {
+                building = LLWA_building_waterway
                 level    = 2
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
-                    LLWA_pm_no_trains # Experimental Trains are the default PM by this point, so turn them off here
                 }
             }
         }
@@ -302,12 +93,10 @@
     s:STATE_SVEALAND = {
         region_state:SWE = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building = LLWA_building_waterway
                 level    = 1
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
                 }
@@ -317,12 +106,10 @@
     s:STATE_GOTALAND = {
         region_state:SWE = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building = LLWA_building_waterway
                 level    = 1
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
                 }
@@ -334,15 +121,12 @@
     s:STATE_LANGUEDOC = {
         region_state:FRA = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building = LLWA_building_waterway
                 level    = 2
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
-                    LLWA_pm_no_trains
                 }
             }
         }
@@ -350,15 +134,12 @@
     s:STATE_GUYENNE = {
         region_state:FRA = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building = LLWA_building_waterway
                 level    = 2
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
-                    LLWA_pm_no_trains
                 }
             }
         }
@@ -366,15 +147,12 @@
     s:STATE_AQUITAINE = {
         region_state:FRA = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building = LLWA_building_waterway
                 level    = 2
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
-                    LLWA_pm_no_trains
                 }
             }
         }
@@ -384,12 +162,10 @@
     s:STATE_INGRIA = {
         region_state:RUS = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building = LLWA_building_waterway
                 level    = 2
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
                 }
@@ -399,12 +175,10 @@
     s:STATE_NOVGOROD = {
         region_state:RUS = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building = LLWA_building_waterway
                 level    = 2
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
                 }
@@ -414,12 +188,10 @@
     s:STATE_TVER = {
         region_state:RUS = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building = LLWA_building_waterway
                 level    = 3
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
                 }
@@ -429,12 +201,10 @@
     s:STATE_MOSCOW = {
         region_state:RUS = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building = LLWA_building_waterway
                 level    = 1
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
                 }
@@ -444,12 +214,10 @@
     s:STATE_KAZAN = {
         region_state:RUS = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building = LLWA_building_waterway
                 level    = 1
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
                 }
@@ -459,12 +227,10 @@
     s:STATE_TARTARIA = {
         region_state:RUS = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building = LLWA_building_waterway
                 level    = 1
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
                 }
@@ -474,12 +240,10 @@
     s:STATE_ASTRAKHAN = {
         region_state:RUS = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building = LLWA_building_waterway
                 level    = 1
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
                 }
@@ -491,12 +255,10 @@
     s:STATE_BEIJING = {
         region_state:CHI = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building = LLWA_building_waterway
                 level    = 3
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
                 }
@@ -506,12 +268,10 @@
     s:STATE_ZHILI = {
         region_state:CHI = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building = LLWA_building_waterway
                 level    = 3
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
                 }
@@ -521,12 +281,10 @@
     s:STATE_SHANDONG = {
         region_state:CHI = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building = LLWA_building_waterway
                 level    = 3
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
                 }
@@ -536,12 +294,10 @@
     s:STATE_JIANGSU = {
         region_state:CHI = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building = LLWA_building_waterway
                 level    = 3
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
                 }
@@ -551,12 +307,10 @@
     s:STATE_NANJING = {
         region_state:CHI = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building = LLWA_building_waterway
                 level    = 1 # I think a tiny bit of the canal goes through the area defined by the Nanjing state region?
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
                 }
@@ -566,12 +320,10 @@
     s:STATE_SUZHOU = {
         region_state:CHI = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building = LLWA_building_waterway
                 level    = 3
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
                 }
@@ -581,12 +333,110 @@
     s:STATE_ZHEJIANG = { # Hangzhou is here
         region_state:CHI = {
             create_building = {
-                building = LLWA_building_transport_sector
+                building = LLWA_building_waterway
                 level    = 3
                 reserves = 1
                 activate_production_methods = {
-                    LLWA_pm_no_road_vehicles
-                    LLWA_pm_canals_allowed
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    
+    # British Canal Mania
+    s:STATE_HOME_COUNTIES = {
+        region_state:GBR = {
+            create_building = {
+                building   = LLWA_building_waterway
+                subsidized = yes
+                reserves   = 1
+                level      = 2
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_LANCASHIRE = {
+        region_state:GBR = {
+            create_building = {
+                building   = LLWA_building_waterway
+                subsidized = yes
+                reserves   = 1
+                level      = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_WALES = {
+        region_state:GBR = {
+            create_building = {
+                building   = LLWA_building_waterway
+                subsidized = yes
+                reserves   = 1
+                level      = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_YORKSHIRE = {
+        region_state:GBR = {
+            create_building = {
+                building   = LLWA_building_waterway
+                subsidized = yes
+                reserves   = 1
+                level      = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_MIDLANDS = {
+        region_state:GBR = {
+            create_building = {
+                building   = LLWA_building_waterway
+                subsidized = yes
+                reserves   = 1
+                level      = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_EAST_ANGLIA = {
+        region_state:GBR = {
+            create_building = {
+                building   = LLWA_building_waterway
+                subsidized = yes
+                reserves   = 1
+                level      = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_WEST_COUNTRY = {
+        region_state:GBR = {
+            create_building = {
+                building   = LLWA_building_waterway
+                subsidized = yes
+                reserves   = 1
+                level      = 1
+                activate_production_methods = {
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
                 }
