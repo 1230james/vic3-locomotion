@@ -31,9 +31,9 @@
             any_scope_state = {
                 OR = {
                     AND = {
-                        has_building = LLWA_building_transport_sector
+                        has_building = LLWA_building_airway
                         is_production_method_active = {
-                            building_type     = LLWA_building_transport_sector
+                            building_type     = LLWA_building_airway
                             production_method = LLWA_pm_airships
                         }
                     }
@@ -51,9 +51,9 @@
             any_scope_state = {
                 OR = {
                     AND = {
-                        has_building = LLWA_building_transport_sector
+                        has_building = LLWA_building_airway
                         is_production_method_active = {
-                            building_type     = LLWA_building_transport_sector
+                            building_type     = LLWA_building_airway
                             production_method = LLWA_pm_airships
                         }
                     }

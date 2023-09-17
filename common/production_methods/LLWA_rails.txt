@@ -1,17 +1,9 @@
-﻿# Clones of vanilla definitions backported from 1.5, functionally speaking
+﻿# Clones of vanilla definitions backported from 1.5
 
 # Rail vehicles
-LLWA_pm_no_trains = {
-    texture = "gfx/interface/icons/production_method_icons/LLWA_no_rail_veh.dds"
-}
-
-LLWA_pm_early_trains = {
+pm_early_trains = {
     texture = "gfx/interface/icons/production_method_icons/experimental_trains.dds"
     pollution_generation = 15
-    
-    unlocking_technologies = {
-        railways
-    }
 
     building_modifiers = {
         workforce_scaled = {
@@ -33,7 +25,7 @@ LLWA_pm_early_trains = {
     }
 }
 
-LLWA_pm_steam_trains = {
+pm_steam_trains = {
     texture = "gfx/interface/icons/production_method_icons/trains_steam.dds"
     pollution_generation = 15
 
@@ -61,7 +53,7 @@ LLWA_pm_steam_trains = {
     }
 }
 
-LLWA_pm_electric_trains = {
+pm_electric_trains = {
     texture = "gfx/interface/icons/production_method_icons/trains_electric.dds"
     pollution_generation = 10
     
@@ -89,7 +81,7 @@ LLWA_pm_electric_trains = {
     }
 }
 
-LLWA_pm_diesel_trains = {
+pm_diesel_trains = {
     texture = "gfx/interface/icons/production_method_icons/trains_diesel.dds"
     pollution_generation = 10
     
@@ -118,11 +110,11 @@ LLWA_pm_diesel_trains = {
 }
 
 # Rail traffic
-LLWA_pm_no_passenger_trains = {
+pm_no_passenger_trains = {
     texture = "gfx/interface/icons/production_method_icons/no_passenger_trains.dds"
 }
 
-LLWA_pm_wooden_passenger_carriages = {
+pm_wooden_passenger_carriages = {
     texture = "gfx/interface/icons/production_method_icons/passenger_trains.dds"
     pollution_generation = 10
     
@@ -144,7 +136,7 @@ LLWA_pm_wooden_passenger_carriages = {
     }
 }
 
-LLWA_pm_steel_passenger_carriages = {
+pm_steel_passenger_carriages = {
     texture = "gfx/interface/icons/production_method_icons/passenger_carriages.dds"
     pollution_generation = 10
     

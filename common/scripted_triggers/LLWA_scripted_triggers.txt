@@ -5,7 +5,7 @@
             LLWA_st_in_mountains   = no
             any_neighbouring_state = {
                 this.owner = prev.owner
-                has_building = LLWA_building_transport_sector
+                has_building = LLWA_building_waterway
                 LLWA_st_has_water_source = yes
             }
         }
@@ -14,8 +14,47 @@
 
 LLWA_st_has_water_source = {
     OR = {
-        on_river   = yes
-        is_coastal = yes
+        on_river        = yes
+        is_sea_adjacent = yes
+    }
+}
+
+LLWA_st_road_private_expansion_is_standard = {
+    any_scope_building = {
+        filter = {
+            is_building_type = LLWA_building_roadway
+        }
+        percent < 0.5
+        has_active_production_method = LLWA_pm_no_private_expansion
+    }
+}
+
+LLWA_st_rail_private_expansion_is_standard = {
+    any_scope_building = {
+        filter = {
+            is_building_type = building_railway
+        }
+        percent < 0.5
+        has_active_production_method = LLWA_pm_no_private_expansion
+    }
+}
+LLWA_st_water_private_expansion_is_standard = {
+    any_scope_building = {
+        filter = {
+            is_building_type = LLWA_building_waterway
+        }
+        percent < 0.5
+        has_active_production_method = LLWA_pm_no_private_expansion
+    }
+}
+
+LLWA_st_air_private_expansion_is_standard = {
+    any_scope_building = {
+        filter = {
+            is_building_type = LLWA_building_airway
+        }
+        percent < 0.5
+        has_active_production_method = LLWA_pm_no_private_expansion
     }
 }
 

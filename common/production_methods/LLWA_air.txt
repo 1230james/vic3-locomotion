@@ -1,8 +1,4 @@
 ﻿# Aircraft
-LLWA_pm_no_aircraft = {
-    texture = "gfx/interface/icons/production_method_icons/LLWA_no_aircraft.dds"
-}
-
 LLWA_pm_airships = {
     texture = "gfx/interface/icons/production_method_icons/LLWA_airships.dds"
     pollution_generation = 5

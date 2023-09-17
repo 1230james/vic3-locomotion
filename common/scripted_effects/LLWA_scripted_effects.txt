@@ -1,0 +1,141 @@
+﻿# Update autonomous investment availability on PM change
+# Building scope
+LLWA_se_manage_private_expansion = {
+    if = {
+        limit = {
+            OR = {
+                is_building_type = LLWA_building_roadway
+                is_building_type = building_railway
+                is_building_type = LLWA_building_waterway
+                is_building_type = LLWA_building_airway
+            }
+        }
+        
+        # Set building type global vars if not already set
+        # It'll be used for unlocking private investment in states where the corresponding building is destroyed
+        if = {
+            limit = {
+                is_building_type = LLWA_building_roadway
+                OR = {
+                    NOT = {
+                        has_global_variable = LLWA_roadway_type
+                    }
+                    NOT = {
+                        global_var:LLWA_roadway_type = this.type
+                    }
+                }
+            }
+            set_global_variable = {
+                name  = LLWA_roadway_type
+                value = this.type
+            }
+        }
+        else_if = {
+            limit = {
+                is_building_type = building_railway
+                OR = {
+                    NOT = {
+                        has_global_variable = LLWA_railway_type
+                    }
+                    NOT = {
+                        global_var:LLWA_railway_type = this.type
+                    }
+                }
+            }
+            set_global_variable = {
+                name  = LLWA_railway_type
+                value = this.type
+            }
+        }
+        else_if = {
+            limit = {
+                is_building_type = LLWA_building_waterway
+                OR = {
+                    NOT = {
+                        has_global_variable = LLWA_waterway_type
+                    }
+                    NOT = {
+                        global_var:LLWA_waterway_type = this.type
+                    }
+                }
+            }
+            set_global_variable = {
+                name  = LLWA_waterway_type
+                value = this.type
+            }
+        }
+        else_if = {
+            limit = {
+                is_building_type = LLWA_building_airway
+                OR = {
+                    NOT = {
+                        has_global_variable = LLWA_airway_type
+                    }
+                    NOT = {
+                        global_var:LLWA_airway_type = this.type
+                    }
+                }
+            }
+            set_global_variable = {
+                name  = LLWA_airway_type
+                value = this.type
+            }
+        }
+        
+        # Set/unset private investment allowance
+        if = {
+            limit = {
+                has_active_production_method = LLWA_pm_no_private_expansion
+            }
+            state = {
+                unset_available_for_autonomous_investment = prev.type
+            }
+        }
+        else = {
+            state = {
+                set_available_for_autonomous_investment = prev.type
+            }
+        }
+    }
+}
+
+# Reenable autonomous investment if related building is missing (e.g. from destruction)
+# State scope
+LLWA_se_reset_blocked_private_expansions = {
+    if = {
+        limit = {
+            has_global_variable = LLWA_roadway_type
+            NOT = {
+                has_building = LLWA_building_roadway
+            }
+        }
+        set_available_for_autonomous_investment = global_var:LLWA_roadway_type
+    }
+    if = {
+        limit = {
+            has_global_variable = LLWA_railway_type
+            NOT = {
+                has_building = building_railway
+            }
+        }
+        set_available_for_autonomous_investment = global_var:LLWA_railway_type
+    }
+    if = {
+        limit = {
+            has_global_variable = LLWA_waterway_type
+            NOT = {
+                has_building = LLWA_building_waterway
+            }
+        }
+        set_available_for_autonomous_investment = global_var:LLWA_waterway_type
+    }
+    if = {
+        limit = {
+            has_global_variable = LLWA_airway_type
+            NOT = {
+                has_building = LLWA_building_airway
+            }
+        }
+        set_available_for_autonomous_investment = global_var:LLWA_airway_type
+    }
+}

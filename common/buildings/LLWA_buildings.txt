@@ -1,8 +1,8 @@
-﻿LLWA_building_transport_sector = {
+﻿# TODO: Update construction costs according to 1.5 values
+
+LLWA_building_roadway = {
     building_group = bg_private_infrastructure
-    texture = "gfx/interface/icons/building_icons/LLWA_transport_sector.dds"
-    
-    enable_air_connection = yes
+    texture = "gfx/interface/icons/building_icons/LLWA_roadway.dds"
     
     unlocking_technologies = {
         urbanization
@@ -10,20 +10,60 @@
 
     production_method_groups = {
         LLWA_pmg_road_base
-        LLWA_pmg_rail_base
-        LLWA_pmg_water_base
-        LLWA_pmg_air_base
-        LLWA_pmg_ownership
         LLWA_pmg_road_traffic
-        LLWA_pmg_rail_traffic
-        LLWA_pmg_water_traffic
-        LLWA_pmg_air_traffic
-        LLWA_pmg_canals_status
+        LLWA_pmg_road_ownership
+        LLWA_pmg_private_expansion
     }
 
-    required_construction = construction_cost_high
+    required_construction = construction_cost_medium # 1.4 medium => 300
     
-    ai_value = 2000
+    # ai_value = 1000 # Roads are nice, but don't prioritize; 1000 is default weight as of 1.4
+    
+    should_auto_expand = { # Requires higher reserves ratio + transportation price to discourage road expansion
+        occupancy >= 0.8
+        OR = {
+            cash_reserves_ratio > 0.8
+            is_subsidized = yes
+        }
+        OR = {
+            owner = {
+                market = {
+                    mg:transportation = {
+                        market_goods_pricier > 0.75
+                    }
+                }
+            }
+            state.market_access < 1
+        }
+        NOT = { is_under_construction = yes }
+    }
+}
+
+LLWA_building_waterway = {
+    building_group = bg_private_infrastructure
+    texture = "gfx/interface/icons/building_icons/LLWA_canal.dds"
+    
+    unlocking_technologies = {
+        urbanization
+    }
+
+    production_method_groups = {
+        LLWA_pmg_water_base
+        LLWA_pmg_water_traffic
+        LLWA_pmg_water_ownership
+        LLWA_pmg_private_expansion
+    }
+
+    required_construction = construction_cost_medium # 1.4 medium => 300
+    
+    ai_value = 1500 # Prioritize over other things but not rails
+    
+    possible = {
+        error_check = {
+            severity = fail
+            LLWA_st_can_have_canal = yes
+        }
+    }
     
     should_auto_expand = { 
         occupancy >= 0.8
@@ -34,7 +74,7 @@
         OR = {
             owner = {
                 market = {
-                    mg:transportation = { 
+                    mg:transportation = {
                         market_goods_pricier > 0.5
                     }
                 }
@@ -42,27 +82,47 @@
             state.market_access < 1
         }
         NOT = { is_under_construction = yes }
-
     }
 }
 
-# Overwrite vanilla Railways building for smooth compatibility with vanilla JEs, map, third-party mods, etc.
-# Construction & PMs will be handled via on_action based on number of Transport Sectors with railway-related PMs enabled
-building_railway = {
-    building_group = bg_private_infrastructure    
-    texture = "gfx/interface/icons/building_icons/building_railway.dds"
+LLWA_building_airway = {
+    building_group = bg_private_infrastructure
+    texture = "gfx/interface/icons/building_icons/LLWA_airfield.dds"
+    
+    enable_air_connection = yes
     
     unlocking_technologies = {
-        railways
+        zeppelins
+        military_aviation
     }
 
     production_method_groups = {
-        pmg_base_building_railway
-        pmg_passenger_trains
-        pmg_ownership_capital_building_railway
+        LLWA_pmg_air_base
+        LLWA_pmg_air_traffic
+        LLWA_pmg_air_ownership
+        LLWA_pmg_private_expansion
     }
+
+    required_construction = construction_cost_high # 1.4 high => 450
     
-    buildable = no
-    expandable = no
-    downsizeable = no
+    ai_value = 1500 # Prioritize over other things but not rails
+    
+    should_auto_expand = { 
+        occupancy >= 0.8
+        OR = {
+            cash_reserves_ratio > 0.5
+            is_subsidized = yes
+        }
+        OR = {
+            owner = {
+                market = {
+                    mg:transportation = {
+                        market_goods_pricier > 0.5
+                    }
+                }
+            }
+            state.market_access < 1
+        }
+        NOT = { is_under_construction = yes }
+    }
 }

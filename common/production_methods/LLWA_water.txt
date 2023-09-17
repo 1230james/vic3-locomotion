@@ -1,8 +1,4 @@
 ﻿# Water vessels
-LLWA_pm_no_ships = {
-    texture = "gfx/interface/icons/production_method_icons/LLWA_no_ships.dds"
-}
-
 LLWA_pm_sailing_barges = {
     texture = "gfx/interface/icons/production_method_icons/LLWA_sailing_barges.dds"
     

@@ -3,7 +3,6 @@
     ai_selection = most_productive
     
     production_methods = {
-        LLWA_pm_no_road_vehicles
         LLWA_pm_hand_carts
         LLWA_pm_horse_wagons
         LLWA_pm_steam_trucks
@@ -12,25 +11,23 @@
     }
 }
 
-LLWA_pmg_rail_base = {
-    texture      = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
-    ai_selection = most_productive
-    
-    production_methods = {
-        LLWA_pm_no_trains
-        LLWA_pm_early_trains
-        LLWA_pm_steam_trains
-        LLWA_pm_electric_trains
-        LLWA_pm_diesel_trains
-    }
-}
+# LLWA_pmg_rail_base = {
+#     texture      = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+#     ai_selection = most_productive
+#     
+#     production_methods = {
+#         LLWA_pm_early_trains
+#         LLWA_pm_steam_trains
+#         LLWA_pm_electric_trains
+#         LLWA_pm_diesel_trains
+#     }
+# }
 
 LLWA_pmg_water_base = {
     texture      = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
     ai_selection = most_productive
     
     production_methods = {
-        LLWA_pm_no_ships
         LLWA_pm_sailing_barges
         LLWA_pm_steamboats
         LLWA_pm_motor_vessels
@@ -42,21 +39,8 @@ LLWA_pmg_air_base = {
     ai_selection = most_productive
     
     production_methods = {
-        LLWA_pm_no_aircraft
         LLWA_pm_airships
         LLWA_pm_airplanes
-    }
-}
-
-LLWA_pmg_ownership = {
-    texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
-    
-    production_methods = {
-        # LLWA_pm_merchant_guilds
-        LLWA_pm_privately_owned
-        LLWA_pm_publicly_traded
-        LLWA_pm_government_run
-        LLWA_pm_worker_coop
     }
 }
 
@@ -74,16 +58,16 @@ LLWA_pmg_road_traffic = {
     }
 }
 
-LLWA_pmg_rail_traffic = {
-    texture      = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
-    ai_selection = most_productive
-    
-    production_methods = {
-        LLWA_pm_no_passenger_trains
-        LLWA_pm_wooden_passenger_carriages
-        LLWA_pm_steel_passenger_carriages
-    }
-}
+# LLWA_pmg_rail_traffic = {
+#     texture      = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+#     ai_selection = most_productive
+#     
+#     production_methods = {
+#         LLWA_pm_no_passenger_trains
+#         LLWA_pm_wooden_passenger_carriages
+#         LLWA_pm_steel_passenger_carriages
+#     }
+# }
 
 LLWA_pmg_water_traffic = {
     texture      = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
@@ -108,11 +92,46 @@ LLWA_pmg_air_traffic = {
     }
 }
 
-LLWA_pmg_canals_status = {
-    texture = "gfx/interface/icons/production_method_icons/LLWA_canals_yes.dds"
+LLWA_pmg_private_expansion = {
+    texture = "gfx/interface/icons/generic_icons/LLWA_mixed_icon_orange.dds"
     
     production_methods = {
-        LLWA_pm_canals_disallowed
-        LLWA_pm_canals_allowed
+        LLWA_pm_yes_private_expansion
+        LLWA_pm_no_private_expansion
+    }
+}
+
+LLWA_pmg_road_ownership = {
+    texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+    
+    production_methods = {
+        LLWA_pm_road_merchant_guilds
+        LLWA_pm_road_privately_owned
+        LLWA_pm_road_publicly_traded
+        LLWA_pm_government_run
+        LLWA_pm_worker_coop
+    }
+}
+
+LLWA_pmg_water_ownership = {
+    texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+    
+    production_methods = {
+        LLWA_pm_water_merchant_guilds
+        LLWA_pm_water_privately_owned
+        LLWA_pm_water_publicly_traded
+        LLWA_pm_government_run
+        LLWA_pm_worker_coop
+    }
+}
+
+LLWA_pmg_air_ownership = {
+    texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+    
+    production_methods = {
+        LLWA_pm_privately_owned
+        LLWA_pm_publicly_traded
+        LLWA_pm_government_run
+        LLWA_pm_worker_coop
     }
 }
