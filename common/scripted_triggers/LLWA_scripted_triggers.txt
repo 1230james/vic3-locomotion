@@ -5,7 +5,7 @@
             LLWA_st_in_mountains   = no
             any_neighbouring_state = {
                 this.owner = prev.owner
-                has_building = LLWA_building_transport_sector
+                has_building = LLWA_building_waterway
                 LLWA_st_has_water_source = yes
             }
         }

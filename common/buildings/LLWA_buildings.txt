@@ -58,6 +58,13 @@ LLWA_building_waterway = {
     
     ai_value = 1500 # Prioritize over other things but not rails
     
+    possible = {
+        error_check = {
+            severity = fail
+            LLWA_st_can_have_canal = yes
+        }
+    }
+    
     should_auto_expand = { 
         occupancy >= 0.8
         OR = {
