@@ -35,9 +35,6 @@
     LLWA_pm_electric_buses: "Elektrobusse"
     LLWA_pm_motor_buses:    "Motorbusse"
     
-    # PMs - Rails
-    pm_early_trains: "Experimentelle Züge" # TODO: Use 1.5 loc key
-    
     # PMs - Ships
     LLWA_pm_sailing_barges: "Segelhäfen"
     LLWA_pm_steamboats:     "Dampfschiffe"
@@ -76,8 +73,8 @@
     LLWA_pm_no_private_expansion:  "Nur Staatserweiterung"
     
     # Modifiers
-    modifier_building_input_luxury_furniture_add:      "@luxury_furniture! Luxusmöbel-Zufuhr pro Stufe"
-    modifier_building_input_luxury_furniture_add_desc: "Die Menge an @luxury_furniture! Luxusmöbel, die das Gebäude verbraucht."
+    modifier_goods_input_luxury_furniture_add:      "@luxury_furniture! Luxusmöbel-Zufuhr pro Stufe"
+    modifier_goods_input_luxury_furniture_add_desc: "Die Menge an @luxury_furniture! Luxusmöbel, die das Gebäude verbraucht."
     
     # Unused strings - defined as empty to silence errors
     LLWA_md_dist_from_water:   ""

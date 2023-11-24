@@ -35,9 +35,6 @@
     LLWA_pm_electric_buses: "Electric Buses"
     LLWA_pm_motor_buses:    "Motorbuses"
     
-    # PMs - Rails
-    pm_early_trains: "Experimental Trains" # TODO: Remove in 1.5
-    
     # PMs - Ships
     LLWA_pm_sailing_barges: "Sailing Barges"
     LLWA_pm_steamboats:     "Steamships"
@@ -76,8 +73,8 @@
     LLWA_pm_no_private_expansion:  "Government Expansion Only"
     
     # Modifiers
-    modifier_building_input_luxury_furniture_add:      "Insumo de muebles de lujo @luxury_furniture! por nivel"
-    modifier_building_input_luxury_furniture_add_desc: "La cantidad de muebles de lujo @luxury_furniture! consumida por los edificios"
+    modifier_goods_input_luxury_furniture_add:      "Insumo de muebles de lujo @luxury_furniture! por nivel"
+    modifier_goods_input_luxury_furniture_add_desc: "La cantidad de muebles de lujo @luxury_furniture! consumida por los edificios"
     
     # Unused strings - defined as empty to silence errors
     LLWA_md_dist_from_water:   ""

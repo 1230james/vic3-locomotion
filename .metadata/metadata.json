@@ -1,10 +1,15 @@
 {
     "name" : "Locomotion: Land, Water, & Air",
     "id" : "",
-    "version" : "2.0.1",
-    "supported_game_version" : "1.4.*",
+    "version" : "2.1.0",
+    "supported_game_version" : "1.5.*",
     "short_description" : "",
-    "tags" : [],
+    "tags" : [
+        "Balance",
+        "Expansion",
+        "Economy And Buildings",
+        "Gameplay"
+    ],
     "relationships" : [],
     "game_custom_data" : {
         "multiplayer_synchronized" : false
