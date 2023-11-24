@@ -5,11 +5,11 @@ LLWA_pm_horse_wagons = {
 
     building_modifiers = {
         workforce_scaled = {
-            building_input_grain_add  = 10
-            building_input_fruit_add  = 3
-            building_input_wood_add   = 5
-            building_input_fabric_add = 5
-            building_output_transportation_add = 15
+            goods_input_grain_add  = 10
+            goods_input_fruit_add  = 3
+            goods_input_wood_add   = 5
+            goods_input_fabric_add = 5
+            goods_output_transportation_add = 15
         }
         level_scaled = {
             building_employment_laborers_add    = 3000
@@ -30,9 +30,9 @@ LLWA_pm_hand_carts = {
 
     building_modifiers = {
         workforce_scaled = {
-            building_input_wood_add   = 5
-            building_input_fabric_add = 5
-            building_output_transportation_add = 10
+            goods_input_wood_add   = 5
+            goods_input_fabric_add = 5
+            goods_output_transportation_add = 10
         }
         level_scaled = {
             building_employment_laborers_add    = 5000
@@ -57,9 +57,9 @@ LLWA_pm_steam_trucks = {
 
     building_modifiers = {
         workforce_scaled = {
-            building_input_engines_add = 10
-            building_input_coal_add    = 5
-            building_output_transportation_add = 20
+            goods_input_engines_add = 10
+            goods_input_coal_add    = 5
+            goods_output_transportation_add = 20
         }
         level_scaled = {
             building_employment_laborers_add   = 3000
@@ -85,9 +85,9 @@ LLWA_pm_electric_trucks = {
 
     building_modifiers = {
         workforce_scaled = {
-            building_input_engines_add         = 10
-            building_input_electricity_add     = 20
-            building_output_transportation_add = 30
+            goods_input_engines_add         = 10
+            goods_input_electricity_add     = 20
+            goods_output_transportation_add = 30
         }
         level_scaled = {
             building_employment_laborers_add   = 2500
@@ -113,9 +113,9 @@ LLWA_pm_petrol_trucks = {
 
     building_modifiers = {
         workforce_scaled = {
-            building_input_automobiles_add = 10
-            building_input_oil_add         = 5
-            building_output_transportation_add = 40
+            goods_input_automobiles_add = 10
+            goods_input_oil_add         = 5
+            goods_output_transportation_add = 40
         }
         level_scaled = {
             building_employment_laborers_add   = 2000
@@ -145,9 +145,9 @@ LLWA_pm_rickshaws = {
 
     building_modifiers = {
         workforce_scaled = {
-            building_input_wood_add   = 5
-            building_input_fabric_add = 5
-            building_output_transportation_add = 10
+            goods_input_wood_add   = 5
+            goods_input_fabric_add = 5
+            goods_output_transportation_add = 10
         }
         level_scaled = {
             building_employment_shopkeepers_add = 100
@@ -164,9 +164,9 @@ LLWA_pm_stagecoaches = {
 
     building_modifiers = {
         workforce_scaled = {
-            building_input_wood_add   = 5
-            building_input_fabric_add = 5
-            building_output_transportation_add = 10
+            goods_input_wood_add   = 5
+            goods_input_fabric_add = 5
+            goods_output_transportation_add = 10
         }
         level_scaled = {
             building_employment_shopkeepers_add = 100
@@ -190,9 +190,9 @@ LLWA_pm_steam_buses = {
 
     building_modifiers = {
         workforce_scaled = {
-            building_input_engines_add = 5
-            building_input_coal_add    = 2
-            building_output_transportation_add = 10
+            goods_input_engines_add = 5
+            goods_input_coal_add    = 2
+            goods_output_transportation_add = 10
         }
         level_scaled = {
             building_employment_machinists_add = 100
@@ -217,9 +217,9 @@ LLWA_pm_electric_buses = {
 
     building_modifiers = {
         workforce_scaled = {
-            building_input_engines_add         = 5
-            building_input_electricity_add     = 10
-            building_output_transportation_add = 15
+            goods_input_engines_add         = 5
+            goods_input_electricity_add     = 10
+            goods_output_transportation_add = 15
         }
         level_scaled = {
             building_employment_machinists_add = 175
@@ -244,9 +244,9 @@ LLWA_pm_motor_buses = {
 
     building_modifiers = {
         workforce_scaled = {
-            building_input_automobiles_add = 5
-            building_input_oil_add         = 2
-            building_output_transportation_add = 20
+            goods_input_automobiles_add = 5
+            goods_input_oil_add         = 2
+            goods_output_transportation_add = 20
         }
         level_scaled = {
             building_employment_machinists_add = 250

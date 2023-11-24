@@ -64,6 +64,7 @@ LLWA_oa_airway_pm_handler = {
 on_building_built = {
     on_actions = {
         LLWA_oa_building_handler
+        LLWA_oa_airway_pm_handler
     }
 }
 

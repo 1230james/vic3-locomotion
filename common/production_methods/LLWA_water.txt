@@ -8,9 +8,9 @@ LLWA_pm_sailing_barges = {
 
     building_modifiers = {
         workforce_scaled = {
-            building_input_wood_add   = 10
-            building_input_fabric_add = 5
-            building_output_transportation_add = 30
+            goods_input_wood_add   = 10
+            goods_input_fabric_add = 5
+            goods_output_transportation_add = 30
         }
         level_scaled = {
             building_employment_laborers_add    = 4000
@@ -39,11 +39,11 @@ LLWA_pm_steamboats = {
 
     building_modifiers = {
         workforce_scaled = {
-            building_input_wood_add     = 8
-            building_input_hardwood_add = 4
-            building_input_engines_add  = 2
-            building_input_coal_add     = 1
-            building_output_transportation_add = 35
+            goods_input_wood_add     = 8
+            goods_input_hardwood_add = 4
+            goods_input_engines_add  = 2
+            goods_input_coal_add     = 1
+            goods_output_transportation_add = 35
         }
         level_scaled = {
             building_employment_laborers_add   = 3000
@@ -73,10 +73,10 @@ LLWA_pm_motor_vessels = {
 
     building_modifiers = {
         workforce_scaled = {
-            building_input_steel_add   = 16
-            building_input_engines_add = 8
-            building_input_oil_add     = 4
-            building_output_transportation_add = 40
+            goods_input_steel_add   = 16
+            goods_input_engines_add = 8
+            goods_input_oil_add     = 4
+            goods_output_transportation_add = 40
         }
         level_scaled = {
             building_employment_laborers_add   = 2500
@@ -106,9 +106,9 @@ LLWA_pm_riverboats = {
     
     building_modifiers = {
         workforce_scaled = {
-            building_input_wood_add   = 5
-            building_input_fabric_add = 2
-            building_output_transportation_add = 10
+            goods_input_wood_add   = 5
+            goods_input_fabric_add = 2
+            goods_output_transportation_add = 10
         }
         level_scaled = {
             building_employment_shopkeepers_add = 250
@@ -131,11 +131,11 @@ LLWA_pm_steam_ferries = {
     
     building_modifiers = {
         workforce_scaled = {
-            building_input_wood_add     = 4
-            building_input_hardwood_add = 2
-            building_input_engines_add  = 1
-            building_input_coal_add     = 1
-            building_output_transportation_add = 15
+            goods_input_wood_add     = 4
+            goods_input_hardwood_add = 2
+            goods_input_engines_add  = 1
+            goods_input_coal_add     = 1
+            goods_output_transportation_add = 15
         }
         level_scaled = {
             building_employment_clerks_add = 250
@@ -158,10 +158,10 @@ LLWA_pm_motor_ferries = {
     
     building_modifiers = {
         workforce_scaled = {
-            building_input_steel_add   = 8
-            building_input_engines_add = 4
-            building_input_oil_add     = 2
-            building_output_transportation_add = 25
+            goods_input_steel_add   = 8
+            goods_input_engines_add = 4
+            goods_input_oil_add     = 2
+            goods_output_transportation_add = 25
         }
         level_scaled = {
             building_employment_clerks_add = 500

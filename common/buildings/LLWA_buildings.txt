@@ -15,7 +15,7 @@ LLWA_building_roadway = {
         LLWA_pmg_private_expansion
     }
 
-    required_construction = construction_cost_medium # 1.4 medium => 300
+    required_construction = construction_cost_high
     
     # ai_value = 1000 # Roads are nice, but don't prioritize; 1000 is default weight as of 1.4
     
@@ -54,7 +54,7 @@ LLWA_building_waterway = {
         LLWA_pmg_private_expansion
     }
 
-    required_construction = construction_cost_medium # 1.4 medium => 300
+    required_construction = construction_cost_very_high
     
     ai_value = 1500 # Prioritize over other things but not rails
     
@@ -103,7 +103,7 @@ LLWA_building_airway = {
         LLWA_pmg_private_expansion
     }
 
-    required_construction = construction_cost_high # 1.4 high => 450
+    required_construction = construction_cost_very_high
     
     ai_value = 1500 # Prioritize over other things but not rails
     
