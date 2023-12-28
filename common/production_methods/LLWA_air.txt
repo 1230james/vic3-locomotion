@@ -1,7 +1,6 @@
 ﻿# Aircraft
 LLWA_pm_airships = {
     texture = "gfx/interface/icons/production_method_icons/LLWA_airships.dds"
-    pollution_generation = 5
     
     unlocking_technologies = {
         zeppelins
@@ -27,13 +26,13 @@ LLWA_pm_airships = {
     state_modifiers = {
         workforce_scaled = {
             state_infrastructure_add = 15
+            state_pollution_generation_add = 15
         }
     }
 }
 
 LLWA_pm_airplanes = {
     texture = "gfx/interface/icons/production_method_icons/aeroplanes.dds"
-    pollution_generation = 5
     
     unlocking_technologies = {
         military_aviation
@@ -57,6 +56,7 @@ LLWA_pm_airplanes = {
     state_modifiers = {
         workforce_scaled = {
             state_infrastructure_add = 30
+            state_pollution_generation_add = 10
         }
     }
 }

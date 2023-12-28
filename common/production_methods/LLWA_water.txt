@@ -27,7 +27,6 @@ LLWA_pm_sailing_barges = {
 
 LLWA_pm_steamboats = {
     texture = "gfx/interface/icons/production_method_icons/reinforced_steam_ships.dds"
-    pollution_generation = 15
     
     unlocking_production_methods = {
         LLWA_pm_canals_allowed
@@ -55,13 +54,13 @@ LLWA_pm_steamboats = {
     state_modifiers = {
         workforce_scaled = {
             state_infrastructure_add = 30
+            state_pollution_generation_add = 15
         }
     }
 }
 
 LLWA_pm_motor_vessels = {
     texture = "gfx/interface/icons/production_method_icons/LLWA_diesel_ships.dds"
-    pollution_generation = 10
     
     unlocking_production_methods = {
         LLWA_pm_canals_allowed
@@ -88,6 +87,7 @@ LLWA_pm_motor_vessels = {
     state_modifiers = {
         workforce_scaled = {
             state_infrastructure_add = 35
+            state_pollution_generation_add = 10
         }
     }
 }
@@ -118,7 +118,6 @@ LLWA_pm_riverboats = {
 
 LLWA_pm_steam_ferries = {
     texture = "gfx/interface/icons/production_method_icons/LLWA_steamboats.dds"
-    pollution_generation = 15
     
     unlocking_production_methods = {
         LLWA_pm_steamboats
@@ -141,11 +140,16 @@ LLWA_pm_steam_ferries = {
             building_employment_clerks_add = 250
         }
     }
+    
+    state_modifiers = {
+        workforce_scaled = {
+            state_pollution_generation_add = 15
+        }
+    }
 }
 
 LLWA_pm_motor_ferries = {
     texture = "gfx/interface/icons/production_method_icons/LLWA_motor_ferries.dds"
-    pollution_generation = 10
     
     unlocking_production_methods = {
         LLWA_pm_steamboats
@@ -165,6 +169,12 @@ LLWA_pm_motor_ferries = {
         }
         level_scaled = {
             building_employment_clerks_add = 500
+        }
+    }
+    
+    state_modifiers = {
+        workforce_scaled = {
+            state_pollution_generation_add = 10
         }
     }
 }
