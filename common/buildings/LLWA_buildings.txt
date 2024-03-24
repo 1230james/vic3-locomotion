@@ -1,6 +1,4 @@
-﻿# TODO: Update construction costs according to 1.5 values
-
-LLWA_building_roadway = {
+﻿LLWA_building_roadway = {
     building_group = bg_private_infrastructure
     texture = "gfx/interface/icons/building_icons/LLWA_roadway.dds"
     
@@ -26,11 +24,9 @@ LLWA_building_roadway = {
             is_subsidized = yes
         }
         OR = {
-            owner = {
-                market = {
-                    mg:transportation = {
-                        market_goods_pricier > 0.75
-                    }
+            state = {
+                sg:transportation = { 
+                    state_goods_pricier > 0.75
                 }
             }
             state.market_access < 1
@@ -72,11 +68,9 @@ LLWA_building_waterway = {
             is_subsidized = yes
         }
         OR = {
-            owner = {
-                market = {
-                    mg:transportation = {
-                        market_goods_pricier > 0.5
-                    }
+            state = {
+                sg:transportation = { 
+                    state_goods_pricier > 0.5
                 }
             }
             state.market_access < 1
@@ -114,11 +108,9 @@ LLWA_building_airway = {
             is_subsidized = yes
         }
         OR = {
-            owner = {
-                market = {
-                    mg:transportation = {
-                        market_goods_pricier > 0.5
-                    }
+            state = {
+                sg:transportation = { 
+                    state_goods_pricier > 0.5
                 }
             }
             state.market_access < 1
