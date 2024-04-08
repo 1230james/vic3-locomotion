@@ -4,6 +4,29 @@ goods_input_luxury_furniture_add = {
     percent = no
 }
 
+# Output goods
+goods_input_LLWA_market_conn_add = {
+	good = no
+	percent = no
+}
+
+goods_output_LLWA_market_conn_add = {
+	good = yes
+	percent = no
+}
+
+goods_input_LLWA_market_conn_mult = {
+	good = no
+	percent = yes
+    num_decimals = 1
+}
+
+goods_output_LLWA_market_conn_mult = {
+	good = yes
+	percent = yes
+    num_decimals = 1
+}
+
 # Water distance tracking
 LLWA_mt_dist_from_water_add = {
     good = yes

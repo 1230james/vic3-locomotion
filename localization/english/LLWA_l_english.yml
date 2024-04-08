@@ -4,6 +4,9 @@
     LLWA_building_waterway: "Waterway"
     LLWA_building_airway:   "Aerodrome"
     
+    LLWA_building_freight_depot: "Shipping Lines"
+    LLWA_building_exchange:      "Financial Exchanges"
+    
     # PMGs
     LLWA_pmg_road_base:  "$pm_base$"
     LLWA_pmg_rail_base:  "$pm_base$"

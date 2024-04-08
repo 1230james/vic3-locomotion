@@ -1,0 +1,8 @@
+﻿# MAPI mode
+LLWA_gr_mapi_mode = {
+    default = LLWA_grs_mapi_yes
+    
+    LLWA_grs_mapi_no    = {} # No MAPI changes
+    LLWA_grs_mapi_yes   = {} # MAPI changes + buildings
+    LLWA_grs_bldgs_only = {} # MAPI buildings, but no changes
+}

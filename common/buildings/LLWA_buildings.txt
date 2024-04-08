@@ -118,3 +118,87 @@ LLWA_building_airway = {
         NOT = { is_under_construction = yes }
     }
 }
+
+# ==================================================================================================================== #
+
+LLWA_building_freight_depot = {
+    building_group = bg_private_infrastructure
+    texture = "gfx/interface/icons/building_icons/LLWA_freight_depot.dds"
+    
+    unlocking_technologies = {
+        urbanization
+    }
+
+    production_method_groups = {
+        LLWA_pmg_road_base
+        LLWA_pmg_road_traffic
+        LLWA_pmg_road_ownership
+        LLWA_pmg_private_expansion
+    }
+
+    required_construction = construction_cost_high
+    
+    # ai_value = 1000
+    
+    can_build = {
+        LLWA_st_MAPI_building_allowed = yes
+    }
+    
+    should_auto_expand = { # Requires higher reserves ratio + transportation price to discourage road expansion
+        occupancy >= 0.8
+        OR = {
+            cash_reserves_ratio > 0.8
+            is_subsidized = yes
+        }
+        OR = {
+            state = {
+                sg:transportation = { 
+                    state_goods_pricier > 0.75
+                }
+            }
+            state.market_access < 1
+        }
+        NOT = { is_under_construction = yes }
+    }
+}
+
+LLWA_building_exchange = {
+    building_group = bg_private_infrastructure
+    texture = "gfx/interface/icons/building_icons/LLWA_exchange.dds"
+    
+    unlocking_technologies = {
+        stock_exchange
+    }
+
+    production_method_groups = {
+        LLWA_pmg_road_base
+        LLWA_pmg_road_traffic
+        LLWA_pmg_road_ownership
+        LLWA_pmg_private_expansion
+    }
+
+    required_construction = construction_cost_high
+    
+    # ai_value = 1000 # Roads are nice, but don't prioritize; 1000 is default weight as of 1.4
+    
+    can_build = {
+        LLWA_st_MAPI_building_allowed = yes
+    }
+    
+    should_auto_expand = { # Requires higher reserves ratio + transportation price to discourage road expansion
+        occupancy >= 0.8
+        OR = {
+            cash_reserves_ratio > 0.8
+            is_subsidized = yes
+        }
+        OR = {
+            state = {
+                sg:transportation = { 
+                    state_goods_pricier > 0.75
+                }
+            }
+            state.market_access < 1
+        }
+        NOT = { is_under_construction = yes }
+    }
+}

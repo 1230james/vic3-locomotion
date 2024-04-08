@@ -1,4 +1,11 @@
-﻿LLWA_st_can_have_canal = {
+﻿LLWA_st_MAPI_building_allowed = {
+    OR = {
+        has_game_rule = LLWA_grs_mapi_yes
+        has_game_rule = LLWA_grs_bldgs_only
+    }
+}
+
+LLWA_st_can_have_canal = {
     OR = {
         LLWA_st_has_water_source = yes
         AND = {
