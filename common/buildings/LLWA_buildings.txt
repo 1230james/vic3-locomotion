@@ -125,14 +125,15 @@ LLWA_building_freight_depot = {
     building_group = bg_private_infrastructure
     texture = "gfx/interface/icons/building_icons/LLWA_freight_depot.dds"
     
+    has_max_level = yes
+    
     unlocking_technologies = {
         urbanization
     }
 
     production_method_groups = {
-        LLWA_pmg_road_base
-        LLWA_pmg_road_traffic
-        LLWA_pmg_road_ownership
+        LLWA_pmg_shipping_base
+        LLWA_pmg_water_ownership
         LLWA_pmg_private_expansion
     }
 
@@ -165,6 +166,8 @@ LLWA_building_freight_depot = {
 LLWA_building_exchange = {
     building_group = bg_private_infrastructure
     texture = "gfx/interface/icons/building_icons/LLWA_exchange.dds"
+    
+    has_max_level = yes
     
     unlocking_technologies = {
         stock_exchange

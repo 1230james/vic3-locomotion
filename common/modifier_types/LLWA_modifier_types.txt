@@ -27,6 +27,19 @@ goods_output_LLWA_market_conn_mult = {
     num_decimals = 1
 }
 
+# MAPI-related
+state_LLWA_building_freight_depot_max_level_add = {
+    good = yes
+    percent = no
+    num_decimals = 0
+}
+
+state_LLWA_building_exchange_max_level_add = {
+    good = yes
+    percent = no
+    num_decimals = 0
+}
+
 # Water distance tracking
 LLWA_mt_dist_from_water_add = {
     good = yes

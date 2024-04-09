@@ -1,1 +1,6 @@
-﻿LLWA_MAX_DIST_FROM_WATER_SOURCE = 1 # max num of states away from a water source canals are allowed to be
+﻿# All countries will have their MAPI lowered to this at the country level; ideally should be the MAPI from having none
+# of the techs and Traditionalism enacted in vanilla, but can really be anything if need be
+LLWA_BASE_MAPI = 0.60
+
+# Unused
+LLWA_MAX_DIST_FROM_WATER_SOURCE = 1 # max num of states away from a water source canals are allowed to be

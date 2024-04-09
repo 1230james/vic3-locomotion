@@ -96,3 +96,43 @@ on_monthly_pulse_state = {
         LLWA_oa_state_handler
     }
 }
+
+# ==================================================================================================================== #
+
+LLWA_oa_MAPI_law_activated = {
+    trigger = {
+        game_date > 1836.1.1 # prevent unnecessary firing during history execution
+    }
+    effect = {
+        owner = { # actually fires in law scope
+            trigger_event = {
+                id   = LLWA_secret_ev.1
+                days = 1
+            }
+        }
+    }
+}
+
+LLWA_oa_MAPI_tech_researched = {
+    trigger = {
+        game_date > 1836.1.1
+    }
+    effect = {
+        trigger_event = {
+            id   = LLWA_secret_ev.1
+            days = 1
+        }
+    }
+}
+
+on_law_activated = {
+    on_actions = {
+        LLWA_oa_MAPI_law_activated
+    }
+}
+
+on_acquired_technology = {
+    on_actions = {
+        LLWA_oa_MAPI_tech_researched
+    }
+}

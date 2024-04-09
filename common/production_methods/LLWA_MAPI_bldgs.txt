@@ -1,0 +1,101 @@
+﻿# Shipping Lines
+LLWA_pm_spot_shipping = {
+    texture = "gfx/interface/icons/production_method_icons/experimental_trains.dds"
+
+    building_modifiers = {
+        workforce_scaled = {
+            goods_input_transportation_add = 1
+            goods_output_LLWA_market_conn_add = 1
+        }
+        level_scaled = {
+            building_employment_laborers_add    = 2000
+            building_employment_shopkeepers_add = 2000
+        }
+    }
+
+    state_modifiers = {
+        workforce_scaled = {
+            state_market_access_price_impact = 0.0001
+        }
+    }
+}
+
+LLWA_pm_local_charters = {
+    texture = "gfx/interface/icons/production_method_icons/experimental_trains.dds"
+
+    building_modifiers = {
+        workforce_scaled = {
+            goods_output_LLWA_market_conn_add = 10
+        }
+        level_scaled = {
+            building_employment_laborers_add    = 4000
+            building_employment_shopkeepers_add = 500
+        }
+    }
+
+    state_modifiers = {
+        workforce_scaled = {
+            state_market_access_price_impact = .002
+        }
+    }
+}
+
+LLWA_pm_regional_lines = {
+    texture = "gfx/interface/icons/production_method_icons/experimental_trains.dds"
+
+    building_modifiers = {
+        workforce_scaled = {
+            goods_output_LLWA_market_conn_add = 10
+        }
+        level_scaled = {
+            building_employment_laborers_add    = 4000
+            building_employment_shopkeepers_add = 500
+        }
+    }
+
+    state_modifiers = {
+        workforce_scaled = {
+            state_market_access_price_impact = .003
+        }
+    }
+}
+
+LLWA_pm_national_lines = {
+    texture = "gfx/interface/icons/production_method_icons/experimental_trains.dds"
+
+    building_modifiers = {
+        workforce_scaled = {
+            goods_output_LLWA_market_conn_add = 10
+        }
+        level_scaled = {
+            building_employment_laborers_add    = 4000
+            building_employment_shopkeepers_add = 500
+        }
+    }
+
+    state_modifiers = {
+        workforce_scaled = {
+            state_market_access_price_impact = .004
+        }
+    }
+}
+
+# Exchanges
+# 
+# Clearing Houses
+# Tickers
+# Daily listings?
+
+
+# Comms (refinement PMs)
+# None
+# Financial Journals
+# Telegraph Tickers
+# Telephones
+
+
+# Exchange ownership
+# Local Financiers
+# Privately Owned / Publically Traded
+# State Owned
+# Worker Coop?

@@ -32,6 +32,8 @@ LLWA_pmg_air_base = {
     }
 }
 
+# ==================================================================================================================== #
+
 LLWA_pmg_road_traffic = {
     texture      = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
     ai_selection = most_productive
@@ -68,6 +70,22 @@ LLWA_pmg_air_traffic = {
         LLWA_pm_air_travel
     }
 }
+
+# ==================================================================================================================== #
+
+LLWA_pmg_shipping_base = {
+    texture      = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+    ai_selection = most_productive
+    
+    production_methods = {
+        LLWA_pm_spot_shipping
+        LLWA_pm_local_charters
+        LLWA_pm_regional_lines
+        LLWA_pm_national_lines
+    }
+}
+
+# ==================================================================================================================== #
 
 LLWA_pmg_private_expansion = {
     texture = "gfx/interface/icons/generic_icons/LLWA_mixed_icon_orange.dds"

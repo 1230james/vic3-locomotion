@@ -1,4 +1,11 @@
 ﻿GLOBAL = {
+    # MAPI setup
+    every_country = {
+        trigger_event = {
+            id = LLWA_secret_ev.1
+        }
+    }
+    
     # Historical canals
     # Erie Canal
     s:STATE_NEW_YORK = {

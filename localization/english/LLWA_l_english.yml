@@ -75,7 +75,14 @@
     LLWA_pm_yes_private_expansion: "Private Expansion Allowed"
     LLWA_pm_no_private_expansion:  "Government Expansion Only"
     
+    # Goods
+    LLWA_market_conn: "Market Connectivity"
+    
     # Modifiers
+    LLWA_md_mapi_building_lvl: "LLWA: MAPI Buildings Enabled"
+    LLWA_md_mapi_mapi_lvl:     "LLWA: MAPI Rebalance Enabled"
+    
+    # Modifier types
     modifier_goods_input_luxury_furniture_add:      "@luxury_furniture! $luxury_furniture$ input per level"
     modifier_goods_input_luxury_furniture_add_desc: "The amount of @luxury_furniture! $luxury_furniture$ consumed by buildings"
     
