@@ -11,18 +11,6 @@
     }
 }
 
-# LLWA_pmg_rail_base = {
-#     texture      = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
-#     ai_selection = most_productive
-#     
-#     production_methods = {
-#         LLWA_pm_early_trains
-#         LLWA_pm_steam_trains
-#         LLWA_pm_electric_trains
-#         LLWA_pm_diesel_trains
-#     }
-# }
-
 LLWA_pmg_water_base = {
     texture      = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
     ai_selection = most_productive
@@ -57,17 +45,6 @@ LLWA_pmg_road_traffic = {
         LLWA_pm_motor_buses
     }
 }
-
-# LLWA_pmg_rail_traffic = {
-#     texture      = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
-#     ai_selection = most_productive
-#     
-#     production_methods = {
-#         LLWA_pm_no_passenger_trains
-#         LLWA_pm_wooden_passenger_carriages
-#         LLWA_pm_steel_passenger_carriages
-#     }
-# }
 
 LLWA_pmg_water_traffic = {
     texture      = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
