@@ -56,17 +56,37 @@
     LLWA_pm_air_mail:      "Air Mail"
     LLWA_pm_air_travel:    "Passenger Flights"
     
+    # PMs - Shipping Lines & Exchanges
+    LLWA_pm_spot_shipping:     "Spot Shipping" # As in 'one-off and short-term shipping contract'
+    LLWA_pm_transport_lines:   "Transport Lines"
+    LLWA_pm_logistics_company: "Logistics Corporations"
+    
+    LLWA_pm_commidities_listings: "Commodities Listings"
+    LLWA_pm_securities_trading:   "Securities Trading"
+    LLWA_pm_clearing_houses:      "Clearing Houses"
+    
+    LLWA_pm_no_comms:      "No Information Distribution"
+    LLWA_pm_econ_journals: "Economic Journals"
+    LLWA_pm_telegraphs:    "Telegraph Lines"
+    LLWA_pm_telephones:    "Telephone Lines"
+    
     # PMs - Ownership
-    LLWA_pm_road_merchant_guilds:  "$pm_merchant_guilds$"
-    LLWA_pm_water_merchant_guilds: "$pm_merchant_guilds$"
+    LLWA_pm_road_merchant_guilds:     "$pm_merchant_guilds$"
+    LLWA_pm_water_merchant_guilds:    "$pm_merchant_guilds$"
+    LLWA_pm_shipping_merchant_guilds: "$pm_merchant_guilds$"
+    LLWA_pm_exchange_merchant_guilds: "$pm_merchant_guilds$"
     
-    LLWA_pm_privately_owned:       "$pm_privately_owned$"
-    LLWA_pm_road_privately_owned:  "$pm_privately_owned$"
-    LLWA_pm_water_privately_owned: "$pm_privately_owned$"
+    LLWA_pm_privately_owned:          "$pm_privately_owned$"
+    LLWA_pm_road_privately_owned:     "$pm_privately_owned$"
+    LLWA_pm_water_privately_owned:    "$pm_privately_owned$"
+    LLWA_pm_shipping_privately_owned: "$pm_privately_owned$"
+    LLWA_pm_exchange_privately_owned: "$pm_privately_owned$"
     
-    LLWA_pm_publicly_traded:       "$pm_publicly_traded$"
-    LLWA_pm_road_publicly_traded:  "$pm_publicly_traded$"
-    LLWA_pm_water_publicly_traded: "$pm_publicly_traded$"
+    LLWA_pm_publicly_traded:          "$pm_publicly_traded$"
+    LLWA_pm_road_publicly_traded:     "$pm_publicly_traded$"
+    LLWA_pm_water_publicly_traded:    "$pm_publicly_traded$"
+    LLWA_pm_shipping_publicly_traded: "$pm_publicly_traded$"
+    LLWA_pm_exchange_publicly_traded: "$pm_publicly_traded$"
     
     LLWA_pm_government_run: "$pm_government_run$"
     LLWA_pm_worker_coop:    "$pm_worker_cooperative$"

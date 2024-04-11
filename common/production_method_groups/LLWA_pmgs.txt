@@ -79,9 +79,31 @@ LLWA_pmg_shipping_base = {
     
     production_methods = {
         LLWA_pm_spot_shipping
-        LLWA_pm_local_charters
-        LLWA_pm_regional_lines
-        LLWA_pm_national_lines
+        LLWA_pm_transport_lines
+        LLWA_pm_logistics_company
+    }
+}
+
+LLWA_pmg_exchange_base = {
+    texture      = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+    ai_selection = most_productive
+    
+    production_methods = {
+        LLWA_pm_commidities_listings
+        LLWA_pm_securities_trading
+        LLWA_pm_clearing_houses
+    }
+}
+
+LLWA_pmg_mapi_comms = {
+    texture      = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+    ai_selection = most_productive
+    
+    production_methods = {
+        LLWA_pm_no_comms
+        LLWA_pm_econ_journals
+        LLWA_pm_telegraphs
+        LLWA_pm_telephones
     }
 }
 
@@ -126,6 +148,30 @@ LLWA_pmg_air_ownership = {
     production_methods = {
         LLWA_pm_privately_owned
         LLWA_pm_publicly_traded
+        LLWA_pm_government_run
+        LLWA_pm_worker_coop
+    }
+}
+
+LLWA_pmg_shipping_ownership = {
+    texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+    
+    production_methods = {
+        LLWA_pm_shipping_merchant_guilds
+        LLWA_pm_shipping_privately_owned
+        LLWA_pm_shipping_publicly_traded
+        LLWA_pm_government_run
+        LLWA_pm_worker_coop
+    }
+}
+
+LLWA_pmg_exchange_ownership = {
+    texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+    
+    production_methods = {
+        LLWA_pm_exchange_merchant_guilds
+        LLWA_pm_exchange_privately_owned
+        LLWA_pm_exchange_publicly_traded
         LLWA_pm_government_run
         LLWA_pm_worker_coop
     }

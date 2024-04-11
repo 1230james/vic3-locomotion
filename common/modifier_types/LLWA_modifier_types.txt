@@ -4,6 +4,11 @@ goods_input_luxury_furniture_add = {
     percent = no
 }
 
+goods_input_services_add = {
+    good = no
+    percent = no
+}
+
 # Output goods
 goods_input_LLWA_market_conn_add = {
 	good = no
@@ -28,6 +33,12 @@ goods_output_LLWA_market_conn_mult = {
 }
 
 # MAPI-related
+state_market_access_price_impact = { # tweak decimals amount
+    neutral = yes
+    percent = yes
+    num_decimals = 2
+}
+
 state_LLWA_building_freight_depot_max_level_add = {
     good = yes
     percent = no

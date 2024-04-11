@@ -133,7 +133,8 @@ LLWA_building_freight_depot = {
 
     production_method_groups = {
         LLWA_pmg_shipping_base
-        LLWA_pmg_water_ownership
+        LLWA_pmg_mapi_comms
+        LLWA_pmg_shipping_ownership
         LLWA_pmg_private_expansion
     }
 
@@ -141,8 +142,11 @@ LLWA_building_freight_depot = {
     
     # ai_value = 1000
     
-    can_build = {
-        LLWA_st_MAPI_building_allowed = yes
+    possible = {
+        error_check = {
+            severity = invalid
+            LLWA_st_MAPI_building_allowed = yes
+        }
     }
     
     should_auto_expand = { # Requires higher reserves ratio + transportation price to discourage road expansion
@@ -170,13 +174,13 @@ LLWA_building_exchange = {
     has_max_level = yes
     
     unlocking_technologies = {
-        stock_exchange
+        enclosure
     }
 
     production_method_groups = {
-        LLWA_pmg_road_base
-        LLWA_pmg_road_traffic
-        LLWA_pmg_road_ownership
+        LLWA_pmg_exchange_base
+        LLWA_pmg_mapi_comms
+        LLWA_pmg_exchange_ownership
         LLWA_pmg_private_expansion
     }
 
@@ -184,8 +188,11 @@ LLWA_building_exchange = {
     
     # ai_value = 1000 # Roads are nice, but don't prioritize; 1000 is default weight as of 1.4
     
-    can_build = {
-        LLWA_st_MAPI_building_allowed = yes
+    possible = {
+        error_check = {
+            severity = invalid
+            LLWA_st_MAPI_building_allowed = yes
+        }
     }
     
     should_auto_expand = { # Requires higher reserves ratio + transportation price to discourage road expansion

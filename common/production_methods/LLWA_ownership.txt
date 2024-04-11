@@ -35,6 +35,8 @@ LLWA_pm_worker_coop = {
     }
 }
 
+# ==================================================================================================================== #
+
 LLWA_pm_road_merchant_guilds = {
     texture = "gfx/interface/icons/production_method_icons/merchant_guilds.dds"
 
@@ -79,6 +81,52 @@ LLWA_pm_water_merchant_guilds = {
          }
     }
 }
+
+LLWA_pm_shipping_merchant_guilds = {
+    texture = "gfx/interface/icons/production_method_icons/merchant_guilds.dds"
+
+    unlocking_production_methods = {
+        LLWA_pm_spot_shipping
+    }
+
+    disallowing_laws = {
+         law_command_economy
+         law_cooperative_ownership
+    }
+
+    building_modifiers = {
+         level_scaled = {
+              building_employment_shopkeepers_add = 500
+         }
+         unscaled = {
+              building_shopkeepers_shares_add = 10
+         }
+    }
+}
+
+LLWA_pm_exchange_merchant_guilds = {
+    texture = "gfx/interface/icons/production_method_icons/merchant_guilds.dds"
+
+    unlocking_production_methods = {
+        LLWA_pm_commidities_listings
+    }
+
+    disallowing_laws = {
+         law_command_economy
+         law_cooperative_ownership
+    }
+
+    building_modifiers = {
+         level_scaled = {
+              building_employment_shopkeepers_add = 500
+         }
+         unscaled = {
+              building_shopkeepers_shares_add = 10
+         }
+    }
+}
+
+# ==================================================================================================================== #
 
 LLWA_pm_privately_owned = {
     texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
@@ -145,6 +193,54 @@ LLWA_pm_water_privately_owned = {
     }
 }
 
+LLWA_pm_shipping_privately_owned = {
+    texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
+    
+    unlocking_production_methods = {
+        LLWA_pm_transport_lines
+        LLWA_pm_logistics_company
+    }
+    
+    disallowing_laws = {
+        law_command_economy
+        law_cooperative_ownership
+    }
+    
+    building_modifiers = { 
+        level_scaled = {
+            building_employment_capitalists_add = 250
+        }
+        unscaled = {
+            building_capitalists_shares_add = 10
+        }
+    }
+}
+
+LLWA_pm_exchange_privately_owned = {
+    texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
+    
+    unlocking_production_methods = {
+        LLWA_pm_securities_trading
+        LLWA_pm_clearing_houses
+    }
+    
+    disallowing_laws = {
+        law_command_economy
+        law_cooperative_ownership
+    }
+    
+    building_modifiers = { 
+        level_scaled = {
+            building_employment_capitalists_add = 250
+        }
+        unscaled = {
+            building_capitalists_shares_add = 10
+        }
+    }
+}
+
+# ==================================================================================================================== #
+
 LLWA_pm_publicly_traded = {
     texture = "gfx/interface/icons/production_method_icons/publicly_traded.dds"
 
@@ -201,6 +297,60 @@ LLWA_pm_water_publicly_traded = {
     unlocking_production_methods = {
         LLWA_pm_steamboats
         LLWA_pm_motor_vessels
+    }
+
+    disallowing_laws = {
+        law_command_economy
+        law_cooperative_ownership
+    }
+
+    unlocking_technologies = {
+        mutual_funds
+    }
+    
+    building_modifiers = { 
+        level_scaled = {
+            building_employment_capitalists_add = 350
+        }
+        unscaled = {
+            building_capitalists_shares_add = 10
+        }
+    }
+}
+
+LLWA_pm_shipping_publicly_traded = {
+    texture = "gfx/interface/icons/production_method_icons/publicly_traded.dds"
+    
+    unlocking_production_methods = {
+        LLWA_pm_transport_lines
+        LLWA_pm_logistics_company
+    }
+
+    disallowing_laws = {
+        law_command_economy
+        law_cooperative_ownership
+    }
+
+    unlocking_technologies = {
+        mutual_funds
+    }
+    
+    building_modifiers = { 
+        level_scaled = {
+            building_employment_capitalists_add = 350
+        }
+        unscaled = {
+            building_capitalists_shares_add = 10
+        }
+    }
+}
+
+LLWA_pm_exchange_publicly_traded = {
+    texture = "gfx/interface/icons/production_method_icons/publicly_traded.dds"
+    
+    unlocking_production_methods = {
+        LLWA_pm_securities_trading
+        LLWA_pm_clearing_houses
     }
 
     disallowing_laws = {

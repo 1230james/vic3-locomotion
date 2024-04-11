@@ -1,6 +1,6 @@
 ﻿LLWA_market_conn = {
     texture = "gfx/interface/icons/goods_icons/LLWA_market_conn.dds"
-    cost = 200
+    cost = 100
     category = industrial
     tradeable = no
 	fixed_price = yes
