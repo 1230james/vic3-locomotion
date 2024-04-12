@@ -115,8 +115,8 @@
     modifier_goods_input_services_add:      "@services! $services$ input per level"
     modifier_goods_input_services_add_desc: "The amount of @services! $services$ consumed by buildings"
     
-    modifier_goods_output_LLWA_market_conn_add:      "@LLWA_market_conn! $LLWA_market_conn$ input per level"
-    modifier_goods_output_LLWA_market_conn_add_desc: "The amount of @LLWA_market_conn! $LLWA_market_conn$ consumed by buildings"
+    modifier_goods_output_LLWA_market_conn_add:      "@LLWA_market_conn! $LLWA_market_conn$ output per level"
+    modifier_goods_output_LLWA_market_conn_add_desc: "The amount of @LLWA_market_conn! $LLWA_market_conn$ produced by buildings"
     
     modifier_state_LLWA_building_freight_depot_max_level_add:      "$LLWA_building_freight_depot$ Max Level"
     modifier_state_LLWA_building_freight_depot_max_level_add_desc: "A bonus or penalty to the maximum level of $LLWA_building_freight_depot$ buildings."
