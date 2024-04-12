@@ -9,7 +9,7 @@ LLWA_pm_horse_wagons = {
             goods_input_fruit_add  = 3
             goods_input_wood_add   = 5
             goods_input_fabric_add = 5
-            goods_output_transportation_add = 15
+            goods_output_transportation_add = 10
         }
         level_scaled = {
             building_employment_laborers_add    = 3000
@@ -32,7 +32,7 @@ LLWA_pm_hand_carts = {
         workforce_scaled = {
             goods_input_wood_add   = 5
             goods_input_fabric_add = 5
-            goods_output_transportation_add = 10
+            goods_output_transportation_add = 5
         }
         level_scaled = {
             building_employment_laborers_add    = 5000
@@ -56,9 +56,9 @@ LLWA_pm_steam_trucks = {
 
     building_modifiers = {
         workforce_scaled = {
-            goods_input_engines_add = 10
-            goods_input_coal_add    = 5
-            goods_output_transportation_add = 20
+            goods_input_engines_add = 5
+            goods_input_coal_add    = 2
+            goods_output_transportation_add = 10
         }
         level_scaled = {
             building_employment_laborers_add   = 3000
@@ -78,15 +78,17 @@ LLWA_pm_steam_trucks = {
 LLWA_pm_electric_trucks = {
     texture = "gfx/interface/icons/production_method_icons/LLWA_electric_trucks.dds"
     
+    required_input_goods = electricity
+    
     unlocking_technologies = {
         electrical_capacitors
     }
 
     building_modifiers = {
         workforce_scaled = {
-            goods_input_engines_add         = 10
-            goods_input_electricity_add     = 20
-            goods_output_transportation_add = 30
+            goods_input_engines_add         = 2
+            goods_input_electricity_add     = 5
+            goods_output_transportation_add = 20
         }
         level_scaled = {
             building_employment_laborers_add   = 2500
@@ -98,7 +100,6 @@ LLWA_pm_electric_trucks = {
     state_modifiers = {
         workforce_scaled = {
             state_infrastructure_add = 20
-            state_pollution_generation_add = 5
         }
     }
 }
@@ -112,9 +113,9 @@ LLWA_pm_petrol_trucks = {
 
     building_modifiers = {
         workforce_scaled = {
-            goods_input_automobiles_add = 10
-            goods_input_oil_add         = 5
-            goods_output_transportation_add = 40
+            goods_input_automobiles_add = 8
+            goods_input_oil_add         = 4
+            goods_output_transportation_add = 30
         }
         level_scaled = {
             building_employment_laborers_add   = 2000
@@ -126,7 +127,7 @@ LLWA_pm_petrol_trucks = {
     state_modifiers = {
         workforce_scaled = {
             state_infrastructure_add = 25
-            state_pollution_generation_add = 10
+            state_pollution_generation_add = 7
         }
     }
 }
@@ -145,9 +146,9 @@ LLWA_pm_rickshaws = {
 
     building_modifiers = {
         workforce_scaled = {
-            goods_input_wood_add   = 5
-            goods_input_fabric_add = 5
-            goods_output_transportation_add = 10
+            goods_input_wood_add   = 2
+            goods_input_fabric_add = 2
+            goods_output_transportation_add = 5
         }
         level_scaled = {
             building_employment_shopkeepers_add = 100
@@ -164,9 +165,9 @@ LLWA_pm_stagecoaches = {
 
     building_modifiers = {
         workforce_scaled = {
-            goods_input_wood_add   = 5
-            goods_input_fabric_add = 5
-            goods_output_transportation_add = 10
+            goods_input_wood_add   = 2
+            goods_input_fabric_add = 2
+            goods_output_transportation_add = 5
         }
         level_scaled = {
             building_employment_shopkeepers_add = 100
@@ -189,9 +190,9 @@ LLWA_pm_steam_buses = {
 
     building_modifiers = {
         workforce_scaled = {
-            goods_input_engines_add = 5
-            goods_input_coal_add    = 2
-            goods_output_transportation_add = 10
+            goods_input_engines_add = 2
+            goods_input_coal_add    = 1
+            goods_output_transportation_add = 5
         }
         level_scaled = {
             building_employment_machinists_add = 100
@@ -209,6 +210,8 @@ LLWA_pm_steam_buses = {
 LLWA_pm_electric_buses = {
     texture = "gfx/interface/icons/production_method_icons/LLWA_electric_buses.dds"
     
+    required_input_goods = electricity
+    
     unlocking_production_methods = {
         LLWA_pm_steam_trucks
         LLWA_pm_electric_trucks
@@ -221,19 +224,13 @@ LLWA_pm_electric_buses = {
 
     building_modifiers = {
         workforce_scaled = {
-            goods_input_engines_add         = 5
-            goods_input_electricity_add     = 10
-            goods_output_transportation_add = 15
+            goods_input_engines_add         = 1
+            goods_input_electricity_add     = 2
+            goods_output_transportation_add = 10
         }
         level_scaled = {
             building_employment_machinists_add = 175
             building_employment_clerks_add     = 175
-        }
-    }
-    
-    state_modifiers = {
-        workforce_scaled = {
-            state_pollution_generation_add = 5
         }
     }
 }
@@ -253,9 +250,9 @@ LLWA_pm_motor_buses = {
 
     building_modifiers = {
         workforce_scaled = {
-            goods_input_automobiles_add = 5
+            goods_input_automobiles_add = 4
             goods_input_oil_add         = 2
-            goods_output_transportation_add = 20
+            goods_output_transportation_add = 15
         }
         level_scaled = {
             building_employment_machinists_add = 250
@@ -265,7 +262,7 @@ LLWA_pm_motor_buses = {
     
     state_modifiers = {
         workforce_scaled = {
-            state_pollution_generation_add = 10
+            state_pollution_generation_add = 7
         }
     }
 }
