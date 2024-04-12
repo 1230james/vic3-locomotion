@@ -1,4 +1,15 @@
 ﻿GLOBAL = {
+    # MAPI setup
+    every_country = {
+        trigger_event = {
+            id = LLWA_secret_ev.1
+        }
+        trigger_event = {
+            id   = LLWA_secret_ev.2
+            days = 1
+        }
+    }
+    
     # Historical canals
     # Erie Canal
     s:STATE_NEW_YORK = {
@@ -439,6 +450,91 @@
                 activate_production_methods = {
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    
+    # Create primer Shipping Lines in any state with a railway or canal
+    every_state = {
+        limit = {
+            OR = {
+                has_building = building_railway
+                has_building = LLWA_building_waterway
+            }
+        }
+        if = {
+            limit = {
+                owner ?= {
+                    has_technology_researched = international_trade
+                    has_technology_researched = mass_communication
+                }
+            }
+            create_building = {
+                building   = LLWA_building_freight_depot
+                subsidized = no
+                reserves   = 1
+                level      = 1
+                activate_production_methods = {
+                    LLWA_pm_transport_lines
+                    LLWA_pm_econ_journals
+                }
+            }
+        }
+        else = {
+            create_building = {
+                building   = LLWA_building_freight_depot
+                subsidized = no
+                reserves   = 1
+                level      = 1
+            }
+        }
+    }
+    
+    # Historical stock exchanges
+    # Amsterdam Stock Exchange
+    s:STATE_HOLLAND = {
+        region_state:NET = {
+            create_building = {
+                building   = LLWA_building_exchange
+                subsidized = no
+                level      = 1
+                reserves   = 1
+                activate_production_methods = {
+                    LLWA_pm_securities_trading
+                    LLWA_pm_econ_journals
+                }
+            }
+        }
+    }
+    
+    # London Stock Exchange
+    s:STATE_HOME_COUNTIES = {
+        region_state:GBR = {
+            create_building = {
+                building   = LLWA_building_exchange
+                subsidized = no
+                level      = 1
+                reserves   = 1
+                activate_production_methods = {
+                    LLWA_pm_securities_trading
+                    LLWA_pm_econ_journals
+                }
+            }
+        }
+    }
+    
+    # New York Stock Exchange
+    s:STATE_NEW_YORK = {
+        region_state:USA = {
+            create_building = {
+                building   = LLWA_building_exchange
+                subsidized = no
+                level      = 1
+                reserves   = 1
+                activate_production_methods = {
+                    LLWA_pm_securities_trading
+                    LLWA_pm_econ_journals
                 }
             }
         }

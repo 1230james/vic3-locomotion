@@ -1,4 +1,16 @@
-﻿# Water distance tracking
+﻿LLWA_md_mapi_building_lvl = {
+    icon = gfx/interface/icons/timed_modifier_icons/LLWA_market_conn.dds
+    state_LLWA_building_freight_depot_max_level_add = 20
+    state_LLWA_building_exchange_max_level_add      = 20
+}
+
+LLWA_md_mapi_mapi_lvl = { # yo dawg i heard you liked mapi...
+    icon = gfx/interface/icons/timed_modifier_icons/LLWA_market_conn.dds
+    state_market_access_price_impact = 1
+}
+
+# Unused
+# Water distance tracking
 LLWA_md_dist_from_water = {
     icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
     LLWA_mt_dist_from_water_add = 1 # Who needs variables anyway :clueless: (buildings don't accept variables)

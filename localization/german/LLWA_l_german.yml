@@ -4,20 +4,29 @@
     LLWA_building_waterway: "Wasserstraße"
     LLWA_building_airway:   "Flughafen"
     
+    LLWA_building_freight_depot: "Schifffahrtsgesellschaften"
+    LLWA_building_exchange:      "Börsen"
+    
     # PMGs
-    LLWA_pmg_road_base:  "$pm_base$"
-    LLWA_pmg_rail_base:  "$pm_base$"
-    LLWA_pmg_water_base: "$pm_base$"
-    LLWA_pmg_air_base:   "$pm_base$"
+    LLWA_pmg_road_base:     "$pm_base$"
+    LLWA_pmg_rail_base:     "$pm_base$"
+    LLWA_pmg_water_base:    "$pm_base$"
+    LLWA_pmg_air_base:      "$pm_base$"
+    LLWA_pmg_shipping_base: "$pm_base$"
+    LLWA_pmg_exchange_base: "$pm_base$"
     
     LLWA_pmg_road_traffic:  "Passagierbusse"
     LLWA_pmg_rail_traffic:  "$pmg_passenger_trains$"
     LLWA_pmg_water_traffic: "Passagierschiffe"
     LLWA_pmg_air_traffic:   "Lufttransportfokus"
     
-    LLWA_pmg_road_ownership:  "$pmg_ownership$"
-    LLWA_pmg_water_ownership: "$pmg_ownership$"
-    LLWA_pmg_air_ownership:   "$pmg_ownership$"
+    LLWA_pmg_mapi_comms: "Verteilung von Informationen"
+    
+    LLWA_pmg_road_ownership:     "$pmg_ownership$"
+    LLWA_pmg_water_ownership:    "$pmg_ownership$"
+    LLWA_pmg_air_ownership:      "$pmg_ownership$"
+    LLWA_pmg_shipping_ownership: "$pmg_ownership$"
+    LLWA_pmg_exchange_ownership: "$pmg_ownership$"
     
     LLWA_pmg_private_expansion: "Privaterweiterung"
     
@@ -53,17 +62,37 @@
     LLWA_pm_air_mail:      "Luftpost"
     LLWA_pm_air_travel:    "Passagierflüge"
     
+    # PMs - Shipping Lines & Exchanges
+    LLWA_pm_spot_shipping:     "Spotversand" # As in 'one-off and short-term shipping contract'
+    LLWA_pm_transport_lines:   "Reedereien"
+    LLWA_pm_logistics_company: "Logistikunternehmen"
+    
+    LLWA_pm_commidities_listings: "Warenpreisenlisten"
+    LLWA_pm_securities_trading:   "Wertpapierhandel"
+    LLWA_pm_clearing_houses:      "Clearinghäuser"
+    
+    LLWA_pm_no_comms:      "Keine verteilung von Informationen"
+    LLWA_pm_econ_journals: "Wirtschaftsmagazine"
+    LLWA_pm_telegraphs:    "Telegrafenleitungen"
+    LLWA_pm_telephones:    "Telefonleitungen"
+    
     # PMs - Ownership
-    LLWA_pm_road_merchant_guilds:  "$pm_merchant_guilds$"
-    LLWA_pm_water_merchant_guilds: "$pm_merchant_guilds$"
+    LLWA_pm_road_merchant_guilds:     "$pm_merchant_guilds$"
+    LLWA_pm_water_merchant_guilds:    "$pm_merchant_guilds$"
+    LLWA_pm_shipping_merchant_guilds: "$pm_merchant_guilds$"
+    LLWA_pm_exchange_merchant_guilds: "$pm_merchant_guilds$"
     
-    LLWA_pm_privately_owned:       "$pm_privately_owned$"
-    LLWA_pm_road_privately_owned:  "$pm_privately_owned$"
-    LLWA_pm_water_privately_owned: "$pm_privately_owned$"
+    LLWA_pm_privately_owned:          "$pm_privately_owned$"
+    LLWA_pm_road_privately_owned:     "$pm_privately_owned$"
+    LLWA_pm_water_privately_owned:    "$pm_privately_owned$"
+    LLWA_pm_shipping_privately_owned: "$pm_privately_owned$"
+    LLWA_pm_exchange_privately_owned: "$pm_privately_owned$"
     
-    LLWA_pm_publicly_traded:       "$pm_publicly_traded$"
-    LLWA_pm_road_publicly_traded:  "$pm_publicly_traded$"
-    LLWA_pm_water_publicly_traded: "$pm_publicly_traded$"
+    LLWA_pm_publicly_traded:          "$pm_publicly_traded$"
+    LLWA_pm_road_publicly_traded:     "$pm_publicly_traded$"
+    LLWA_pm_water_publicly_traded:    "$pm_publicly_traded$"
+    LLWA_pm_shipping_publicly_traded: "$pm_publicly_traded$"
+    LLWA_pm_exchange_publicly_traded: "$pm_publicly_traded$"
     
     LLWA_pm_government_run: "$pm_government_run$"
     LLWA_pm_worker_coop:    "$pm_worker_cooperative$"
@@ -72,9 +101,40 @@
     LLWA_pm_yes_private_expansion: "Privaterweiterung erlaubt"
     LLWA_pm_no_private_expansion:  "Nur Staatserweiterung"
     
+    # Goods
+    LLWA_market_conn: "Marktkonnektivität"
+    
     # Modifiers
+    LLWA_md_mapi_building_lvl: "LLWA: MP-Gebäuden aktiviert"
+    LLWA_md_mapi_mapi_lvl:     "LLWA: MP-Änderung aktiviert"
+    
+    # Modifier types
     modifier_goods_input_luxury_furniture_add:      "@luxury_furniture! Luxusmöbel-Zufuhr pro Stufe"
     modifier_goods_input_luxury_furniture_add_desc: "Die Menge an @luxury_furniture! Luxusmöbel, die das Gebäude verbraucht."
+    
+    modifier_goods_input_services_add:      "@services! $services$-Zufuhr pro Stufe"
+    modifier_goods_input_services_add_desc: "Die Menge an @services! $services$, die das Gebäude verbraucht."
+    
+    modifier_goods_output_LLWA_market_conn_add:      "@LLWA_market_conn! $LLWA_market_conn$-Ausstoß pro Stufe"
+    modifier_goods_output_LLWA_market_conn_add_desc: "Die Menge an @LLWA_market_conn! $LLWA_market_conn$, die das Gebäude produziert."
+    
+    modifier_state_LLWA_building_freight_depot_max_level_add:      "$LLWA_building_freight_depot$-Maximalstufe"
+    modifier_state_LLWA_building_freight_depot_max_level_add_desc: "Ein Bonus oder Abzug auf die maximale Stufe von $LLWA_building_freight_depot$-Gebäuden."
+    
+    modifier_state_LLWA_building_exchange_max_level_add:      "$LLWA_building_exchange$-Maximalstufe"
+    modifier_state_LLWA_building_exchange_max_level_add_desc: "Ein Bonus oder Abzug auf die maximale Stufe von $LLWA_building_exchange$-Gebäuden."
+    
+    # Game Rules
+    rule_LLWA_gr_mapi_mode: "#yellow LLWA#! | MP-Änderungfunktionen"
+    
+    setting_LLWA_grs_mapi_no:      "#n Deaktiviert#!"
+    setting_LLWA_grs_mapi_no_desc: "#yellow $modifier_state_market_access_price_impact$#! #n will not#! be adjusted by LLWA. Use this option if you have a different MAPI mod or if you prefer the vanilla implementation."
+    
+    setting_LLWA_grs_mapi_yes:      "#p Aktiviert#!"
+    setting_LLWA_grs_mapi_yes_desc: "#yellow $modifier_state_market_access_price_impact$#! #p will#! be adjusted by LLWA. Everyone will have the same baseline MAPI of [GetPlayer.MakeScope.ScriptValue('LLWA_BASE_MAPI')|v0%] and will need to raise it exclusively through constructing #yellow $LLWA_building_freight_depot$#! and #yellow $LLWA_building_exchange$#!."
+    
+    setting_LLWA_grs_bldgs_only:      "#bold;blue Nur Gebäuden#!"
+    setting_LLWA_grs_bldgs_only_desc: "#yellow $modifier_state_market_access_price_impact$#! #n will not#! be adjusted by LLWA, but #yellow $LLWA_building_freight_depot$#! and #yellow $LLWA_building_exchange$#! #p will#! still be available for construction. #n Not recommended for use if you do not have a mod overhauling MAPI.#!"
     
     # Unused strings - defined as empty to silence errors
     LLWA_md_dist_from_water:   ""
