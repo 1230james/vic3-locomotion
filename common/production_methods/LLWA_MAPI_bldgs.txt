@@ -10,7 +10,7 @@
 
 # Shipping Lines
 LLWA_pm_spot_shipping = {
-    texture = "gfx/interface/icons/production_method_icons/experimental_trains.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWA_spot_shipping.dds"
 
     building_modifiers = {
         workforce_scaled = {
@@ -31,7 +31,7 @@ LLWA_pm_spot_shipping = {
 }
 
 LLWA_pm_transport_lines = {
-    texture = "gfx/interface/icons/production_method_icons/experimental_trains.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWA_shipping_lines.dds"
     
     unlocking_technologies = {
         international_trade
@@ -56,7 +56,7 @@ LLWA_pm_transport_lines = {
 }
 
 LLWA_pm_logistics_company = {
-    texture = "gfx/interface/icons/production_method_icons/experimental_trains.dds"
+    texture = "gfx/interface/icons/production_method_icons/unused/financial_district.dds"
     
     unlocking_technologies = {
         central_planning
@@ -82,7 +82,7 @@ LLWA_pm_logistics_company = {
 
 # Exchanges
 LLWA_pm_commidities_listings = {
-    texture = "gfx/interface/icons/production_method_icons/experimental_trains.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWA_commodities.dds"
 
     building_modifiers = {
         workforce_scaled = {
@@ -103,7 +103,7 @@ LLWA_pm_commidities_listings = {
 }
 
 LLWA_pm_securities_trading = {
-    texture = "gfx/interface/icons/production_method_icons/experimental_trains.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWA_stocks.dds"
     
     unlocking_technologies = {
         stock_exchange
@@ -128,7 +128,7 @@ LLWA_pm_securities_trading = {
 }
 
 LLWA_pm_clearing_houses = {
-    texture = "gfx/interface/icons/production_method_icons/experimental_trains.dds"
+    texture = "gfx/interface/icons/production_method_icons/unused/stock_exchange.dds"
     
     unlocking_technologies = {
         investment_banks
@@ -154,11 +154,11 @@ LLWA_pm_clearing_houses = {
 
 # Comms (refinement PMs)
 LLWA_pm_no_comms = {
-    texture = "gfx/interface/icons/production_method_icons/LLWA_no_air_travel.dds"
+    texture = "gfx/interface/icons/production_method_icons/unused/no_telephones.dds"
 }
 
 LLWA_pm_econ_journals = {
-    texture = "gfx/interface/icons/production_method_icons/LLWA_air_mail.dds"
+    texture = "gfx/interface/icons/production_method_icons/unused/newspapers.dds"
     
     unlocking_technologies = {
         mass_communication
@@ -184,7 +184,7 @@ LLWA_pm_econ_journals = {
 }
 
 LLWA_pm_telegraphs = {
-    texture = "gfx/interface/icons/production_method_icons/LLWA_air_mail.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWA_telegraphs.dds"
     
     unlocking_technologies = {
         electric_telegraph
@@ -212,7 +212,7 @@ LLWA_pm_telegraphs = {
 }
 
 LLWA_pm_telephones = {
-    texture = "gfx/interface/icons/production_method_icons/LLWA_air_mail.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWA_telephones.dds"
     
     unlocking_technologies = {
         telephone

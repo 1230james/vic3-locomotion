@@ -8,19 +8,25 @@
     LLWA_building_exchange:      "Financial Exchanges"
     
     # PMGs
-    LLWA_pmg_road_base:  "$pm_base$"
-    LLWA_pmg_rail_base:  "$pm_base$"
-    LLWA_pmg_water_base: "$pm_base$"
-    LLWA_pmg_air_base:   "$pm_base$"
+    LLWA_pmg_road_base:     "$pm_base$"
+    LLWA_pmg_rail_base:     "$pm_base$"
+    LLWA_pmg_water_base:    "$pm_base$"
+    LLWA_pmg_air_base:      "$pm_base$"
+    LLWA_pmg_shipping_base: "$pm_base$"
+    LLWA_pmg_exchange_base: "$pm_base$"
     
     LLWA_pmg_road_traffic:  "Passenger Buses"
     LLWA_pmg_rail_traffic:  "$pmg_passenger_trains$"
     LLWA_pmg_water_traffic: "Passenger Vessels"
     LLWA_pmg_air_traffic:   "Airline Focus"
     
-    LLWA_pmg_road_ownership:  "$pmg_ownership$"
-    LLWA_pmg_water_ownership: "$pmg_ownership$"
-    LLWA_pmg_air_ownership:   "$pmg_ownership$"
+    LLWA_pmg_mapi_comms: "Information Distribution"
+    
+    LLWA_pmg_road_ownership:     "$pmg_ownership$"
+    LLWA_pmg_water_ownership:    "$pmg_ownership$"
+    LLWA_pmg_air_ownership:      "$pmg_ownership$"
+    LLWA_pmg_shipping_ownership: "$pmg_ownership$"
+    LLWA_pmg_exchange_ownership: "$pmg_ownership$"
     
     LLWA_pmg_private_expansion: "Private Expansion"
     
@@ -105,6 +111,30 @@
     # Modifier types
     modifier_goods_input_luxury_furniture_add:      "@luxury_furniture! $luxury_furniture$ input per level"
     modifier_goods_input_luxury_furniture_add_desc: "The amount of @luxury_furniture! $luxury_furniture$ consumed by buildings"
+    
+    modifier_goods_input_services_add:      "@services! $services$ input per level"
+    modifier_goods_input_services_add_desc: "The amount of @services! $services$ consumed by buildings"
+    
+    modifier_goods_output_LLWA_market_conn_add:      "@LLWA_market_conn! $LLWA_market_conn$ input per level"
+    modifier_goods_output_LLWA_market_conn_add_desc: "The amount of @LLWA_market_conn! $LLWA_market_conn$ consumed by buildings"
+    
+    modifier_state_LLWA_building_freight_depot_max_level_add:      "$LLWA_building_freight_depot$ Max Level"
+    modifier_state_LLWA_building_freight_depot_max_level_add_desc: "A bonus or penalty to the maximum level of $LLWA_building_freight_depot$ buildings."
+    
+    modifier_state_LLWA_building_exchange_max_level_add:      "$LLWA_building_exchange$ Max Level"
+    modifier_state_LLWA_building_exchange_max_level_add_desc: "A bonus or penalty to the maximum level of $LLWA_building_exchange$ buildings."
+    
+    # Game Rules
+    rule_LLWA_gr_mapi_mode: "#yellow LLWA#! | MAPI Rebalancing Features"
+    
+    setting_LLWA_grs_mapi_no:      "#n Disabled#!"
+    setting_LLWA_grs_mapi_no_desc: "#yellow $modifier_state_market_access_price_impact$#! #n will not#! be adjusted by LLWA. Use this option if you have a different MAPI mod or if you prefer the vanilla implementation."
+    
+    setting_LLWA_grs_mapi_yes:      "#p Enabled#!"
+    setting_LLWA_grs_mapi_yes_desc: "#yellow $modifier_state_market_access_price_impact$#! #p will#! be adjusted by LLWA. Everyone will have the same baseline MAPI of [GetPlayer.MakeScope.ScriptValue('LLWA_BASE_MAPI')|v0%] and will need to raise it exclusively through constructing #yellow $LLWA_building_freight_depot$#! and #yellow $LLWA_building_exchange$#!."
+    
+    setting_LLWA_grs_bldgs_only:      "#bold;blue Buildings Only#!"
+    setting_LLWA_grs_bldgs_only_desc: "#yellow $modifier_state_market_access_price_impact$#! #n will not#! be adjusted by LLWA, but #yellow $LLWA_building_freight_depot$#! and #yellow $LLWA_building_exchange$#! #p will#! still be available for construction. #n Not recommended for use if you do not have a mod overhauling MAPI.#!"
     
     # Unused strings - defined as empty to silence errors
     LLWA_md_dist_from_water:   ""

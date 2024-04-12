@@ -10,32 +10,16 @@ goods_input_services_add = {
 }
 
 # Output goods
-goods_input_LLWA_market_conn_add = {
-	good = no
-	percent = no
-}
-
 goods_output_LLWA_market_conn_add = {
 	good = yes
 	percent = no
 }
 
-goods_input_LLWA_market_conn_mult = {
-	good = no
-	percent = yes
-    num_decimals = 1
-}
-
-goods_output_LLWA_market_conn_mult = {
-	good = yes
-	percent = yes
-    num_decimals = 1
-}
-
 # MAPI-related
-state_market_access_price_impact = { # tweak decimals amount
+state_market_access_price_impact = { # tweak decimals amount & ai value
     neutral = yes
     percent = yes
+    ai_value = 100000
     num_decimals = 2
 }
 

@@ -135,12 +135,11 @@ LLWA_building_freight_depot = {
         LLWA_pmg_shipping_base
         LLWA_pmg_mapi_comms
         LLWA_pmg_shipping_ownership
-        LLWA_pmg_private_expansion
     }
 
     required_construction = construction_cost_high
     
-    # ai_value = 1000
+    ai_value = 5000
     
     possible = {
         error_check = {
@@ -149,21 +148,63 @@ LLWA_building_freight_depot = {
         }
     }
     
-    should_auto_expand = { # Requires higher reserves ratio + transportation price to discourage road expansion
+    should_auto_expand = {
         occupancy >= 0.8
+        NOT = { is_under_construction = yes }
         OR = {
-            cash_reserves_ratio > 0.8
+            cash_reserves_ratio > 0.5
             is_subsidized = yes
         }
-        OR = {
+        state = {
+            sg:transportation = { 
+                state_goods_cheaper > 0.1
+            }
+        }
+        trigger_if = {
+            limit = {
+                has_active_production_method = LLWA_pm_econ_journals
+            }
             state = {
-                sg:transportation = { 
-                    state_goods_pricier > 0.75
+                sg:paper = { 
+                    state_goods_cheaper > 0.1
+                }
+                sg:services = { 
+                    state_goods_cheaper > 0.1
                 }
             }
-            state.market_access < 1
         }
-        NOT = { is_under_construction = yes }
+        trigger_else_if = {
+            limit = {
+                has_active_production_method = LLWA_pm_telegraphs
+            }
+            state = {
+                sg:iron = { 
+                    state_goods_cheaper > 0.1
+                }
+                sg:paper = { 
+                    state_goods_cheaper > 0.1
+                }
+                sg:services = { 
+                    state_goods_cheaper > 0.1
+                }
+            }
+        }
+        trigger_else_if = {
+            limit = {
+                has_active_production_method = LLWA_pm_telephones
+            }
+            state = {
+                sg:telephones = { 
+                    state_goods_cheaper > 0.1
+                }
+                sg:electricity = { 
+                    state_goods_cheaper > 0.1
+                }
+                sg:services = { 
+                    state_goods_cheaper > 0.1
+                }
+            }
+        }
     }
 }
 
@@ -181,12 +222,11 @@ LLWA_building_exchange = {
         LLWA_pmg_exchange_base
         LLWA_pmg_mapi_comms
         LLWA_pmg_exchange_ownership
-        LLWA_pmg_private_expansion
     }
 
     required_construction = construction_cost_high
     
-    # ai_value = 1000 # Roads are nice, but don't prioritize; 1000 is default weight as of 1.4
+    ai_value = 5000
     
     possible = {
         error_check = {
@@ -195,20 +235,62 @@ LLWA_building_exchange = {
         }
     }
     
-    should_auto_expand = { # Requires higher reserves ratio + transportation price to discourage road expansion
+    should_auto_expand = {
         occupancy >= 0.8
+        NOT = { is_under_construction = yes }
         OR = {
-            cash_reserves_ratio > 0.8
+            cash_reserves_ratio > 0.5
             is_subsidized = yes
         }
-        OR = {
+        state = {
+            sg:services = { 
+                state_goods_cheaper > 0.1
+            }
+        }
+        trigger_if = {
+            limit = {
+                has_active_production_method = LLWA_pm_econ_journals
+            }
             state = {
-                sg:transportation = { 
-                    state_goods_pricier > 0.75
+                sg:paper = { 
+                    state_goods_cheaper > 0.1
+                }
+                sg:services = { 
+                    state_goods_cheaper > 0.1
                 }
             }
-            state.market_access < 1
         }
-        NOT = { is_under_construction = yes }
+        trigger_else_if = {
+            limit = {
+                has_active_production_method = LLWA_pm_telegraphs
+            }
+            state = {
+                sg:iron = { 
+                    state_goods_cheaper > 0.1
+                }
+                sg:paper = { 
+                    state_goods_cheaper > 0.1
+                }
+                sg:services = { 
+                    state_goods_cheaper > 0.1
+                }
+            }
+        }
+        trigger_else_if = {
+            limit = {
+                has_active_production_method = LLWA_pm_telephones
+            }
+            state = {
+                sg:telephones = { 
+                    state_goods_cheaper > 0.1
+                }
+                sg:electricity = { 
+                    state_goods_cheaper > 0.1
+                }
+                sg:services = { 
+                    state_goods_cheaper > 0.1
+                }
+            }
+        }
     }
 }
