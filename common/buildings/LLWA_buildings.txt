@@ -135,6 +135,7 @@ LLWA_building_freight_depot = {
         LLWA_pmg_shipping_base
         LLWA_pmg_mapi_comms
         LLWA_pmg_shipping_ownership
+        LLWA_pmg_private_expansion
     }
 
     required_construction = construction_cost_high
@@ -222,6 +223,7 @@ LLWA_building_exchange = {
         LLWA_pmg_exchange_base
         LLWA_pmg_mapi_comms
         LLWA_pmg_exchange_ownership
+        LLWA_pmg_private_expansion
     }
 
     required_construction = construction_cost_high

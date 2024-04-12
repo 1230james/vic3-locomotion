@@ -472,7 +472,7 @@
             }
             create_building = {
                 building   = LLWA_building_freight_depot
-                subsidized = yes
+                subsidized = no
                 reserves   = 1
                 level      = 1
                 activate_production_methods = {
@@ -484,7 +484,7 @@
         else = {
             create_building = {
                 building   = LLWA_building_freight_depot
-                subsidized = yes
+                subsidized = no
                 reserves   = 1
                 level      = 1
             }
@@ -496,9 +496,10 @@
     s:STATE_HOLLAND = {
         region_state:NET = {
             create_building = {
-                building = LLWA_building_exchange
-                level    = 1
-                reserves = 1
+                building   = LLWA_building_exchange
+                subsidized = no
+                level      = 1
+                reserves   = 1
                 activate_production_methods = {
                     LLWA_pm_securities_trading
                     LLWA_pm_econ_journals
@@ -511,9 +512,10 @@
     s:STATE_HOME_COUNTIES = {
         region_state:GBR = {
             create_building = {
-                building = LLWA_building_exchange
-                level    = 1
-                reserves = 1
+                building   = LLWA_building_exchange
+                subsidized = no
+                level      = 1
+                reserves   = 1
                 activate_production_methods = {
                     LLWA_pm_securities_trading
                     LLWA_pm_econ_journals
@@ -526,9 +528,10 @@
     s:STATE_NEW_YORK = {
         region_state:USA = {
             create_building = {
-                building = LLWA_building_exchange
-                level    = 1
-                reserves = 1
+                building   = LLWA_building_exchange
+                subsidized = no
+                level      = 1
+                reserves   = 1
                 activate_production_methods = {
                     LLWA_pm_securities_trading
                     LLWA_pm_econ_journals
