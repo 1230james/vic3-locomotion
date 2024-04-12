@@ -118,3 +118,179 @@ LLWA_building_airway = {
         NOT = { is_under_construction = yes }
     }
 }
+
+# ==================================================================================================================== #
+
+LLWA_building_freight_depot = {
+    building_group = bg_private_infrastructure
+    texture = "gfx/interface/icons/building_icons/LLWA_freight_depot.dds"
+    
+    has_max_level = yes
+    
+    unlocking_technologies = {
+        urbanization
+    }
+
+    production_method_groups = {
+        LLWA_pmg_shipping_base
+        LLWA_pmg_mapi_comms
+        LLWA_pmg_shipping_ownership
+    }
+
+    required_construction = construction_cost_high
+    
+    ai_value = 5000
+    
+    possible = {
+        error_check = {
+            severity = invalid
+            LLWA_st_MAPI_building_allowed = yes
+        }
+    }
+    
+    should_auto_expand = {
+        occupancy >= 0.8
+        NOT = { is_under_construction = yes }
+        OR = {
+            cash_reserves_ratio > 0.5
+            is_subsidized = yes
+        }
+        state = {
+            sg:transportation = { 
+                state_goods_cheaper > 0.1
+            }
+        }
+        trigger_if = {
+            limit = {
+                has_active_production_method = LLWA_pm_econ_journals
+            }
+            state = {
+                sg:paper = { 
+                    state_goods_cheaper > 0.1
+                }
+                sg:services = { 
+                    state_goods_cheaper > 0.1
+                }
+            }
+        }
+        trigger_else_if = {
+            limit = {
+                has_active_production_method = LLWA_pm_telegraphs
+            }
+            state = {
+                sg:iron = { 
+                    state_goods_cheaper > 0.1
+                }
+                sg:paper = { 
+                    state_goods_cheaper > 0.1
+                }
+                sg:services = { 
+                    state_goods_cheaper > 0.1
+                }
+            }
+        }
+        trigger_else_if = {
+            limit = {
+                has_active_production_method = LLWA_pm_telephones
+            }
+            state = {
+                sg:telephones = { 
+                    state_goods_cheaper > 0.1
+                }
+                sg:electricity = { 
+                    state_goods_cheaper > 0.1
+                }
+                sg:services = { 
+                    state_goods_cheaper > 0.1
+                }
+            }
+        }
+    }
+}
+
+LLWA_building_exchange = {
+    building_group = bg_private_infrastructure
+    texture = "gfx/interface/icons/building_icons/LLWA_exchange.dds"
+    
+    has_max_level = yes
+    
+    unlocking_technologies = {
+        enclosure
+    }
+
+    production_method_groups = {
+        LLWA_pmg_exchange_base
+        LLWA_pmg_mapi_comms
+        LLWA_pmg_exchange_ownership
+    }
+
+    required_construction = construction_cost_high
+    
+    ai_value = 5000
+    
+    possible = {
+        error_check = {
+            severity = invalid
+            LLWA_st_MAPI_building_allowed = yes
+        }
+    }
+    
+    should_auto_expand = {
+        occupancy >= 0.8
+        NOT = { is_under_construction = yes }
+        OR = {
+            cash_reserves_ratio > 0.5
+            is_subsidized = yes
+        }
+        state = {
+            sg:services = { 
+                state_goods_cheaper > 0.1
+            }
+        }
+        trigger_if = {
+            limit = {
+                has_active_production_method = LLWA_pm_econ_journals
+            }
+            state = {
+                sg:paper = { 
+                    state_goods_cheaper > 0.1
+                }
+                sg:services = { 
+                    state_goods_cheaper > 0.1
+                }
+            }
+        }
+        trigger_else_if = {
+            limit = {
+                has_active_production_method = LLWA_pm_telegraphs
+            }
+            state = {
+                sg:iron = { 
+                    state_goods_cheaper > 0.1
+                }
+                sg:paper = { 
+                    state_goods_cheaper > 0.1
+                }
+                sg:services = { 
+                    state_goods_cheaper > 0.1
+                }
+            }
+        }
+        trigger_else_if = {
+            limit = {
+                has_active_production_method = LLWA_pm_telephones
+            }
+            state = {
+                sg:telephones = { 
+                    state_goods_cheaper > 0.1
+                }
+                sg:electricity = { 
+                    state_goods_cheaper > 0.1
+                }
+                sg:services = { 
+                    state_goods_cheaper > 0.1
+                }
+            }
+        }
+    }
+}
