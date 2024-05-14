@@ -16,7 +16,7 @@ LLWA_pm_spot_shipping = {
 
     building_modifiers = {
         workforce_scaled = {
-            goods_input_transportation_add = 60
+            goods_input_transportation_add = 5
             goods_output_LLWA_market_conn_add = 30
         }
         level_scaled = {
@@ -43,7 +43,7 @@ LLWA_pm_transport_lines = {
 
     building_modifiers = {
         workforce_scaled = {
-            goods_input_transportation_add = 110
+            goods_input_transportation_add = 15
             goods_output_LLWA_market_conn_add = 60
         }
         level_scaled = {
@@ -70,7 +70,7 @@ LLWA_pm_logistics_company = {
 
     building_modifiers = {
         workforce_scaled = {
-            goods_input_transportation_add = 180
+            goods_input_transportation_add = 35
             goods_output_LLWA_market_conn_add = 100
         }
         level_scaled = {
@@ -94,7 +94,7 @@ LLWA_pm_commidities_listings = {
 
     building_modifiers = {
         workforce_scaled = {
-            goods_input_services_add = 40
+            goods_input_services_add = 10
             goods_output_LLWA_market_conn_add = 20
         }
         level_scaled = {
@@ -121,7 +121,7 @@ LLWA_pm_securities_trading = {
 
     building_modifiers = {
         workforce_scaled = {
-            goods_input_services_add = 90
+            goods_input_services_add = 30
             goods_output_LLWA_market_conn_add = 50
         }
         level_scaled = {
@@ -148,7 +148,7 @@ LLWA_pm_clearing_houses = {
 
     building_modifiers = {
         workforce_scaled = {
-            goods_input_services_add = 160
+            goods_input_services_add = 50
             goods_output_LLWA_market_conn_add = 90
         }
         level_scaled = {
@@ -181,8 +181,8 @@ LLWA_pm_econ_journals = {
     
     building_modifiers = {
         workforce_scaled = {
-            goods_input_services_add = 10
-            goods_input_paper_add    = 10
+            goods_input_services_add = 5
+            goods_input_paper_add    = 5
             goods_output_LLWA_market_conn_add = 1
         }
         level_scaled = {
@@ -209,8 +209,8 @@ LLWA_pm_telegraphs = {
     
     building_modifiers = {
         workforce_scaled = {
-            goods_input_services_add = 20
-            goods_input_paper_add    = 10
+            goods_input_services_add = 10
+            goods_input_paper_add    = 5
             goods_input_iron_add     = 5
             goods_output_LLWA_market_conn_add = 2
         }
@@ -239,8 +239,8 @@ LLWA_pm_telephones = {
     
     building_modifiers = {
         workforce_scaled = {
-            goods_input_services_add    = 40
-            goods_input_telephones_add  = 10
+            goods_input_services_add    = 15
+            goods_input_telephones_add  = 5
             goods_input_electricity_add = 5
             goods_output_LLWA_market_conn_add = 4
         }
