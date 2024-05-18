@@ -138,7 +138,7 @@ LLWA_building_freight_depot = {
         LLWA_pmg_private_expansion
     }
 
-    required_construction = construction_cost_high
+    required_construction = construction_cost_medium
     
     ai_value = 5000
     
@@ -226,7 +226,7 @@ LLWA_building_exchange = {
         LLWA_pmg_private_expansion
     }
 
-    required_construction = construction_cost_high
+    required_construction = construction_cost_medium
     
     ai_value = 5000
     
