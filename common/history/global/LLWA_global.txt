@@ -10,6 +10,42 @@
         }
     }
     
+    # Roadways
+    # Put lv 1 roadway in every incorporated state, lv 2 in the capital
+    every_state = {
+        limit = {
+            is_incorporated = yes
+            NOT = {
+                owner ?= {
+                    is_country_type = decentralized
+                }
+            }
+        }
+        if = {
+            limit = {
+                is_capital = yes
+            }
+            create_building = {
+                building    = LLWA_building_roadway
+                level       = 2
+                reserves    = 1
+                activate_production_methods = {
+                    LLWA_pm_horse_wagons
+                }
+            }
+        }
+        else = {
+            create_building = {
+                building    = LLWA_building_roadway
+                level       = 1
+                reserves    = 1
+                activate_production_methods = {
+                    LLWA_pm_horse_wagons
+                }
+            }
+        }
+    }
+    
     # Historical canals
     # Erie Canal
     s:STATE_NEW_YORK = {
@@ -455,30 +491,47 @@
         }
     }
     
-    # Create primer Shipping Lines in any state with a railway or canal
+    # Create primer Shipping Lines in any state with a railway, canal, and/or roadway
     every_state = {
         limit = {
             OR = {
                 has_building = building_railway
                 has_building = LLWA_building_waterway
+                has_building = LLWA_building_roadway
             }
         }
+        
+        # Create the building
         if = {
             limit = {
-                owner ?= {
-                    has_technology_researched = international_trade
-                    has_technology_researched = mass_communication
+                calc_true_if = {
+                    amount = 1
+                    has_building = building_railway
+                    has_building = LLWA_building_waterway
+                    has_building = LLWA_building_roadway
                 }
             }
             create_building = {
                 building   = LLWA_building_freight_depot
                 subsidized = no
                 reserves   = 1
-                level      = 1
-                activate_production_methods = {
-                    LLWA_pm_transport_lines
-                    LLWA_pm_econ_journals
+                level      = 2
+            }
+        }
+        else_if = {
+            limit = {
+                calc_true_if = {
+                    amount = 2
+                    has_building = building_railway
+                    has_building = LLWA_building_waterway
+                    has_building = LLWA_building_roadway
                 }
+            }
+            create_building = {
+                building   = LLWA_building_freight_depot
+                subsidized = no
+                reserves   = 1
+                level      = 4
             }
         }
         else = {
@@ -486,7 +539,31 @@
                 building   = LLWA_building_freight_depot
                 subsidized = no
                 reserves   = 1
-                level      = 1
+                level      = 6
+            }
+        }
+        
+        # Update PMs if necessary
+        if = {
+            limit = {
+                owner ?= {
+                    has_technology_researched = international_trade
+                }
+            }
+            activate_production_method = {
+                building_type     = LLWA_building_freight_depot
+                production_method = LLWA_pm_transport_lines
+            }
+        }
+        if = {
+            limit = {
+                owner ?= {
+                    has_technology_researched = mass_communication
+                }
+            }
+            activate_production_method = {
+                building_type     = LLWA_building_freight_depot
+                production_method = LLWA_pm_econ_journals
             }
         }
     }
