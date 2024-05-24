@@ -102,6 +102,7 @@ on_monthly_pulse_state = {
 LLWA_oa_MAPI_law_activated = {
     trigger = {
         game_date > 1836.1.1 # prevent unnecessary firing during history execution
+        has_game_rule = LLWA_grs_mapi_yes
     }
     effect = {
         owner = { # actually fires in law scope
@@ -116,6 +117,7 @@ LLWA_oa_MAPI_law_activated = {
 LLWA_oa_MAPI_tech_researched = {
     trigger = {
         game_date > 1836.1.1
+        has_game_rule = LLWA_grs_mapi_yes
     }
     effect = {
         trigger_event = {
@@ -134,5 +136,17 @@ on_law_activated = {
 on_acquired_technology = {
     on_actions = {
         LLWA_oa_MAPI_tech_researched
+    }
+}
+
+on_investment_increased = {
+    on_actions = {
+        LLWA_oa_MAPI_law_activated # Logic happens to be identical
+    }
+}
+
+on_investment_decreased = {
+    on_actions = {
+        LLWA_oa_MAPI_law_activated
     }
 }
