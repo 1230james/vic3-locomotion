@@ -8,12 +8,12 @@ LLWA_pm_airships = {
 
     building_modifiers = {
         workforce_scaled = {
-            goods_input_engines_add = 10
-            goods_input_iron_add    = 20
-            goods_input_fabric_add  = 50
-            goods_input_oil_add     = 5
-            goods_input_radios_add  = 2
-            goods_output_transportation_add = 40
+            goods_input_engines_add = 5
+            goods_input_iron_add    = 5
+            goods_input_fabric_add  = 20
+            goods_input_oil_add     = 2
+            goods_input_radios_add  = 1
+            goods_output_transportation_add = 80
         }
         level_scaled = {
             building_employment_laborers_add   = 2000
@@ -41,9 +41,9 @@ LLWA_pm_airplanes = {
     building_modifiers = {
         workforce_scaled = {
             goods_input_aeroplanes_add = 10
-            goods_input_oil_add        = 5
+            goods_input_oil_add        = 4
             goods_input_radios_add     = 2
-            goods_output_transportation_add = 60
+            goods_output_transportation_add = 100
         }
         level_scaled = {
             building_employment_laborers_add   = 1500
