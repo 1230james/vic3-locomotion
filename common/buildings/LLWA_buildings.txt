@@ -1,6 +1,9 @@
 ﻿LLWA_building_roadway = {
     building_group = bg_private_infrastructure
     texture = "gfx/interface/icons/building_icons/LLWA_roadway.dds"
+    background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+    
+    ownership_type = self
     
     unlocking_technologies = {
         urbanization
@@ -9,7 +12,6 @@
     production_method_groups = {
         LLWA_pmg_road_base
         LLWA_pmg_road_traffic
-        LLWA_pmg_road_ownership
         LLWA_pmg_private_expansion
     }
 
@@ -38,6 +40,10 @@
 LLWA_building_waterway = {
     building_group = bg_private_infrastructure
     texture = "gfx/interface/icons/building_icons/LLWA_canal.dds"
+    background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_harbour.dds"
+    
+    ai_nationalization_desire = 0.5
+    ownership_type = self
     
     unlocking_technologies = {
         urbanization
@@ -46,7 +52,6 @@ LLWA_building_waterway = {
     production_method_groups = {
         LLWA_pmg_water_base
         LLWA_pmg_water_traffic
-        LLWA_pmg_water_ownership
         LLWA_pmg_private_expansion
     }
 
@@ -55,10 +60,7 @@ LLWA_building_waterway = {
     ai_value = 1500 # Prioritize over other things but not rails
     
     possible = {
-        error_check = {
-            severity = fail
-            LLWA_st_can_have_canal = yes
-        }
+        LLWA_st_can_have_canal = yes
     }
     
     should_auto_expand = { 
@@ -82,8 +84,10 @@ LLWA_building_waterway = {
 LLWA_building_airway = {
     building_group = bg_private_infrastructure
     texture = "gfx/interface/icons/building_icons/LLWA_airfield.dds"
+    background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
     
     enable_air_connection = yes
+    ownership_type = self
     
     unlocking_technologies = {
         zeppelins
@@ -93,7 +97,6 @@ LLWA_building_airway = {
     production_method_groups = {
         LLWA_pmg_air_base
         LLWA_pmg_air_traffic
-        LLWA_pmg_air_ownership
         LLWA_pmg_private_expansion
     }
 
@@ -121,11 +124,13 @@ LLWA_building_airway = {
 
 # ==================================================================================================================== #
 
-LLWA_building_freight_depot = {
+llwa_building_freight_depot = {
     building_group = bg_private_infrastructure
     texture = "gfx/interface/icons/building_icons/LLWA_freight_depot.dds"
+    background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_railways.dds"
     
     has_max_level = yes
+    ownership_type = self
     
     unlocking_technologies = {
         urbanization
@@ -134,7 +139,6 @@ LLWA_building_freight_depot = {
     production_method_groups = {
         LLWA_pmg_shipping_base
         LLWA_pmg_mapi_comms
-        LLWA_pmg_shipping_ownership
         LLWA_pmg_private_expansion
     }
 
@@ -143,10 +147,7 @@ LLWA_building_freight_depot = {
     ai_value = 5000
     
     possible = {
-        error_check = {
-            severity = invalid
-            LLWA_st_MAPI_building_allowed = yes
-        }
+        LLWA_st_MAPI_building_allowed = yes
     }
     
     should_auto_expand = {
@@ -209,11 +210,13 @@ LLWA_building_freight_depot = {
     }
 }
 
-LLWA_building_exchange = {
+llwa_building_exchange = {
     building_group = bg_private_infrastructure
     texture = "gfx/interface/icons/building_icons/LLWA_exchange.dds"
+    background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
     
     has_max_level = yes
+    ownership_type = self
     
     unlocking_technologies = {
         enclosure
@@ -222,7 +225,6 @@ LLWA_building_exchange = {
     production_method_groups = {
         LLWA_pmg_exchange_base
         LLWA_pmg_mapi_comms
-        LLWA_pmg_exchange_ownership
         LLWA_pmg_private_expansion
     }
 
@@ -231,10 +233,7 @@ LLWA_building_exchange = {
     ai_value = 5000
     
     possible = {
-        error_check = {
-            severity = invalid
-            LLWA_st_MAPI_building_allowed = yes
-        }
+        LLWA_st_MAPI_building_allowed = yes
     }
     
     should_auto_expand = {

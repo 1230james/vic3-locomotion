@@ -1,8 +1,8 @@
 {
     "name" : "Locomotion: Land, Water, & Air",
     "id" : "",
-    "version" : "2.2.3",
-    "supported_game_version" : "1.6.*",
+    "version" : "2.3.0",
+    "supported_game_version" : "1.7.*",
     "short_description" : "",
     "tags" : [
         "Balance",
