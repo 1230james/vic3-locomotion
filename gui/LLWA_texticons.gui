@@ -1,5 +1,5 @@
 texticon = {
-	icon = LLWA_market_conn
+	icon = llwa_market_conn
 	iconsize = {
 		texture = "gfx/interface/icons/goods_icons/LLWA_market_conn.dds"
 		size = { 25 25 }
