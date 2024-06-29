@@ -3288,8 +3288,8 @@ ai_strategy_default = {
 		LLWA_building_roadway  = must_have # LLWA
 		LLWA_building_waterway = must_have # LLWA
 		LLWA_building_airway   = must_have # LLWA
-		LLWA_building_exchange = wants_to_have # LLWA
-		LLWA_building_freight_depot = wants_to_have # LLWA
+		llwa_building_exchange = wants_to_have # LLWA
+		llwa_building_freight_depot = wants_to_have # LLWA
 	}
 	
 	# Specifying values here will override subsidy priorities while at war
