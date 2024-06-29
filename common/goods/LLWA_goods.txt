@@ -1,4 +1,4 @@
-﻿LLWA_market_conn = {
+﻿llwa_market_conn = {
     texture = "gfx/interface/icons/goods_icons/LLWA_market_conn.dds"
     cost = 50
     category = industrial

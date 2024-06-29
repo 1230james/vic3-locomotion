@@ -18,7 +18,7 @@ goods_input_services_add = {
 }
 
 # Output goods
-goods_output_LLWA_market_conn_add = {
+goods_output_llwa_market_conn_add = { # Modifier types identifiers need to be exclusively lower-case now as of 1.7.0
     decimals = 1
 	color = good
 	percent = no
@@ -37,7 +37,7 @@ state_market_access_price_impact = { # tweak decimals amount & ai value
     }
 }
 
-state_LLWA_building_freight_depot_max_level_add = {
+state_llwa_building_freight_depot_max_level_add = {
     color = good
     percent = no
     decimals = 0
@@ -46,7 +46,7 @@ state_LLWA_building_freight_depot_max_level_add = {
     }
 }
 
-state_LLWA_building_exchange_max_level_add = {
+state_llwa_building_exchange_max_level_add = {
     color = good
     percent = no
     decimals = 0
@@ -56,7 +56,7 @@ state_LLWA_building_exchange_max_level_add = {
 }
 
 # Water distance tracking
-LLWA_mt_dist_from_water_add = {
+state_llwa_mt_dist_from_water_add = {
     color = good
     percent = no
     decimals = 0
