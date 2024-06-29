@@ -58,6 +58,9 @@ LLWA_pm_airplanes = {
             state_infrastructure_add = 30
             state_pollution_generation_add = 10
         }
+        unscaled = {
+            state_migration_pull_add = 5
+        }
     }
 }
 
@@ -100,6 +103,12 @@ LLWA_pm_air_travel = {
         }
         level_scaled = {
             building_employment_clerks_add = 500
+        }
+    }
+    
+    state_modifiers = {
+        unscaled = {
+            state_migration_pull_add = 5
         }
     }
 }
