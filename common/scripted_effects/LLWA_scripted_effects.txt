@@ -1,4 +1,16 @@
-﻿# Update autonomous investment availability on PM change
+﻿@LOGIHUB_MKT_CONN_OUTPUT_PER_TRANSPORTATION = 0.6 # Match with LogiHub base PM
+@MARKET_CONNECTIVITY_COST = 50 # Match with goods definition
+
+@LOGIHUB_PROFIT_TARGET = 750
+@LOGIHUB_PROFIT_FLOOR  = 0    # If weekly profit is below this, increase extra output to reach @LOGIHUB_PROFIT_TARGET
+@LOGIHUB_PROFIT_CEIL   = 1500 #          ""         above this, decrease extra output to reach @LOGIHUB_PROFIT_TARGET
+
+@LOGIHUB_MKT_CONN_WAGES_OUT_MIN = 1 # At least/at most these amounts will be created to account for wages
+@LOGIHUB_MKT_CONN_WAGES_OUT_MAX = 1000
+
+@LOGIHUB_MKT_CONN_WAGES_DELTA_MAX = 50 # Extra amount created to cover wages will not change by this many units per cycle
+
+# Update autonomous investment availability on PM change
 # Building scope
 LLWA_se_manage_private_expansion = {
     if = {
@@ -8,6 +20,8 @@ LLWA_se_manage_private_expansion = {
                 is_building_type = building_railway
                 is_building_type = LLWA_building_waterway
                 is_building_type = LLWA_building_airway
+                is_building_type = llwa_building_freight_depot
+                is_building_type = llwa_building_exchange
             }
         }
         
@@ -62,5 +76,157 @@ LLWA_se_reset_blocked_private_expansions = {
             }
         }
         set_available_for_autonomous_investment = bt:LLWA_building_airway
+    }
+    if = {
+        limit = {
+            NOT = {
+                has_building = llwa_building_freight_depot
+            }
+        }
+        set_available_for_autonomous_investment = bt:llwa_building_freight_depot
+    }
+    if = {
+        limit = {
+            NOT = {
+                has_building = llwa_building_exchange
+            }
+        }
+        set_available_for_autonomous_investment = bt:llwa_building_exchange
+    }
+}
+
+# Update logistics hub modifiers
+# Country scope
+LLWA_se_country_refresh_logihubs = {
+    every_scope_state = {
+        LLWA_se_state_refresh_logihubs = yes
+    }
+}
+# State scope
+LLWA_se_state_refresh_logihubs = {
+    # Handle building existence
+    if = {
+        limit = {
+            has_game_rule = LLWA_grs_infra_mode_yes
+            infrastructure_usage > 0
+            NOT = {
+                has_building = LLWA_building_logistics_hub
+            }
+        }
+        create_building = {
+            building = LLWA_building_logistics_hub
+            level    = 1
+        }
+    }
+    else_if = {
+        limit = {
+            OR = {
+                has_game_rule = LLWA_grs_infra_mode_no
+                infrastructure_usage = 0
+            }
+            has_building = LLWA_building_logistics_hub
+        }
+        remove_building = LLWA_building_logistics_hub
+        remove_variable = LLWA_logihub_mkt_conn_wages_out
+    }
+    
+    # Handle modifier
+    if = {
+        limit = {
+            has_building = LLWA_building_logistics_hub
+        }
+        
+        # Calculate additional market connectivity output to keep building solvent
+        if = {
+            limit = {
+                NOT = {
+                    has_variable = LLWA_logihub_mkt_conn_wages_out
+                }
+            }
+            set_variable = {
+                name  = LLWA_logihub_mkt_conn_wages_out
+                value = {
+                    add     = 2000
+                    divide  = @MARKET_CONNECTIVITY_COST
+                    ceiling = yes
+                }
+            }
+        }
+        else = {
+            set_local_variable = {
+                name  = cashflow
+                value = b:LLWA_building_logistics_hub.weekly_profit
+            }
+            if = {
+                limit = {
+                    b:LLWA_building_logistics_hub.weekly_profit < @LOGIHUB_PROFIT_FLOOR
+                }
+                set_variable = {
+                    name  = LLWA_logihub_mkt_conn_wages_out
+                    value = {
+                        add = var:LLWA_logihub_mkt_conn_wages_out
+                        add = {
+                            add      = @LOGIHUB_PROFIT_TARGET
+                            subtract = local_var:cashflow
+                            divide   = @MARKET_CONNECTIVITY_COST
+                            max      = @LOGIHUB_MKT_CONN_WAGES_DELTA_MAX
+                        }
+                        ceiling = yes
+                        min     = @LOGIHUB_MKT_CONN_WAGES_OUT_MIN
+                        max     = @LOGIHUB_MKT_CONN_WAGES_OUT_MAX
+                    }
+                }
+            }
+            else_if = {
+                limit = {
+                    b:LLWA_building_logistics_hub.weekly_profit > @LOGIHUB_PROFIT_CEIL
+                }
+                set_variable = {
+                    name  = LLWA_logihub_mkt_conn_wages_out
+                    value = {
+                        add      = var:LLWA_logihub_mkt_conn_wages_out
+                        subtract = {
+                            add      = local_var:cashflow
+                            subtract = @LOGIHUB_PROFIT_TARGET
+                            divide   = @MARKET_CONNECTIVITY_COST
+                            max      = @LOGIHUB_MKT_CONN_WAGES_DELTA_MAX
+                        }
+                        ceiling = yes
+                        min     = @LOGIHUB_MKT_CONN_WAGES_OUT_MIN
+                        max     = @LOGIHUB_MKT_CONN_WAGES_OUT_MAX
+                    }
+                }
+            }
+        }
+        
+        # Apply modifiers to building
+        set_local_variable = {
+            name  = in_mult
+            value = {
+                add      = infrastructure_usage
+                multiply = LLWA_INFRA_TRANSPORTATION_RATIO
+            }
+        }
+        set_local_variable = {
+            name  = out_mult
+            value = {
+                add      = @LOGIHUB_MKT_CONN_OUTPUT_PER_TRANSPORTATION
+                multiply = local_var:in_mult
+                add      = var:LLWA_logihub_mkt_conn_wages_out
+                divide   = @LOGIHUB_MKT_CONN_OUTPUT_PER_TRANSPORTATION
+            }
+        }
+        b:LLWA_building_logistics_hub = {
+            remove_modifier = LLWA_md_logihub_in_mult
+            remove_modifier = LLWA_md_logihub_out_mult
+            add_modifier    = {
+                name        = LLWA_md_logihub_in_mult
+                multiplier  = local_var:in_mult
+            }
+            add_modifier    = {
+                name        = LLWA_md_logihub_out_mult
+                multiplier  = local_var:out_mult
+            }
+        }
     }
 }

@@ -1,0 +1,28 @@
+﻿LLWA_bg_logihub = {
+    parent_group = bg_infrastructure
+    
+    category = development
+
+    always_possible = yes
+    
+    min_hiring_rate = 1.0
+    max_hiring_rate = 1.0
+    
+    ignores_productivity_when_hiring = yes
+    
+    proportionality_limit = 1.0
+    
+    economy_of_scale = no
+    
+    cash_reserves_max = 0
+    
+    urbanization = 0
+    
+    infrastructure_usage_per_level = 0
+    
+    fired_pops_become_radical = no
+    
+    should_auto_expand = {
+        always = no
+    }
+}

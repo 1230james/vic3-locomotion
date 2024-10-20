@@ -2,5 +2,10 @@
 # of the techs and Traditionalism enacted in vanilla, but can really be anything if need be
 LLWA_BASE_MAPI = 0.60
 
+# Amount of transportation purchased per 1 infrastructure used in the state
+# As of 1.7.6: Transportation and infrastructure generation were equal in all railroad PMs except for electric trains
+# which produced a comparatively small amount of extra transportation
+LLWA_INFRA_TRANSPORTATION_RATIO = 1
+
 # Unused
 LLWA_MAX_DIST_FROM_WATER_SOURCE = 1 # max num of states away from a water source canals are allowed to be

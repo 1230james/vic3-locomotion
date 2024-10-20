@@ -1,0 +1,813 @@
+﻿BUILDINGS = {
+    # Setup
+    every_country = {
+        trigger_event = { # MAPI
+            id = LLWA_secret_ev.1
+        }
+        trigger_event = { # Game rule-controlled buildings
+            id   = LLWA_secret_ev.2
+            days = 1
+        }
+        trigger_event = { # Infra -> transport
+            id   = LLWA_secret_ev.3
+            days = 1
+        }
+    }
+    
+    # Roadways & Logistical Hubs
+    # Put lv 1 roadway in every incorporated state, lv 2 in the capital
+    # Initialize logistical hubs
+    every_state = {
+        limit = {
+            NOT = {
+                owner ?= {
+                    is_country_type = decentralized
+                }
+            }
+        }
+        
+        # Roads
+        if = {
+            limit = {
+                is_incorporated = yes
+            }
+            if = {
+                limit = {
+                    is_capital = yes
+                }
+                create_building = {
+                    building    = LLWA_building_roadway
+                    level       = 2
+                    reserves    = 1
+                    activate_production_methods = {
+                        LLWA_pm_horse_wagons
+                    }
+                }
+            }
+            else = {
+                create_building = {
+                    building    = LLWA_building_roadway
+                    level       = 1
+                    reserves    = 1
+                    activate_production_methods = {
+                        LLWA_pm_horse_wagons
+                    }
+                }
+            }
+        }
+        
+        # Logihubs
+        create_building = {
+            building = LLWA_building_logistics_hub
+            level    = 1
+        }
+    }
+    
+    # Historical canals
+    # Unless otherwise stated, they are intended to be state-owned
+    
+    # Erie Canal
+    s:STATE_NEW_YORK = {
+        region_state:USA = {
+            create_building = {
+                building = LLWA_building_waterway
+                level    = 2
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    
+    # Rideau Canal & Trent-Severn Waterway
+    s:STATE_ONTARIO = {
+        region_state:ONT = {
+            create_building = {
+                building = LLWA_building_waterway
+                level    = 2
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    
+    # Eider Canal
+    s:STATE_SCHLESWIG_HOLSTEIN = {
+        region_state:HOL = {
+            create_building = {
+                building = LLWA_building_waterway
+                level    = 1
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    
+    # Vinh Te Canal
+    s:STATE_MEKONG = {
+        region_state:DAI = {
+            create_building = {
+                building = LLWA_building_waterway
+                level    = 1
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    
+    # Rhone River (Historical waterway traffic)
+    s:STATE_RHONE = {
+        region_state:FRA = {
+            create_building = {
+                building   = LLWA_building_waterway
+                subsidized = yes
+                reserves   = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_waterway
+                        country = c:FRA
+                        levels  = 1
+                        region  = STATE_RHONE
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_PROVENCE = {
+        region_state:FRA = {
+            create_building = {
+                building = LLWA_building_waterway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_waterway
+                        country = c:FRA
+                        levels  = 1
+                        region  = STATE_PROVENCE
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    
+    # Trollhätte & Göta Canals
+    s:STATE_SVEALAND = {
+        region_state:SWE = {
+            create_building = {
+                building = LLWA_building_waterway
+                level    = 1
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_GOTALAND = {
+        region_state:SWE = {
+            create_building = {
+                building = LLWA_building_waterway
+                level    = 1
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    
+    # Canal des Deux Mers
+    s:STATE_LANGUEDOC = {
+        region_state:FRA = {
+            create_building = {
+                building = LLWA_building_waterway
+                level    = 2
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_GUYENNE = {
+        region_state:FRA = {
+            create_building = {
+                building = LLWA_building_waterway
+                level    = 2
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_AQUITAINE = {
+        region_state:FRA = {
+            create_building = {
+                building = LLWA_building_waterway
+                level    = 2
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    
+    # Volga-Baltic Waterway & Northern Dvina Canal
+    s:STATE_INGRIA = {
+        region_state:RUS = {
+            create_building = {
+                building = LLWA_building_waterway
+                level    = 2
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_NOVGOROD = {
+        region_state:RUS = {
+            create_building = {
+                building = LLWA_building_waterway
+                level    = 3
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_TVER = {
+        region_state:RUS = {
+            create_building = {
+                building = LLWA_building_waterway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_waterway
+                        country = c:RUS
+                        levels  = 1
+                        region  = STATE_TVER
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_MOSCOW = {
+        region_state:RUS = {
+            create_building = {
+                building = LLWA_building_waterway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_waterway
+                        country = c:RUS
+                        levels  = 1
+                        region  = STATE_MOSCOW
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_YAROSLAVL = {
+        region_state:RUS = {
+            create_building = {
+                building = LLWA_building_waterway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_waterway
+                        country = c:RUS
+                        levels  = 1
+                        region  = STATE_YAROSLAVL
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_NIZHNY_NOVGOROD = {
+        region_state:RUS = {
+            create_building = {
+                building = LLWA_building_waterway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_waterway
+                        country = c:RUS
+                        levels  = 1
+                        region  = STATE_NIZHNY_NOVGOROD
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_CHUVASHIA = { # Cheboksary
+        region_state:RUS = {
+            create_building = {
+                building = LLWA_building_waterway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_waterway
+                        country = c:RUS
+                        levels  = 1
+                        region  = STATE_CHUVASHIA
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_KAZAN = {
+        region_state:RUS = {
+            create_building = {
+                building = LLWA_building_waterway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_waterway
+                        country = c:RUS
+                        levels  = 1
+                        region  = STATE_KAZAN
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_SAMARA = {
+        region_state:RUS = {
+            create_building = {
+                building = LLWA_building_waterway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_waterway
+                        country = c:RUS
+                        levels  = 1
+                        region  = STATE_SAMARA
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_TARTARIA = { # Saratov
+        region_state:RUS = {
+            create_building = {
+                building = LLWA_building_waterway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_waterway
+                        country = c:RUS
+                        levels  = 1
+                        region  = STATE_TARTARIA
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_ASTRAKHAN = {
+        region_state:RUS = {
+            create_building = {
+                building = LLWA_building_waterway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_waterway
+                        country = c:RUS
+                        levels  = 1
+                        region  = STATE_ASTRAKHAN
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    
+    # Grand Canal
+    s:STATE_BEIJING = {
+        region_state:CHI = {
+            create_building = {
+                building = LLWA_building_waterway
+                level    = 3
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_ZHILI = {
+        region_state:CHI = {
+            create_building = {
+                building = LLWA_building_waterway
+                level    = 3
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_SHANDONG = {
+        region_state:CHI = {
+            create_building = {
+                building = LLWA_building_waterway
+                level    = 3
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_JIANGSU = {
+        region_state:CHI = {
+            create_building = {
+                building = LLWA_building_waterway
+                level    = 3
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_NANJING = {
+        region_state:CHI = {
+            create_building = {
+                building = LLWA_building_waterway
+                level    = 1 # I think a tiny bit of the canal goes through the area defined by the Nanjing state region?
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_SUZHOU = {
+        region_state:CHI = {
+            create_building = {
+                building = LLWA_building_waterway
+                level    = 3
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_ZHEJIANG = { # Hangzhou is here
+        region_state:CHI = {
+            create_building = {
+                building = LLWA_building_waterway
+                level    = 3
+                reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    
+    # British Canal Mania
+    s:STATE_HOME_COUNTIES = {
+        region_state:GBR = {
+            create_building = {
+                building   = LLWA_building_waterway
+                subsidized = yes
+                reserves   = 1
+                add_ownership = {
+                    building = {
+                        type    = building_financial_district
+                        country = c:GBR
+                        levels  = 2
+                        region  = STATE_HOME_COUNTIES
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_LANCASHIRE = {
+        region_state:GBR = {
+            create_building = {
+                building   = LLWA_building_waterway
+                subsidized = yes
+                reserves   = 1
+                add_ownership = {
+                    building = {
+                        type    = building_financial_district
+                        country = c:GBR
+                        levels  = 1
+                        region  = STATE_HOME_COUNTIES
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_WALES = {
+        region_state:GBR = {
+            create_building = {
+                building   = LLWA_building_waterway
+                subsidized = yes
+                reserves   = 1
+                add_ownership = {
+                    building = {
+                        type    = building_financial_district
+                        country = c:GBR
+                        levels  = 1
+                        region  = STATE_HOME_COUNTIES
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_YORKSHIRE = {
+        region_state:GBR = {
+            create_building = {
+                building   = LLWA_building_waterway
+                subsidized = yes
+                reserves   = 1
+                add_ownership = {
+                    building = {
+                        type    = building_financial_district
+                        country = c:GBR
+                        levels  = 1
+                        region  = STATE_HOME_COUNTIES
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_MIDLANDS = {
+        region_state:GBR = {
+            create_building = {
+                building   = LLWA_building_waterway
+                subsidized = yes
+                reserves   = 1
+                add_ownership = {
+                    building = {
+                        type    = building_financial_district
+                        country = c:GBR
+                        levels  = 1
+                        region  = STATE_HOME_COUNTIES
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_EAST_ANGLIA = {
+        region_state:GBR = {
+            create_building = {
+                building   = LLWA_building_waterway
+                subsidized = yes
+                reserves   = 1
+                add_ownership = {
+                    building = {
+                        type    = building_financial_district
+                        country = c:GBR
+                        levels  = 1
+                        region  = STATE_HOME_COUNTIES
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_WEST_COUNTRY = {
+        region_state:GBR = {
+            create_building = {
+                building   = LLWA_building_waterway
+                subsidized = yes
+                reserves   = 1
+                add_ownership = {
+                    building = {
+                        type    = building_financial_district
+                        country = c:GBR
+                        levels  = 1
+                        region  = STATE_HOME_COUNTIES
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    
+    # Create primer Shipping Lines in any state with a railway, canal, and/or roadway
+    every_state = {
+        limit = {
+            OR = {
+                has_building = building_railway
+                has_building = LLWA_building_waterway
+                has_building = LLWA_building_roadway
+            }
+        }
+        
+        # Create the building
+        if = {
+            limit = {
+                calc_true_if = {
+                    amount = 1
+                    has_building = building_railway
+                    has_building = LLWA_building_waterway
+                    has_building = LLWA_building_roadway
+                }
+            }
+            create_building = {
+                building   = llwa_building_freight_depot
+                subsidized = no
+                reserves   = 1
+                level      = 2
+            }
+        }
+        else_if = {
+            limit = {
+                calc_true_if = {
+                    amount = 2
+                    has_building = building_railway
+                    has_building = LLWA_building_waterway
+                    has_building = LLWA_building_roadway
+                }
+            }
+            create_building = {
+                building   = llwa_building_freight_depot
+                subsidized = no
+                reserves   = 1
+                level      = 4
+            }
+        }
+        else = {
+            create_building = {
+                building   = llwa_building_freight_depot
+                subsidized = no
+                reserves   = 1
+                level      = 6
+            }
+        }
+    }
+    
+    # Historical stock exchanges
+    # Amsterdam Stock Exchange
+    s:STATE_HOLLAND = {
+        region_state:NET = {
+            create_building = {
+                building   = llwa_building_exchange
+                subsidized = no
+                reserves   = 1
+                add_ownership = {
+                    building = {
+                        type    = llwa_building_exchange
+                        country = c:NET
+                        levels  = 1
+                        region  = STATE_HOLLAND
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_securities_trading
+                    LLWA_pm_econ_journals
+                }
+            }
+        }
+    }
+    
+    # London Stock Exchange
+    s:STATE_HOME_COUNTIES = {
+        region_state:GBR = {
+            create_building = {
+                building   = llwa_building_exchange
+                subsidized = no
+                reserves   = 1
+                add_ownership = {
+                    building = {
+                        type    = llwa_building_exchange
+                        country = c:GBR
+                        levels  = 1
+                        region  = STATE_HOME_COUNTIES
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_securities_trading
+                    LLWA_pm_econ_journals
+                }
+            }
+        }
+    }
+    
+    # New York Stock Exchange
+    s:STATE_NEW_YORK = {
+        region_state:USA = {
+            create_building = {
+                building   = llwa_building_exchange
+                subsidized = no
+                reserves   = 1
+                add_ownership = {
+                    building = {
+                        type    = llwa_building_exchange
+                        country = c:USA
+                        levels  = 1
+                        region  = STATE_NEW_YORK
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_securities_trading
+                    LLWA_pm_econ_journals
+                }
+            }
+        }
+    }
+}
