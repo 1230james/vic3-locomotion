@@ -7,6 +7,8 @@
     llwa_building_freight_depot: "Shipping Lines"
     llwa_building_exchange:      "Financial Exchanges"
     
+    LLWA_building_logistics_hub: "Logistics Hub"
+    
     # PMGs
     LLWA_pmg_road_base:     "$pm_base$"
     LLWA_pmg_rail_base:     "$pm_base$"
@@ -14,6 +16,7 @@
     LLWA_pmg_air_base:      "$pm_base$"
     LLWA_pmg_shipping_base: "$pm_base$"
     LLWA_pmg_exchange_base: "$pm_base$"
+    LLWA_pmg_logihub_base:  "$pm_base$"
     
     LLWA_pmg_road_traffic:  "Passenger Buses"
     LLWA_pmg_rail_traffic:  "$pmg_passenger_trains$"
@@ -70,6 +73,9 @@
     LLWA_pm_telegraphs:    "Telegraph Lines"
     LLWA_pm_telephones:    "Telephone Lines"
     
+    # PMs - Logistics Hubs
+    LLWA_pm_logihub_base: "$LLWA_building_logistics_hub$"
+    
     # PMs - Private expansion
     LLWA_pm_yes_private_expansion: "Private Expansion Allowed"
     LLWA_pm_no_private_expansion:  "Government Expansion Only"
@@ -80,6 +86,8 @@
     # Modifiers
     LLWA_md_mapi_building_lvl: "LLWA: MAPI Buildings Enabled"
     LLWA_md_mapi_mapi_lvl:     "LLWA: MAPI Rebalance Enabled"
+    LLWA_md_logihub_in_mult:   "$LLWA_building_logistics_hub$ Input"
+    LLWA_md_logihub_out_mult:  "$LLWA_building_logistics_hub$ Output"
     
     # Modifier types
     goods_input_luxury_furniture_add:      "Insumo de @luxury_furniture! Mobília Luxuosa por nível"
@@ -90,6 +98,12 @@
     
     goods_output_llwa_market_conn_add:      "Produção de @llwa_market_conn! $llwa_market_conn$ por nível"
     goods_output_llwa_market_conn_add_desc: "A quantidade de @llwa_market_conn! $llwa_market_conn$ produzido por construções"
+    
+    goods_input_transportation_mult:      "Insumo de @transportation! $transportation$"
+    goods_input_transportation_mult_desc: "A quantidade de @transportation! $transportation$ utilizados por construções"
+    
+    goods_output_llwa_market_conn_mult:      "Produção de @llwa_market_conn! $llwa_market_conn$"
+    goods_output_llwa_market_conn_mult_desc: "$goods_output_llwa_market_conn_add_desc$"
     
     state_llwa_building_freight_depot_max_level_add:      "Nível Máximo do $llwa_building_freight_depot$"
     state_llwa_building_freight_depot_max_level_add_desc: "Bônus ou penalidade ao nível máximo da construção $llwa_building_freight_depot$"

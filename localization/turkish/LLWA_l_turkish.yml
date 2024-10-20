@@ -7,6 +7,10 @@
     llwa_building_freight_depot: "Shipping Lines"
     llwa_building_exchange:      "Financial Exchanges"
     
+    LLWA_building_logistics_hub: "Logistics Hub"
+    
+    LLWA_building_logistics_hub: "Logistics Hub"
+    
     # PMGs
     LLWA_pmg_road_base:     "$pm_base$"
     LLWA_pmg_rail_base:     "$pm_base$"
@@ -14,6 +18,7 @@
     LLWA_pmg_air_base:      "$pm_base$"
     LLWA_pmg_shipping_base: "$pm_base$"
     LLWA_pmg_exchange_base: "$pm_base$"
+    LLWA_pmg_logihub_base:  "$pm_base$"
     
     LLWA_pmg_road_traffic:  "Passenger Buses"
     LLWA_pmg_rail_traffic:  "$pmg_passenger_trains$"
@@ -70,6 +75,9 @@
     LLWA_pm_telegraphs:    "Telegraph Lines"
     LLWA_pm_telephones:    "Telephone Lines"
     
+    # PMs - Logistics Hubs
+    LLWA_pm_logihub_base: "$LLWA_building_logistics_hub$"
+    
     # PMs - Private expansion
     LLWA_pm_yes_private_expansion: "Private Expansion Allowed"
     LLWA_pm_no_private_expansion:  "Government Expansion Only"
@@ -80,6 +88,8 @@
     # Modifiers
     LLWA_md_mapi_building_lvl: "LLWA: MAPI Buildings Enabled"
     LLWA_md_mapi_mapi_lvl:     "LLWA: MAPI Rebalance Enabled"
+    LLWA_md_logihub_in_mult:   "$LLWA_building_logistics_hub$ Input"
+    LLWA_md_logihub_out_mult:  "$LLWA_building_logistics_hub$ Output"
     
     # Modifier types
     goods_input_luxury_furniture_add:      "@luxury_furniture! Lüks Mobilya girdisi"
@@ -90,6 +100,12 @@
     
     goods_output_llwa_market_conn_add:      "@llwa_market_conn! $llwa_market_conn$ çıktısı"
     goods_output_llwa_market_conn_add_desc: "Binalarda üretilen @llwa_market_conn! $llwa_market_conn$ miktarı"
+    
+    goods_input_transportation_mult:      "@transportation! $transportation$ girdisi"
+    goods_input_transportation_mult_desc: "Binalarda tüketilen @transportation! $transportation$ miktarı"
+    
+    goods_output_llwa_market_conn_mult:      "$goods_output_llwa_market_conn_add$"
+    goods_output_llwa_market_conn_mult_desc: "$goods_output_llwa_market_conn_add_desc$"
     
     state_llwa_building_freight_depot_max_level_add:      "$llwa_building_freight_depot$ Azami Seviyesi"
     state_llwa_building_freight_depot_max_level_add_desc: "$llwa_building_freight_depot$ binalarının azami seviyesinde bir bonus veya ceza"

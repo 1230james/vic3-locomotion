@@ -7,6 +7,8 @@
     llwa_building_freight_depot: "Schifffahrtsgesellschaften"
     llwa_building_exchange:      "Börsen"
     
+    LLWA_building_logistics_hub: "Logistik-Knotenpunkt"
+    
     # PMGs
     LLWA_pmg_road_base:     "$pm_base$"
     LLWA_pmg_rail_base:     "$pm_base$"
@@ -14,6 +16,7 @@
     LLWA_pmg_air_base:      "$pm_base$"
     LLWA_pmg_shipping_base: "$pm_base$"
     LLWA_pmg_exchange_base: "$pm_base$"
+    LLWA_pmg_logihub_base:  "$pm_base$"
     
     LLWA_pmg_road_traffic:  "Passagierbusse"
     LLWA_pmg_rail_traffic:  "$pmg_passenger_trains$"
@@ -70,6 +73,9 @@
     LLWA_pm_telegraphs:    "Telegrafenleitungen"
     LLWA_pm_telephones:    "Telefonleitungen"
     
+    # PMs - Logistics Hubs
+    LLWA_pm_logihub_base: "$LLWA_building_logistics_hub$"
+    
     # PMs - Ownership
     LLWA_pm_road_merchant_guilds:     "$pm_merchant_guilds$"
     LLWA_pm_water_merchant_guilds:    "$pm_merchant_guilds$"
@@ -101,6 +107,8 @@
     # Modifiers
     LLWA_md_mapi_building_lvl: "LLWA: MP-Gebäuden aktiviert"
     LLWA_md_mapi_mapi_lvl:     "LLWA: MP-Änderung aktiviert"
+    LLWA_md_logihub_in_mult:   "$LLWA_building_logistics_hub$-Zufuhr"
+    LLWA_md_logihub_out_mult:  "$LLWA_building_logistics_hub$-Ausstoß"
     
     # Modifier types
     goods_input_luxury_furniture_add:      "@luxury_furniture! Luxusmöbel-Zufuhr pro Stufe"
@@ -111,6 +119,12 @@
     
     goods_output_llwa_market_conn_add:      "@llwa_market_conn! $llwa_market_conn$-Ausstoß pro Stufe"
     goods_output_llwa_market_conn_add_desc: "Die Menge an @llwa_market_conn! $llwa_market_conn$, die das Gebäude produziert."
+    
+    goods_input_transportation_mult:      "@transportation! $transportation$-Zufuhr"
+    goods_input_transportation_mult_desc: "Die Menge an @transportation! $transportation$, die das Gebäude verbraucht."
+    
+    goods_output_llwa_market_conn_mult:      "@llwa_market_conn! $llwa_market_conn$-Ausstoß"
+    goods_output_llwa_market_conn_mult_desc: "$goods_output_llwa_market_conn_add_desc$"
     
     state_llwa_building_freight_depot_max_level_add:      "$llwa_building_freight_depot$-Maximalstufe"
     state_llwa_building_freight_depot_max_level_add_desc: "Ein Bonus oder Abzug auf die maximale Stufe von $llwa_building_freight_depot$-Gebäuden."
