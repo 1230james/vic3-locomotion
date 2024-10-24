@@ -1,14 +1,15 @@
 ﻿@LOGIHUB_MKT_CONN_OUTPUT_PER_TRANSPORTATION = 0.6 # Match with LogiHub base PM
 @MARKET_CONNECTIVITY_COST = 50 # Match with goods definition
 
-@LOGIHUB_PROFIT_TARGET = 750
-@LOGIHUB_PROFIT_FLOOR  = 0    # If weekly profit is below this, increase extra output to reach @LOGIHUB_PROFIT_TARGET
+@LOGIHUB_PROFIT_TARGET = 800
+@LOGIHUB_PROFIT_FLOOR  = 250  # If weekly profit is below this, increase extra output to reach @LOGIHUB_PROFIT_TARGET
 @LOGIHUB_PROFIT_CEIL   = 1500 #          ""         above this, decrease extra output to reach @LOGIHUB_PROFIT_TARGET
 
 @LOGIHUB_MKT_CONN_WAGES_OUT_MIN = 1 # At least/at most these amounts will be created to account for wages
 @LOGIHUB_MKT_CONN_WAGES_OUT_MAX = 1000
 
-@LOGIHUB_MKT_CONN_WAGES_DELTA_MAX = 50 # Extra amount created to cover wages will not change by this many units per cycle
+# The additional Market Connectivity created to cover wages can only change by this proportion of the current amount at a time
+@LOGIHUB_MKT_CONN_WAGES_MAX_DELTA_RATIO = 0.75
 
 # Update autonomous investment availability on PM change
 # Building scope
@@ -120,6 +121,21 @@ LLWA_se_state_refresh_logihubs = {
     }
     else_if = {
         limit = {
+            has_game_rule = LLWA_grs_infra_mode_yes
+            infrastructure_usage >= 1
+            state_has_building_type_levels = {
+                target = bt:LLWA_building_logistics_hub
+                value  > 1
+            }
+        }
+        remove_building = LLWA_building_logistics_hub
+        create_building = {
+            building = LLWA_building_logistics_hub
+            level    = 1
+        }
+    }
+    else_if = {
+        limit = {
             OR = {
                 has_game_rule = LLWA_grs_infra_mode_no
                 infrastructure_usage < 1
@@ -137,7 +153,7 @@ LLWA_se_state_refresh_logihubs = {
         }
         
         # Calculate additional market connectivity output to keep building solvent
-        if = {
+        if = { # New building - init to default value
             limit = {
                 NOT = {
                     has_variable = LLWA_logihub_mkt_conn_wages_out
@@ -153,11 +169,52 @@ LLWA_se_state_refresh_logihubs = {
             }
         }
         else = {
-            set_local_variable = {
-                name  = cashflow
-                value = b:LLWA_building_logistics_hub.weekly_profit
+            if = { # Hit wage raising target to hire up
+                limit = {
+                    b:LLWA_building_logistics_hub.occupancy < 0.90
+                    OR = { # there are pops to hire (prevent spiking earnings in empty states)
+                        pop_type_percent_state = {
+                            target = pop_type:peasants
+                            value > 0
+                        }
+                        state_unemployment_rate > 0
+                    }
+                }
+                set_variable = {
+                    name  = LLWA_logihub_mkt_conn_wages_out
+                    value = { # (weekly profit) - (revenue) = expenses
+                        add      = b:LLWA_building_logistics_hub.weekly_profit
+                        subtract = {
+                            # Calculating the *current* mkt conn output because FOR SOME REASON it's still
+                            # workforce-scaled despite being in the unscaled modifier block 😑
+                            add  = {
+                                add      = b:LLWA_building_logistics_hub.modifier:goods_output_llwa_market_conn_add
+                                multiply = b:LLWA_building_logistics_hub.modifier:goods_output_llwa_market_conn_mult
+                                multiply = b:LLWA_building_logistics_hub.occupancy
+                            }
+                            multiply = @MARKET_CONNECTIVITY_COST
+                        }
+                        multiply = { # raise wages margin + 5% & flip sign
+                            add      = -1
+                            subtract = define:NEconomy|BUILDING_PROFIT_TARGET_TO_RAISE_WAGES
+                            subtract = 0.05
+                        }
+                        divide  = @MARKET_CONNECTIVITY_COST # convert value into units
+                        divide  = { # scale up for low occupancy
+                            add = b:LLWA_building_logistics_hub.occupancy
+                            min = 0.0001 # DIV/0 guard
+                        }
+                        ceiling = yes
+                        min     = {
+                            add     = 2000
+                            divide  = @MARKET_CONNECTIVITY_COST
+                            ceiling = yes
+                        }
+                        max = @LOGIHUB_MKT_CONN_WAGES_OUT_MAX
+                    }
+                }
             }
-            if = {
+            else_if = { # Nudge up or down to stay solvent but minimize profits
                 limit = {
                     b:LLWA_building_logistics_hub.weekly_profit < @LOGIHUB_PROFIT_FLOOR
                 }
@@ -167,9 +224,12 @@ LLWA_se_state_refresh_logihubs = {
                         add = var:LLWA_logihub_mkt_conn_wages_out
                         add = {
                             add      = @LOGIHUB_PROFIT_TARGET
-                            subtract = local_var:cashflow
+                            subtract = b:LLWA_building_logistics_hub.weekly_profit
                             divide   = @MARKET_CONNECTIVITY_COST
-                            max      = @LOGIHUB_MKT_CONN_WAGES_DELTA_MAX
+                            max      = {
+                                add      = var:LLWA_logihub_mkt_conn_wages_out
+                                multiply = @LOGIHUB_MKT_CONN_WAGES_MAX_DELTA_RATIO
+                            }
                         }
                         ceiling = yes
                         min     = @LOGIHUB_MKT_CONN_WAGES_OUT_MIN
@@ -186,10 +246,13 @@ LLWA_se_state_refresh_logihubs = {
                     value = {
                         add      = var:LLWA_logihub_mkt_conn_wages_out
                         subtract = {
-                            add      = local_var:cashflow
+                            add      = b:LLWA_building_logistics_hub.weekly_profit
                             subtract = @LOGIHUB_PROFIT_TARGET
                             divide   = @MARKET_CONNECTIVITY_COST
-                            max      = @LOGIHUB_MKT_CONN_WAGES_DELTA_MAX
+                            max      = {
+                                add      = var:LLWA_logihub_mkt_conn_wages_out
+                                multiply = @LOGIHUB_MKT_CONN_WAGES_MAX_DELTA_RATIO
+                            }
                         }
                         ceiling = yes
                         min     = @LOGIHUB_MKT_CONN_WAGES_OUT_MIN
