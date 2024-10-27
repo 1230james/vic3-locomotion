@@ -27,6 +27,24 @@ goods_output_llwa_market_conn_add = { # Modifier types identifiers need to be ex
     }
 }
 
+goods_output_llwa_market_conn_mult = {
+	color = good
+	percent = yes
+    decimals = 1
+    game_data = {
+        ai_value = 0
+    }
+}
+
+goods_input_transportation_mult = {
+	color = good
+	percent = yes
+    decimals = 1
+    game_data = {
+        ai_value = 0
+    }
+}
+
 # MAPI-related
 state_market_access_price_impact = { # tweak decimals amount & ai value
     color = neutral

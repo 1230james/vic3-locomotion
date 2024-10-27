@@ -6,3 +6,11 @@ LLWA_gr_mapi_mode = {
     LLWA_grs_mapi_yes   = {} # MAPI changes + buildings
     LLWA_grs_bldgs_only = {} # MAPI buildings, but no changes
 }
+
+# Infrastructure mode
+LLWA_gr_infra_mode = {
+    default = LLWA_grs_infra_mode_no
+    
+    LLWA_grs_infra_mode_no  = {}
+    LLWA_grs_infra_mode_yes = {}
+}

@@ -1,48 +1,65 @@
-﻿GLOBAL = {
-    # MAPI setup
+﻿BUILDINGS = {
+    # Setup
     every_country = {
-        trigger_event = {
+        trigger_event = { # MAPI
             id = LLWA_secret_ev.1
         }
-        trigger_event = {
+        trigger_event = { # Game rule-controlled buildings
             id   = LLWA_secret_ev.2
+            days = 1
+        }
+        trigger_event = { # Infra -> transport
+            id   = LLWA_secret_ev.3
             days = 1
         }
     }
     
-    # Roadways
+    # Roadways & Logistical Hubs
     # Put lv 1 roadway in every incorporated state, lv 2 in the capital
+    # Initialize logistical hubs
     every_state = {
         limit = {
-            is_incorporated = yes
             NOT = {
                 owner ?= {
                     is_country_type = decentralized
                 }
             }
         }
+        
+        # Roads
         if = {
             limit = {
-                is_capital = yes
+                is_incorporated = yes
             }
-            create_building = {
-                building    = LLWA_building_roadway
-                level       = 2
-                reserves    = 1
-                activate_production_methods = {
-                    LLWA_pm_horse_wagons
+            if = {
+                limit = {
+                    is_capital = yes
+                }
+                create_building = {
+                    building    = LLWA_building_roadway
+                    level       = 2
+                    reserves    = 1
+                    activate_production_methods = {
+                        LLWA_pm_horse_wagons
+                    }
+                }
+            }
+            else = {
+                create_building = {
+                    building    = LLWA_building_roadway
+                    level       = 1
+                    reserves    = 1
+                    activate_production_methods = {
+                        LLWA_pm_horse_wagons
+                    }
                 }
             }
         }
-        else = {
-            create_building = {
-                building    = LLWA_building_roadway
-                level       = 1
-                reserves    = 1
-                activate_production_methods = {
-                    LLWA_pm_horse_wagons
-                }
-            }
+        
+        # Logihubs
+        create_building = {
+            building = LLWA_building_logistics_hub
+            level    = 1
         }
     }
     

@@ -295,3 +295,18 @@ llwa_building_exchange = {
         }
     }
 }
+
+LLWA_building_logistics_hub = { # logiman good!
+    building_group = LLWA_bg_logihub
+    texture = "gfx/interface/icons/building_icons/LLWA_warehouse.dds"
+    background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_light_industry.dds"
+    
+    buildable = no
+    expandable = no
+    downsizeable = no
+    ownership_type = other
+
+    production_method_groups = {
+        LLWA_pmg_logihub_base
+    }
+}

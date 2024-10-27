@@ -107,6 +107,14 @@ LLWA_pmg_mapi_comms = {
     }
 }
 
+LLWA_pmg_logihub_base = {
+    texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+    
+    production_methods = {
+        LLWA_pm_logihub_base
+    }
+}
+
 # ==================================================================================================================== #
 
 LLWA_pmg_private_expansion = {

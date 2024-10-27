@@ -150,3 +150,181 @@ on_investment_decreased = {
         LLWA_oa_MAPI_law_activated
     }
 }
+
+# ==================================================================================================================== #
+
+LLWA_oa_logihub_monthly = {
+    trigger = {
+        has_game_rule = LLWA_grs_infra_mode_yes
+    }
+    effect = {
+        # Only players, majors, and countries in players' markets
+        every_country = {
+            limit = {
+                OR = {
+                    is_player = yes
+                    country_rank >= rank_value:unrecognized_major_power
+                    market = {
+                        any_scope_country = {
+                            is_player = yes
+                        }
+                    }
+                }
+            }
+                
+            # Fire immediately + weekly for players
+            if = {
+                limit = {
+                    is_player = yes
+                }
+                LLWA_se_country_refresh_logihubs = yes
+                trigger_event = {
+                    id   = LLWA_secret_ev.4
+                    days = 7
+                }
+                trigger_event = {
+                    id   = LLWA_secret_ev.4
+                    days = 14
+                }
+                trigger_event = {
+                    id   = LLWA_secret_ev.4
+                    days = 21
+                }
+            }
+            
+            # Load balancing
+            else = {
+                set_local_variable = {
+                    name  = index
+                    value = {
+                        add    = global_country_ranking
+                        modulo = 4
+                    }
+                }
+                switch = {
+                    trigger = local_var:index
+                    0 = {
+                        LLWA_se_country_refresh_logihubs = yes
+                    }
+                    1 = {
+                        trigger_event = {
+                            id   = LLWA_secret_ev.4
+                            days = 7
+                        }
+                    }
+                    2 = {
+                        trigger_event = {
+                            id   = LLWA_secret_ev.4
+                            days = 14
+                        }
+                    }
+                    3 = {
+                        trigger_event = {
+                            id   = LLWA_secret_ev.4
+                            days = 21
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+LLWA_oa_logihub_semi_yearly = {
+    trigger = {
+        has_game_rule = LLWA_grs_infra_mode_yes
+    }
+    effect = {
+        # Only countries not covered by monthly
+        every_country = {
+            limit = {
+                NOR = {
+                    is_player = yes
+                    country_rank >= rank_value:unrecognized_major_power
+                    market = {
+                        any_scope_country = {
+                            is_player = yes
+                        }
+                    }
+                }
+            }
+            
+            # Load balancing
+            set_local_variable = {
+                name  = index
+                value = {
+                    add    = global_country_ranking
+                    modulo = 4
+                }
+            }
+            switch = {
+                trigger = local_var:index
+                0 = {
+                    LLWA_se_country_refresh_logihubs = yes
+                }
+                1 = {
+                    trigger_event = {
+                        id   = LLWA_secret_ev.4
+                        days = 7
+                    }
+                    trigger_event = {
+                        id   = LLWA_secret_ev.4
+                        days = 187
+                    }
+                }
+                2 = {
+                    trigger_event = {
+                        id   = LLWA_secret_ev.4
+                        days = 14
+                    }
+                    trigger_event = {
+                        id   = LLWA_secret_ev.4
+                        days = 194
+                    }
+                }
+                3 = {
+                    trigger_event = {
+                        id   = LLWA_secret_ev.4
+                        days = 21
+                    }
+                    trigger_event = {
+                        id   = LLWA_secret_ev.4
+                        days = 201
+                    }
+                }
+            }
+        }
+    }
+}
+
+LLWA_oa_state_logihub_handler = {
+    effect = {
+        state = {
+            LLWA_se_state_refresh_logihubs = yes
+        }
+    }
+}
+
+on_building_built = {
+    on_actions = {
+        LLWA_oa_state_logihub_handler
+    }
+}
+
+on_building_expanded = {
+    on_actions = {
+        LLWA_oa_state_logihub_handler
+    }
+}
+
+on_monthly_pulse = {
+    on_actions = {
+        LLWA_oa_logihub_monthly
+    }
+}
+
+on_yearly_pulse = {
+    on_actions = {
+        LLWA_oa_logihub_semi_yearly
+    }
+}

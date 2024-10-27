@@ -9,6 +9,16 @@ LLWA_md_mapi_mapi_lvl = { # yo dawg i heard you liked mapi...
     state_market_access_price_impact = 1
 }
 
+LLWA_md_logihub_in_mult = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+    goods_input_transportation_mult = 1
+}
+
+LLWA_md_logihub_out_mult = {
+    icon = gfx/interface/icons/timed_modifier_icons/LLWA_market_conn.dds
+    goods_output_llwa_market_conn_mult = 1
+}
+
 # Unused
 # Water distance tracking
 LLWA_md_dist_from_water = {

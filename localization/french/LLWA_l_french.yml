@@ -7,6 +7,10 @@
     llwa_building_freight_depot: "Shipping Lines"
     llwa_building_exchange:      "Financial Exchanges"
     
+    LLWA_building_logistics_hub: "Logistics Hub"
+    
+    LLWA_building_logistics_hub: "Logistics Hub"
+    
     # PMGs
     LLWA_pmg_road_base:     "$pm_base$"
     LLWA_pmg_rail_base:     "$pm_base$"
@@ -14,6 +18,7 @@
     LLWA_pmg_air_base:      "$pm_base$"
     LLWA_pmg_shipping_base: "$pm_base$"
     LLWA_pmg_exchange_base: "$pm_base$"
+    LLWA_pmg_logihub_base:  "$pm_base$"
     
     LLWA_pmg_road_traffic:  "Passenger Buses"
     LLWA_pmg_rail_traffic:  "$pmg_passenger_trains$"
@@ -70,6 +75,9 @@
     LLWA_pm_telegraphs:    "Telegraph Lines"
     LLWA_pm_telephones:    "Telephone Lines"
     
+    # PMs - Logistics Hubs
+    LLWA_pm_logihub_base: "$LLWA_building_logistics_hub$"
+    
     # PMs - Private expansion
     LLWA_pm_yes_private_expansion: "Private Expansion Allowed"
     LLWA_pm_no_private_expansion:  "Government Expansion Only"
@@ -80,6 +88,8 @@
     # Modifiers
     LLWA_md_mapi_building_lvl: "LLWA: MAPI Buildings Enabled"
     LLWA_md_mapi_mapi_lvl:     "LLWA: MAPI Rebalance Enabled"
+    LLWA_md_logihub_in_mult:   "$LLWA_building_logistics_hub$ Input"
+    LLWA_md_logihub_out_mult:  "$LLWA_building_logistics_hub$ Output"
     
     # Modifier types
     goods_input_luxury_furniture_add:      "Utilisation de meubles de luxe @luxury_furniture!"
@@ -91,6 +101,12 @@
     goods_output_llwa_market_conn_add:      "Production de $llwa_market_conn$ @llwa_market_conn!"
     goods_output_llwa_market_conn_add_desc: ""La quantité de $llwa_market_conn$ @llwa_market_conn! produite par les bâtiments."
     
+    goods_input_transportation_mult:      "Utilisation de transport @transportation!"
+    goods_input_transportation_mult_desc: "La quantité de transport @transportation! consommée par les bâtiments."
+    
+    goods_output_llwa_market_conn_mult:      "$goods_output_llwa_market_conn_add$"
+    goods_output_llwa_market_conn_mult_desc: "$goods_output_llwa_market_conn_add_desc$"
+    
     state_llwa_building_freight_depot_max_level_add:      "Niveau maximum du $llwa_building_freight_depot$"
     state_llwa_building_freight_depot_max_level_add_desc: "Un bonus ou une pénalité au niveau maximum des bâtiments du $llwa_building_freight_depot$"
     
@@ -98,7 +114,8 @@
     state_llwa_building_exchange_max_level_add_desc: "Un bonus ou une pénalité au niveau maximum des bâtiments du $llwa_building_exchange$"
     
     # Game Rules
-    rule_LLWA_gr_mapi_mode: "#yellow LLWA#! | MAPI Rebalancing Features"
+    rule_LLWA_gr_mapi_mode:  "#yellow LLWA#! | MAPI Rebalancing Features"
+    rule_LLWA_gr_infra_mode: "#yellow LLWA#! | @transportation![Nbsp]$transportation$ for Infrastructure"
     
     setting_LLWA_grs_mapi_no:      "#n Disabled#!"
     setting_LLWA_grs_mapi_no_desc: "#yellow $state_market_access_price_impact$#! #n will not#! be adjusted by LLWA. Use this option if you have a different MAPI mod or if you prefer the vanilla implementation."
@@ -109,9 +126,15 @@
     setting_LLWA_grs_bldgs_only:      "#bold;blue Buildings Only#!"
     setting_LLWA_grs_bldgs_only_desc: "#yellow $state_market_access_price_impact$#! #n will not#! be adjusted by LLWA, but #yellow $llwa_building_freight_depot$#! and #yellow $llwa_building_exchange$#! #p will#! still be available for construction. #n Not recommended for use if you do not have a mod overhauling MAPI.#!"
     
+    setting_LLWA_grs_infra_mode_yes:      "$setting_LLWA_grs_mapi_yes$"
+    setting_LLWA_grs_infra_mode_yes_desc: "A special #yellow $LLWA_building_logistics_hub$#! [concept_building] #p will#! be created in each [concept_state] that generates [concept_buy_orders] for #yellow @transportation![Nbsp]$transportation$#! based on the local [concept_infrastructure_usage], providing much-needed additional [concept_revenue]."
+    
+    setting_LLWA_grs_infra_mode_no:      "$setting_LLWA_grs_mapi_no$"
+    setting_LLWA_grs_infra_mode_no_desc: "The #yellow $LLWA_building_logistics_hub$#! [concept_building] #n will not#! be created. [concept_buy_orders] for #yellow @transportation![Nbsp]$transportation$#! and [concept_infrastructure_usage] will not be connected."
+    
     # Unused strings - defined as empty to silence errors
     LLWA_md_dist_from_water:   ""
-    LLWA_je_pm_manager:        ""
-    LLWA_je_pm_manager_reason: ""
+    LLWA_je_ai_manager:        "LLWA AI Manager"
+    LLWA_je_ai_manager_reason: "This journal exists as a container for periodic AI-only logic. Please ignore it."
     state_llwa_mt_dist_from_water_add:      ""
     state_llwa_mt_dist_from_water_add_desc: ""
