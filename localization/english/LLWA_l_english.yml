@@ -112,7 +112,8 @@
     state_llwa_building_exchange_max_level_add_desc: "A bonus or penalty to the maximum level of $llwa_building_exchange$ buildings."
     
     # Game Rules
-    rule_LLWA_gr_mapi_mode: "#yellow LLWA#! | MAPI Rebalancing Features"
+    rule_LLWA_gr_mapi_mode:  "#yellow LLWA#! | MAPI Rebalancing Features"
+    rule_LLWA_gr_infra_mode: "#yellow LLWA#! | @transportation![Nbsp]$transportation$ for Infrastructure"
     
     setting_LLWA_grs_mapi_no:      "#n Disabled#!"
     setting_LLWA_grs_mapi_no_desc: "#yellow $state_market_access_price_impact$#! #n will not#! be adjusted by LLWA. Use this option if you have a different MAPI mod or if you prefer the vanilla implementation."
@@ -122,6 +123,12 @@
     
     setting_LLWA_grs_bldgs_only:      "#bold;blue Buildings Only#!"
     setting_LLWA_grs_bldgs_only_desc: "#yellow $state_market_access_price_impact$#! #n will not#! be adjusted by LLWA, but #yellow $llwa_building_freight_depot$#! and #yellow $llwa_building_exchange$#! #p will#! still be available for construction. #n Not recommended for use if you do not have a mod overhauling MAPI.#!"
+    
+    setting_LLWA_grs_infra_mode_yes:      "$setting_LLWA_grs_mapi_yes$"
+    setting_LLWA_grs_infra_mode_yes_desc: "A special #yellow $LLWA_building_logistics_hub$#! [concept_building] #p will#! be created in each [concept_state] that generates [concept_buy_orders] for #yellow @transportation![Nbsp]$transportation$#! based on the local [concept_infrastructure_usage], providing much-needed additional [concept_revenue]."
+    
+    setting_LLWA_grs_infra_mode_no:      "$setting_LLWA_grs_mapi_no$"
+    setting_LLWA_grs_infra_mode_no_desc: "The #yellow $LLWA_building_logistics_hub$#! [concept_building] #n will not#! be created. [concept_buy_orders] for #yellow @transportation![Nbsp]$transportation$#! and [concept_infrastructure_usage] will not be connected."
     
     # Unused strings - defined as empty to silence errors
     LLWA_md_dist_from_water:   ""
