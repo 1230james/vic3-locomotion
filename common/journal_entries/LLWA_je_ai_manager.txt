@@ -135,12 +135,6 @@ LLWA_je_ai_manager = {
                             }
                         }
                         set_subsidized = yes
-                        ROOT = {
-                            set_variable = {
-                                name = LLWA_DEBUG_BLDG
-                                value = PREV
-                            }
-                        }
                     }
                 }
                 b:LLWA_building_waterway ?= {
@@ -149,12 +143,6 @@ LLWA_je_ai_manager = {
                             weekly_profit < 0
                         }
                         set_subsidized = yes
-                        ROOT = {
-                            set_variable = {
-                                name = LLWA_DEBUG_BLDG
-                                value = PREV
-                            }
-                        }
                     }
                 }
                 b:LLWA_building_airway ?= {
@@ -163,12 +151,6 @@ LLWA_je_ai_manager = {
                             weekly_profit < 0
                         }
                         set_subsidized = yes
-                        ROOT = {
-                            set_variable = {
-                                name = LLWA_DEBUG_BLDG
-                                value = PREV
-                            }
-                        }
                     }
                 }
                 b:llwa_building_freight_depot ?= {
@@ -180,12 +162,6 @@ LLWA_je_ai_manager = {
                             }
                         }
                         set_subsidized = yes
-                        ROOT = {
-                            set_variable = {
-                                name = LLWA_DEBUG_BLDG
-                                value = PREV
-                            }
-                        }
                     }
                 }
                 b:llwa_building_exchange ?= {
@@ -197,12 +173,6 @@ LLWA_je_ai_manager = {
                             }
                         }
                         set_subsidized = yes
-                        ROOT = {
-                            set_variable = {
-                                name = LLWA_DEBUG_BLDG
-                                value = PREV
-                            }
-                        }
                     }
                 }
             }
