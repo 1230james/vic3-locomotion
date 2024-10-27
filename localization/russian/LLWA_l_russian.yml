@@ -127,7 +127,7 @@
     
     # Unused strings - defined as empty to silence errors
     LLWA_md_dist_from_water:   ""
-    LLWA_je_pm_manager:        ""
-    LLWA_je_pm_manager_reason: ""
+    LLWA_je_ai_manager:        "LLWA AI Manager"
+    LLWA_je_ai_manager_reason: "This journal exists as a container for periodic AI-only logic. Please ignore it."
     state_llwa_mt_dist_from_water_add:      ""
     state_llwa_mt_dist_from_water_add_desc: ""
