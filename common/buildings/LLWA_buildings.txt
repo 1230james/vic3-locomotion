@@ -1,6 +1,6 @@
 ﻿LLWA_building_roadway = {
     building_group = bg_private_infrastructure
-    texture = "gfx/interface/icons/building_icons/LLWA_roadway.dds"
+    icon = "gfx/interface/icons/building_icons/LLWA_roadway.dds"
     background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
     
     ownership_type = self
@@ -39,7 +39,7 @@
 
 LLWA_building_waterway = {
     building_group = bg_private_infrastructure
-    texture = "gfx/interface/icons/building_icons/LLWA_canal.dds"
+    icon = "gfx/interface/icons/building_icons/LLWA_canal.dds"
     background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_harbour.dds"
     
     ai_nationalization_desire = 0.5
@@ -83,7 +83,7 @@ LLWA_building_waterway = {
 
 LLWA_building_airway = {
     building_group = bg_private_infrastructure
-    texture = "gfx/interface/icons/building_icons/LLWA_airfield.dds"
+    icon = "gfx/interface/icons/building_icons/LLWA_airfield.dds"
     background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
     
     enable_air_connection = yes
@@ -126,7 +126,7 @@ LLWA_building_airway = {
 
 llwa_building_freight_depot = {
     building_group = bg_private_infrastructure
-    texture = "gfx/interface/icons/building_icons/LLWA_freight_depot.dds"
+    icon = "gfx/interface/icons/building_icons/LLWA_freight_depot.dds"
     background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_railways.dds"
     
     has_max_level = yes
@@ -212,7 +212,7 @@ llwa_building_freight_depot = {
 
 llwa_building_exchange = {
     building_group = bg_private_infrastructure
-    texture = "gfx/interface/icons/building_icons/LLWA_exchange.dds"
+    icon = "gfx/interface/icons/building_icons/LLWA_exchange.dds"
     background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
     
     has_max_level = yes
@@ -298,7 +298,7 @@ llwa_building_exchange = {
 
 LLWA_building_logistics_hub = { # logiman good!
     building_group = LLWA_bg_logihub
-    texture = "gfx/interface/icons/building_icons/LLWA_warehouse.dds"
+    icon = "gfx/interface/icons/building_icons/LLWA_warehouse.dds"
     background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_light_industry.dds"
     
     buildable = no

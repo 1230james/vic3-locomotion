@@ -1,6 +1,6 @@
 ﻿building_railway = {
 	building_group = bg_private_infrastructure	
-	texture = "gfx/interface/icons/building_icons/building_railway.dds"
+	icon = "gfx/interface/icons/building_icons/building_railway.dds"
 	
 	ai_nationalization_desire = 0.5 # AI is reluctant to privatize railways since they are likely to need subsidies anyway
 	
@@ -24,9 +24,6 @@
 				owner = {
 					has_journal_entry = je_trans_siberian_railway
 				}
-				NOT = {
-					has_building = building_railway
-				}
 				OR = {
 					state_region = s:STATE_MOSCOW
 					state_region = s:STATE_YAROSLAVL
@@ -46,6 +43,74 @@
 					state_region = s:STATE_OKHOTSK
 					state_region = s:STATE_AMUR
 					state_region = s:STATE_OUTER_MANCHURIA
+				}
+				NOR = {
+					has_building = building_railway
+					any_scope_building = {
+						is_building_type = building_railway
+						is_under_construction = yes
+					}
+				}
+			}
+			add = 10000
+		}
+		else_if = { # Shinkansen, my beloved
+			limit = {
+				owner = {
+					has_journal_entry = je_meiji_economy
+				}
+				is_incorporated = yes # Japan proper
+				NOR = {
+					has_building = building_railway
+					any_scope_building = {
+						is_building_type = building_railway
+						is_under_construction = yes
+					}
+				}
+			}
+			add = 10000
+		}
+		else_if = { # Trans-Continental Railways
+			limit = {
+				owner = {
+					has_journal_entry = je_trans_continental_railway
+				}
+				OR = {
+					state_region = s:STATE_NEBRASKA
+					state_region = s:STATE_WYOMING
+					state_region = s:STATE_UTAH
+					state_region = s:STATE_NEVADA
+					state_region = s:STATE_CALIFORNIA
+				}
+				NOR = {
+					has_building = building_railway
+					any_scope_building = {
+						is_building_type = building_railway
+						is_under_construction = yes
+					}
+				}
+			}
+			add = 10000
+		}
+		else_if = { # Canadian Pacific Highway
+			limit = {
+				owner = {
+					has_journal_entry = je_canada_pacific_railway
+				}
+				OR = {
+					state_region = s:STATE_QUEBEC
+					state_region = s:STATE_BRITISH_COLUMBIA
+					state_region = s:STATE_ONTARIO
+					state_region = s:STATE_ALBERTA
+					state_region = s:STATE_SASKATCHEWAN
+					state_region = s:STATE_MANITOBA
+				}
+				NOR = {
+					has_building = building_railway
+					any_scope_building = {
+						is_building_type = building_railway
+						is_under_construction = yes
+					}
 				}
 			}
 			add = 10000
