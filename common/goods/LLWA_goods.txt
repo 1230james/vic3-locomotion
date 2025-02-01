@@ -1,6 +1,15 @@
 ﻿llwa_market_conn = {
     texture = "gfx/interface/icons/goods_icons/LLWA_market_conn.dds"
-    cost = 50 # If updated, update @MARKET_CONNECTIVITY_COST in scripted effects
+    cost = 50
+    category = industrial
+    tradeable = no
+	fixed_price = yes
+	prestige_factor = 0
+}
+
+llwa_logi_conn = {
+    texture = "gfx/interface/icons/goods_icons/LLWA_logi_conn.dds"
+    cost = 30 # If updated, update @LOGIHUB_CONN_COST in scripted effects
     category = industrial
     tradeable = no
 	fixed_price = yes

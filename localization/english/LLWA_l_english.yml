@@ -82,6 +82,7 @@
     
     # Goods
     llwa_market_conn: "Market Connectivity"
+    llwa_logi_conn:   "Local Connectivity"
     
     # Modifiers
     LLWA_md_mapi_building_lvl: "LLWA: MAPI Buildings Enabled"
@@ -99,11 +100,14 @@
     goods_output_llwa_market_conn_add:      "@llwa_market_conn! $llwa_market_conn$ output per level"
     goods_output_llwa_market_conn_add_desc: "The amount of @llwa_market_conn! $llwa_market_conn$ produced by buildings"
     
+    goods_output_llwa_logi_conn_add:      "@llwa_logi_conn! $llwa_logi_conn$ output per level"
+    goods_output_llwa_logi_conn_add_desc: "The amount of @llwa_logi_conn! $llwa_logi_conn$ produced by buildings"
+    
     goods_input_transportation_mult:      "@transportation! $transportation$ input"
     goods_input_transportation_mult_desc: "The amount of @transportation! $transportation$ consumed by buildings"
     
-    goods_output_llwa_market_conn_mult:      "@llwa_market_conn! $llwa_market_conn$ output"
-    goods_output_llwa_market_conn_mult_desc: "$goods_output_llwa_market_conn_add_desc$"
+    goods_output_llwa_logi_conn_mult:      "@llwa_logi_conn! $llwa_logi_conn$ output"
+    goods_output_llwa_logi_conn_mult_desc: "$goods_output_llwa_logi_conn_add_desc$"
     
     state_llwa_building_freight_depot_max_level_add:      "$llwa_building_freight_depot$ Max Level"
     state_llwa_building_freight_depot_max_level_add_desc: "A bonus or penalty to the maximum level of $llwa_building_freight_depot$ buildings."

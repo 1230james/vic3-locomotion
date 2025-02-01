@@ -27,7 +27,16 @@ goods_output_llwa_market_conn_add = { # Modifier types identifiers need to be ex
     }
 }
 
-goods_output_llwa_market_conn_mult = {
+goods_output_llwa_logi_conn_add = {
+    decimals = 1
+	color = good
+	percent = no
+    game_data = {
+        ai_value = 0
+    }
+}
+
+goods_output_llwa_logi_conn_mult = {
 	color = good
 	percent = yes
     decimals = 1
