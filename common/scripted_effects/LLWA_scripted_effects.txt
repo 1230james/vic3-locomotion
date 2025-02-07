@@ -97,6 +97,178 @@ LLWA_se_reset_blocked_private_expansions = {
     }
 }
 
+# Queue up infrastructure building if theres a transportation shortage
+# State scope
+LLWA_se_enqueue_infra_building_for_transportation = {
+    if = {
+        limit = {
+            OR = {
+                has_game_rule = LLWA_grs_infra_mode_yes
+                has_game_rule = LLWA_grs_mapi_yes
+            }
+            owner = { # AI only - player can deal with their own issues
+                is_ai = yes
+                NOT = {
+                    is_country_type = decentralized
+                }
+            }
+            NOR = { # Don't build more stuff if existing infrastructure isn't at full capacity
+                b:LLWA_building_airway ?= {
+                    OR = {
+                        is_under_construction = yes
+                        occupancy < 1
+                        building_has_goods_shortage = yes
+                    }
+                }
+                b:building_railway ?= {
+                    OR = {
+                        is_under_construction = yes
+                        occupancy < 1
+                        building_has_goods_shortage = yes
+                    }
+                }
+                b:LLWA_building_waterway ?= {
+                    OR = {
+                        is_under_construction = yes
+                        occupancy < 1
+                        building_has_goods_shortage = yes
+                    }
+                }
+                b:LLWA_building_roadway ?= {
+                    OR = {
+                        is_under_construction = yes
+                        occupancy < 1
+                        building_has_goods_shortage = yes
+                    }
+                }
+            }
+            is_incorporated = yes
+            total_urbanization >= 250 # Don't bother with underdeveloped states
+            sg:transportation.state_goods_pricier >= 0.25
+            owner = {
+                OR = {
+                    modifier:country_disable_investment_pool_bool = yes
+                    construction_queue_num_queued_private_levels < {
+                        add = modifier:country_construction_add
+                        if = {
+                            limit = {
+                                is_construction_paused = no
+                                construction_queue_num_queued_government_levels > 0
+                            }
+                            multiply = modifier:country_private_construction_allocation_mult
+                        }
+                        divide   = modifier:country_max_weekly_construction_progress_add
+                        multiply = {
+                            add    = sg:transportation.state_goods_pricier
+                            divide = 0.25
+                        }
+                        ceiling = yes
+                        add     = 1
+                    }
+                }
+            }
+        }
+        
+        # Prioritize airports if super pricey
+        if = {
+            limit = {
+                can_construct_building = LLWA_building_airway
+                owner = {
+                    OR = {
+                        has_technology_researched = zeppelins
+                        has_technology_researched = military_aviation
+                    }
+                }
+                OR = { # Planes available & affordable OR emerging technology in developed areas
+                    AND = {
+                        market.mg:aeroplanes.market_goods_production >= 500
+                        sg:aeroplanes.state_goods_pricier <= 0.20
+                    }
+                    is_capital = yes
+                    total_urbanization >= 1000
+                }
+                sg:transportation.state_goods_pricier >= 0.40
+            }
+            LLWA_se_start_priv_construction = { BUILDING = LLWA_building_airway }
+        }
+        
+        # Prioritize railways > waterways
+        else_if = {
+            limit = {
+                can_construct_building = building_railway
+                OR = {
+                    market.mg:engines.market_goods_pricier <= 0.35
+                    sg:engines.state_goods_pricier <= 0.35
+                }
+                owner = {
+                    has_technology_researched = railways
+                }
+            }
+            LLWA_se_start_priv_construction = { BUILDING = building_railway }
+        }
+        
+        # Waterways > Roadways
+        # Stop building them when we have good trains
+        else_if = {
+            limit = {
+                can_construct_building = LLWA_building_waterway
+                owner = {
+                    has_technology_researched = urbanization
+                }
+                OR = {
+                    NOT = {
+                        has_building = building_railway
+                    }
+                    b:building_railway ?= {
+                        has_active_production_method = pm_early_trains
+                    }
+                }
+            }
+            LLWA_se_start_priv_construction = { BUILDING = LLWA_building_waterway }
+        }
+        
+        # Roads only if literally no other option
+        else_if = {
+            limit = {
+                can_construct_building = LLWA_building_roadway
+                owner = {
+                    has_technology_researched = urbanization
+                }
+                NOR = {
+                    AND = {
+                        can_construct_building = LLWA_building_airway
+                        owner = {
+                            OR = {
+                                has_technology_researched = zeppelins
+                                has_technology_researched = military_aviation
+                            }
+                        }
+                    }
+                    AND = {
+                        can_construct_building = building_railway
+                        owner = {
+                            has_technology_researched = railways
+                        }
+                    }
+                    can_construct_building = LLWA_building_waterway
+                }
+            }
+            LLWA_se_start_priv_construction = { BUILDING = LLWA_building_waterway }
+        }
+    }
+}
+LLWA_se_start_priv_construction = {
+    if = {
+        limit = {
+            owner.modifier:country_disable_privatization_bool = yes
+        }
+        start_building_construction = $BUILDING$
+    }
+    else = {
+        start_privately_funded_building_construction = $BUILDING$
+    }
+}
+
 # Update logistics hub modifiers
 # Country scope
 LLWA_se_country_refresh_logihubs = {

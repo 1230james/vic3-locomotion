@@ -10,6 +10,7 @@
 LLWA_oa_state_handler = {
     effect = {
         LLWA_se_reset_blocked_private_expansions = yes
+        LLWA_se_enqueue_infra_building_for_transportation = yes
     }
 }
 
