@@ -304,7 +304,7 @@ LLWA_building_logistics_hub = { # logiman good!
     buildable = no
     expandable = no
     downsizeable = no
-    ownership_type = other
+    ownership_type = no_ownership
 
     production_method_groups = {
         LLWA_pmg_logihub_base

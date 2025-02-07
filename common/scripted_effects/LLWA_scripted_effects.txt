@@ -1,20 +1,16 @@
 ﻿@LOGIHUB_CONN_OUTPUT_PER_TRANSPORTATION = 1 # Match with LogiHub base PM
-@LOGIHUB_CONN_COST = 30 # Match with goods definition
+@LOGIHUB_CONN_COST = 35 # Match with goods definition
+@LOGIHUB_WORKFORCE_SIZE = 5000 # Match with LogiHub base PM
 
-# Profit ceiling = abs(weekly expenses) * (1 + BUILDING_PROFIT_TARGET_TO_RAISE_WAGES) + @LOGIHUB_PROFIT_CEIL_BUFFER
-# If weekly profit is above the profit ceiling, output will be nudged downwards to reach the profit target
-@LOGIHUB_PROFIT_CEIL_BUFFER = 2000
+@TRANSPORTATION_COST = 30 # Match with goods definition
 
-# Profit floor = abs(weekly expenses) * (1 + BUILDING_PROFIT_TARGET_TO_LOWER_WAGES)
-# Profit target = ((profit ceiling) - (profit floor)) * @LOGIHUB_PROFIT_TARGET_RATIO + (profit floor)
-# i.e. 0.5 = midway between profit ceiling and floor
-@LOGIHUB_PROFIT_TARGET_RATIO = 0.5
+# If not trying to reach high output to raise wages & hire, math will try to target this amount of profitability
+@LOGIHUB_PROFITABILITY_TARGET  = 15
 
 @LOGIHUB_MKT_CONN_WAGES_OUT_MIN = 1 # At least/at most these amounts will be created to account for wages
 @LOGIHUB_MKT_CONN_WAGES_OUT_MAX = 1000
 
-# The additional Market Connectivity created to cover wages can only change by this proportion of the current amount at a time
-@LOGIHUB_MKT_CONN_WAGES_MAX_DELTA_RATIO = 0.75
+@LOGIHUB_MINIMUM_WAGE = 480 # 480 => 5.0 annual minimum wage # (desired min wage) / 52 * (workforce size) = this
 
 # Update autonomous investment availability on PM change
 # Building scope
@@ -176,15 +172,56 @@ LLWA_se_state_refresh_logihubs = {
         else = {
             # Pre-calculate things
             set_local_variable = {
+                name  = weekly_revenue
+                value = {
+                    add      = sg:llwa_logi_conn.state_goods_production
+                    multiply = @LOGIHUB_CONN_COST
+                }
+            }
+            set_local_variable = {
                 # (weekly profit) - (revenue) = expenses
                 # Sign will be NEGATIVE
                 name  = weekly_expenses
                 value = {
                     add      = b:LLWA_building_logistics_hub.weekly_profit
-                    subtract = {
-                        add  = sg:llwa_logi_conn.state_goods_production
-                        multiply = @LOGIHUB_CONN_COST
+                    subtract = local_var:weekly_revenue
+                }
+            }
+            set_local_variable = {
+                # -1 * (productivity / 52 * workforce + revenue) = cost of goods
+                name  = weekly_cost_of_goods
+                value = {
+                    if = {
+                        limit = {
+                            b:LLWA_building_logistics_hub.earnings > 0
+                        }
+                        add      = b:LLWA_building_logistics_hub.earnings
+                        divide   = 52
+                        multiply = {
+                            add      = @LOGIHUB_WORKFORCE_SIZE
+                            multiply = b:LLWA_building_logistics_hub.occupancy
+                        }
+                        subtract = local_var:weekly_revenue
+                        multiply = -1
                     }
+                    else = { # this method cannot account for shortages, so only use it for the fallback
+                        add      = b:LLWA_building_logistics_hub.modifier:goods_input_transportation_add
+                        multiply = b:LLWA_building_logistics_hub.modifier:goods_input_transportation_mult
+                        multiply = @TRANSPORTATION_COST
+                        multiply = {
+                            add  = 1
+                            add  = sg:transportation.state_goods_pricier
+                        }
+                    }
+                }
+            }
+            set_local_variable = {
+                name  = weekly_wages
+                value = {
+                    add      = local_var:weekly_expenses
+                    multiply = -1
+                    subtract = local_var:weekly_cost_of_goods
+                    min      = @LOGIHUB_MINIMUM_WAGE
                 }
             }
             set_local_variable = {
@@ -200,31 +237,16 @@ LLWA_se_state_refresh_logihubs = {
                 }
             }
             set_local_variable = {
-                name  = profit_ceiling
-                value = {
-                    add = local_var:wage_raise_profit_target
-                    add = @LOGIHUB_PROFIT_CEIL_BUFFER
-                }
-            }
-            set_local_variable = {
-                name  = profit_floor
-                value = {
-                    add = local_var:weekly_expenses
-                    multiply = { # lower wages margin & flip sign
-                        add      = -1
-                        subtract = define:NEconomy|BUILDING_PROFIT_TARGET_TO_LOWER_WAGES
-                    }
-                }
-            }
-            set_local_variable = {
                 name  = profit_target
                 value = {
-                    add = local_var:profit_floor
-                    add = {
-                        add      = local_var:profit_ceiling
-                        subtract = local_var:profit_floor
-                        multiply = @LOGIHUB_PROFIT_TARGET_RATIO
-                    }
+                    # (revenue - cost of goods) / workforce * 52 = profitability
+                    # balance = revenue - cost of goods - wages
+                    # => revenue - cost of goods = balance + wages
+                    # => profitability / 52 * workforce - wages = target balance
+                    add      = @LOGIHUB_PROFITABILITY_TARGET
+                    divide   = 52
+                    multiply = @LOGIHUB_WORKFORCE_SIZE
+                    subtract = local_var:weekly_wages
                 }
             }
             
@@ -243,11 +265,8 @@ LLWA_se_state_refresh_logihubs = {
                     name  = LLWA_logihub_mkt_conn_wages_out
                     value = {
                         add     = local_var:wage_raise_profit_target
+                        add     = local_var:weekly_wages
                         divide  = @LOGIHUB_CONN_COST # convert value into units
-                        divide  = { # scale up for low occupancy
-                            add = b:LLWA_building_logistics_hub.occupancy
-                            min = 0.0001 # DIV/0 guard
-                        }
                         ceiling = yes
                         min     = {
                             add     = 2000
@@ -258,49 +277,16 @@ LLWA_se_state_refresh_logihubs = {
                     }
                 }
             }
-            else_if = { # Nudge up or down to stay solvent but minimize profits
-                limit = {
-                    b:LLWA_building_logistics_hub.weekly_profit < local_var:profit_floor
-                }
+            else = { # Set as low as possible
                 set_variable = {
                     name  = LLWA_logihub_mkt_conn_wages_out
                     value = {
-                        add = var:LLWA_logihub_mkt_conn_wages_out
-                        add = {
-                            add      = local_var:profit_target
-                            subtract = b:LLWA_building_logistics_hub.weekly_profit
-                            divide   = @LOGIHUB_CONN_COST
-                            max      = {
-                                add      = var:LLWA_logihub_mkt_conn_wages_out
-                                multiply = @LOGIHUB_MKT_CONN_WAGES_MAX_DELTA_RATIO
-                            }
-                        }
+                        add     = local_var:profit_target
+                        add     = local_var:weekly_wages
+                        divide  = @LOGIHUB_CONN_COST # convert value into units
                         ceiling = yes
-                        min     = @LOGIHUB_MKT_CONN_WAGES_OUT_MIN
-                        max     = @LOGIHUB_MKT_CONN_WAGES_OUT_MAX
-                    }
-                }
-            }
-            else_if = {
-                limit = {
-                    b:LLWA_building_logistics_hub.weekly_profit > local_var:profit_ceiling
-                }
-                set_variable = {
-                    name  = LLWA_logihub_mkt_conn_wages_out
-                    value = {
-                        add      = var:LLWA_logihub_mkt_conn_wages_out
-                        subtract = {
-                            add      = b:LLWA_building_logistics_hub.weekly_profit
-                            subtract = local_var:profit_target
-                            divide   = @LOGIHUB_CONN_COST
-                            max      = {
-                                add      = var:LLWA_logihub_mkt_conn_wages_out
-                                multiply = @LOGIHUB_MKT_CONN_WAGES_MAX_DELTA_RATIO
-                            }
-                        }
-                        ceiling = yes
-                        min     = @LOGIHUB_MKT_CONN_WAGES_OUT_MIN
-                        max     = @LOGIHUB_MKT_CONN_WAGES_OUT_MAX
+                        min = @LOGIHUB_MKT_CONN_WAGES_OUT_MIN
+                        max = @LOGIHUB_MKT_CONN_WAGES_OUT_MAX
                     }
                 }
             }
