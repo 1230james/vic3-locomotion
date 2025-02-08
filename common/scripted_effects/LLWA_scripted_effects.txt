@@ -134,6 +134,13 @@ LLWA_se_enqueue_infra_building_for_transportation = {
                         building_has_goods_shortage = yes
                     }
                 }
+                b:LLWA_building_riverway ?= {
+                    OR = {
+                        is_under_construction = yes
+                        occupancy < 1
+                        building_has_goods_shortage = yes
+                    }
+                }
                 b:LLWA_building_roadway ?= {
                     OR = {
                         is_under_construction = yes
@@ -207,11 +214,17 @@ LLWA_se_enqueue_infra_building_for_transportation = {
             LLWA_se_start_priv_construction = { BUILDING = building_railway }
         }
         
-        # Waterways > Roadways
+        # Riverways/Waterways > Roadways
         # Stop building them when we have good trains
         else_if = {
             limit = {
-                can_construct_building = LLWA_building_waterway
+                OR = {
+                    can_construct_building = LLWA_building_riverway
+                    AND = { # Canals are expensive so only build if we really need it
+                        can_construct_building = LLWA_building_waterway
+                        sg:transportation.state_goods_pricier >= 0.50
+                    }
+                }
                 owner = {
                     has_technology_researched = urbanization
                 }
@@ -224,7 +237,13 @@ LLWA_se_enqueue_infra_building_for_transportation = {
                     }
                 }
             }
-            LLWA_se_start_priv_construction = { BUILDING = LLWA_building_waterway }
+            if = {
+                limit = { can_construct_building = LLWA_building_riverway }
+                LLWA_se_start_priv_construction = { BUILDING = LLWA_building_riverway }
+            }
+            else = {
+                LLWA_se_start_priv_construction = { BUILDING = LLWA_building_waterway }
+            }
         }
         
         # Roads only if literally no other option
@@ -250,6 +269,7 @@ LLWA_se_enqueue_infra_building_for_transportation = {
                             has_technology_researched = railways
                         }
                     }
+                    can_construct_building = LLWA_building_riverway
                     can_construct_building = LLWA_building_waterway
                 }
             }

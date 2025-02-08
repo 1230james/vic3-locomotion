@@ -1,7 +1,8 @@
 ﻿l_english:
     # Buildings
     LLWA_building_roadway:  "Roadway"
-    LLWA_building_waterway: "Waterway"
+    LLWA_building_waterway: "Canal Waterway"
+    LLWA_building_riverway: "Natural Waterway"
     LLWA_building_airway:   "Aerodrome"
     
     llwa_building_freight_depot: "Shipping Lines"
@@ -83,6 +84,13 @@
     # Goods
     llwa_market_conn: "Market Connectivity"
     llwa_logi_conn:   "Local Connectivity"
+    
+    # Tooltips
+    LLWA_tt_has_river:        "Has a river state trait"
+    LLWA_tt_has_no_river:     "Does #b not#! have a river state trait"
+    LLWA_tt_has_no_mountains: "Does #b not#! have a mountain state trait"
+    
+    LLWA_st_can_have_canal: "$TRIGGER_AND$" # Game engine bug moment
     
     # Modifiers
     LLWA_md_mapi_building_lvl: "LLWA: MAPI Buildings Enabled"

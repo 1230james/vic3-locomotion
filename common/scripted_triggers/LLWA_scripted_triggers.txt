@@ -6,23 +6,34 @@
 }
 
 LLWA_st_can_have_canal = {
+    custom_tooltip = {
+        text = LLWA_tt_has_no_river
+        LLWA_st_on_river = no
+    }
+    custom_tooltip = {
+        text = LLWA_tt_has_no_mountains
+        LLWA_st_in_mountains = no
+    }
     OR = {
-        LLWA_st_has_water_source = yes
-        AND = {
-            LLWA_st_in_mountains   = no
-            any_neighbouring_state = {
-                this.owner = prev.owner
+        is_sea_adjacent = yes
+        any_neighbouring_state = {
+            this.owner = prev.owner
+            LLWA_st_has_water_access = yes
+            OR = {
+                has_building = LLWA_building_riverway
                 has_building = LLWA_building_waterway
-                LLWA_st_has_water_source = yes
             }
         }
     }
 }
 
-LLWA_st_has_water_source = {
+LLWA_st_has_water_access = {
     OR = {
-        on_river        = yes
         is_sea_adjacent = yes
+        custom_tooltip = {
+            text = LLWA_tt_has_river
+            LLWA_st_on_river = yes
+        }
     }
 }
 
@@ -82,7 +93,64 @@ LLWA_st_in_mountains = {
         has_state_trait = state_trait_zagros_mountains
         has_state_trait = state_trait_alborz_mountains
         has_state_trait = state_trait_baluchistan_mountains
+        has_state_trait = state_trait_mount_lebanon
         has_state_trait = state_trait_himalayas_mountains
         has_state_trait = state_trait_great_dividing_range
+    }
+}
+
+# Vanilla `on_river` is out of date (as of 1.8.6) and we want to include additional states on top of that anyways
+LLWA_st_on_river = {
+    OR = {
+        has_state_trait = state_trait_oresund
+        has_state_trait = state_trait_st_lawrence_river
+        has_state_trait = state_trait_mississippi_river
+        has_state_trait = state_trait_ohio_river
+        has_state_trait = state_trait_columbia_river
+        has_state_trait = state_trait_great_lakes
+        has_state_trait = state_trait_orinoco_river
+        has_state_trait = state_trait_uruguay_river
+        has_state_trait = state_trait_parana_river
+        has_state_trait = state_trait_paraguay_river
+        has_state_trait = state_trait_amazon_river
+        has_state_trait = state_trait_rhine_river
+        has_state_trait = state_trait_elbe_river
+        has_state_trait = state_trait_oder_river
+        has_state_trait = state_trait_rhone_river
+        has_state_trait = state_trait_loire_river
+        has_state_trait = state_trait_seine_river
+        has_state_trait = state_trait_po_river
+        has_state_trait = state_trait_guadalquivir
+        has_state_trait = state_trait_drava_river
+        has_state_trait = state_trait_danube_river
+        has_state_trait = state_trait_volga_river
+        has_state_trait = state_trait_dnieper_river
+        has_state_trait = state_trait_don_river
+        has_state_trait = state_trait_irtysh_river
+        has_state_trait = state_trait_nile_river
+        has_state_trait = state_trait_congo_river
+        has_state_trait = state_trait_niger_river
+        has_state_trait = state_trait_lake_victoria
+        has_state_trait = state_trait_zambezi_river
+        has_state_trait = state_trait_tigris_river
+        has_state_trait = state_trait_euphrates_river
+        has_state_trait = state_trait_ob_river
+        has_state_trait = state_trait_indus_river
+        has_state_trait = state_trait_ganges_river
+        has_state_trait = state_trait_bengal_delta
+        has_state_trait = state_trait_cauvery_delta
+        has_state_trait = state_trait_brahmaputra_river
+        ﻿has_state_trait = state_trait_irrwaddy_delta
+        has_state_trait = state_trait_mekong_delta
+        has_state_trait = state_trait_chao_phraya_delta
+        has_state_trait = state_trait_mekong_river
+        has_state_trait = state_trait_kapuas_river
+        has_state_trait = state_trait_sarawak_river
+        has_state_trait = state_trait_pearl_river
+        has_state_trait = state_trait_yangtze_river
+        has_state_trait = state_trait_yellow_river
+        has_state_trait = state_trait_angara_river
+        has_state_trait = state_trait_yenisei_river
+        has_state_trait = state_trait_murray_darling_basin
     }
 }

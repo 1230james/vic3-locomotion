@@ -85,7 +85,7 @@
     s:STATE_ONTARIO = {
         region_state:ONT = {
             create_building = {
-                building = LLWA_building_waterway
+                building = LLWA_building_riverway
                 level    = 2
                 reserves = 1
                 activate_production_methods = {
@@ -115,7 +115,7 @@
     s:STATE_MEKONG = {
         region_state:DAI = {
             create_building = {
-                building = LLWA_building_waterway
+                building = LLWA_building_riverway
                 level    = 1
                 reserves = 1
                 activate_production_methods = {
@@ -130,12 +130,12 @@
     s:STATE_RHONE = {
         region_state:FRA = {
             create_building = {
-                building   = LLWA_building_waterway
+                building   = LLWA_building_riverway
                 subsidized = yes
                 reserves   = 1
                 add_ownership = {
                     building = {
-                        type    = LLWA_building_waterway
+                        type    = LLWA_building_riverway
                         country = c:FRA
                         levels  = 1
                         region  = STATE_RHONE
@@ -151,11 +151,11 @@
     s:STATE_PROVENCE = {
         region_state:FRA = {
             create_building = {
-                building = LLWA_building_waterway
+                building = LLWA_building_riverway
                 reserves = 1
                 add_ownership = {
                     building = {
-                        type    = LLWA_building_waterway
+                        type    = LLWA_building_riverway
                         country = c:FRA
                         levels  = 1
                         region  = STATE_PROVENCE
@@ -268,11 +268,11 @@
     s:STATE_TVER = {
         region_state:RUS = {
             create_building = {
-                building = LLWA_building_waterway
+                building = LLWA_building_riverway
                 reserves = 1
                 add_ownership = {
                     building = {
-                        type    = LLWA_building_waterway
+                        type    = LLWA_building_riverway
                         country = c:RUS
                         levels  = 1
                         region  = STATE_TVER
@@ -288,11 +288,11 @@
     s:STATE_MOSCOW = {
         region_state:RUS = {
             create_building = {
-                building = LLWA_building_waterway
+                building = LLWA_building_riverway
                 reserves = 1
                 add_ownership = {
                     building = {
-                        type    = LLWA_building_waterway
+                        type    = LLWA_building_riverway
                         country = c:RUS
                         levels  = 1
                         region  = STATE_MOSCOW
@@ -308,11 +308,11 @@
     s:STATE_YAROSLAVL = {
         region_state:RUS = {
             create_building = {
-                building = LLWA_building_waterway
+                building = LLWA_building_riverway
                 reserves = 1
                 add_ownership = {
                     building = {
-                        type    = LLWA_building_waterway
+                        type    = LLWA_building_riverway
                         country = c:RUS
                         levels  = 1
                         region  = STATE_YAROSLAVL
@@ -328,11 +328,11 @@
     s:STATE_NIZHNY_NOVGOROD = {
         region_state:RUS = {
             create_building = {
-                building = LLWA_building_waterway
+                building = LLWA_building_riverway
                 reserves = 1
                 add_ownership = {
                     building = {
-                        type    = LLWA_building_waterway
+                        type    = LLWA_building_riverway
                         country = c:RUS
                         levels  = 1
                         region  = STATE_NIZHNY_NOVGOROD
@@ -348,11 +348,11 @@
     s:STATE_CHUVASHIA = { # Cheboksary
         region_state:RUS = {
             create_building = {
-                building = LLWA_building_waterway
+                building = LLWA_building_riverway
                 reserves = 1
                 add_ownership = {
                     building = {
-                        type    = LLWA_building_waterway
+                        type    = LLWA_building_riverway
                         country = c:RUS
                         levels  = 1
                         region  = STATE_CHUVASHIA
@@ -368,11 +368,11 @@
     s:STATE_KAZAN = {
         region_state:RUS = {
             create_building = {
-                building = LLWA_building_waterway
+                building = LLWA_building_riverway
                 reserves = 1
                 add_ownership = {
                     building = {
-                        type    = LLWA_building_waterway
+                        type    = LLWA_building_riverway
                         country = c:RUS
                         levels  = 1
                         region  = STATE_KAZAN
@@ -388,11 +388,11 @@
     s:STATE_SAMARA = {
         region_state:RUS = {
             create_building = {
-                building = LLWA_building_waterway
+                building = LLWA_building_riverway
                 reserves = 1
                 add_ownership = {
                     building = {
-                        type    = LLWA_building_waterway
+                        type    = LLWA_building_riverway
                         country = c:RUS
                         levels  = 1
                         region  = STATE_SAMARA
@@ -408,11 +408,11 @@
     s:STATE_TARTARIA = { # Saratov
         region_state:RUS = {
             create_building = {
-                building = LLWA_building_waterway
+                building = LLWA_building_riverway
                 reserves = 1
                 add_ownership = {
                     building = {
-                        type    = LLWA_building_waterway
+                        type    = LLWA_building_riverway
                         country = c:RUS
                         levels  = 1
                         region  = STATE_TARTARIA
@@ -428,11 +428,11 @@
     s:STATE_ASTRAKHAN = {
         region_state:RUS = {
             create_building = {
-                building = LLWA_building_waterway
+                building = LLWA_building_riverway
                 reserves = 1
                 add_ownership = {
                     building = {
-                        type    = LLWA_building_waterway
+                        type    = LLWA_building_riverway
                         country = c:RUS
                         levels  = 1
                         region  = STATE_ASTRAKHAN
@@ -460,10 +460,10 @@
             }
         }
     }
-    s:STATE_ZHILI = {
+    s:STATE_ZHILI = { # Hebei
         region_state:CHI = {
             create_building = {
-                building = LLWA_building_waterway
+                building = LLWA_building_riverway
                 level    = 3
                 reserves = 1
                 activate_production_methods = {
@@ -476,7 +476,7 @@
     s:STATE_SHANDONG = {
         region_state:CHI = {
             create_building = {
-                building = LLWA_building_waterway
+                building = LLWA_building_riverway
                 level    = 3
                 reserves = 1
                 activate_production_methods = {
@@ -502,9 +502,20 @@
     s:STATE_NANJING = {
         region_state:CHI = {
             create_building = {
-                building = LLWA_building_waterway
-                level    = 1 # I think a tiny bit of the canal goes through the area defined by the Nanjing state region?
+                building = LLWA_building_riverway
                 reserves = 1
+                add_ownership = {
+                    country = { # I think a tiny bit of the canal goes through the area defined by the Nanjing state region?
+                        country = c:CHI
+                        levels  = 1
+                    }
+                    building = { # Yangtze River traffic
+                        type    = LLWA_building_riverway
+                        country = c:CHI
+                        levels  = 2
+                        region  = STATE_NANJING
+                    }
+                }
                 activate_production_methods = {
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
@@ -515,9 +526,20 @@
     s:STATE_SUZHOU = {
         region_state:CHI = {
             create_building = {
-                building = LLWA_building_waterway
-                level    = 3
+                building = LLWA_building_riverway
                 reserves = 1
+                add_ownership = {
+                    country = { # Grand Canal
+                        country = c:CHI
+                        levels  = 3
+                    }
+                    building = { # Yangtze River traffic
+                        type    = LLWA_building_riverway
+                        country = c:CHI
+                        levels  = 2
+                        region  = STATE_SUZHOU
+                    }
+                }
                 activate_production_methods = {
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
@@ -531,6 +553,287 @@
                 building = LLWA_building_waterway
                 level    = 3
                 reserves = 1
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    
+    # Yangtze River
+    s:STATE_YUNNAN = {
+        region_state:CHI = {
+            create_building = {
+                building = LLWA_building_riverway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_riverway
+                        country = c:CHI
+                        levels  = 1
+                        region  = STATE_YUNNAN
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_SICHUAN = {
+        region_state:CHI = {
+            create_building = {
+                building = LLWA_building_riverway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_riverway
+                        country = c:CHI
+                        levels  = 2
+                        region  = STATE_SICHUAN
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_CHONGQING = {
+        region_state:CHI = {
+            create_building = {
+                building = LLWA_building_riverway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_riverway
+                        country = c:CHI
+                        levels  = 2
+                        region  = STATE_CHONGQING
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_WESTERN_HUBEI = {
+        region_state:CHI = {
+            create_building = {
+                building = LLWA_building_riverway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_riverway
+                        country = c:CHI
+                        levels  = 2
+                        region  = STATE_WESTERN_HUBEI
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_HUNAN = {
+        region_state:CHI = {
+            create_building = {
+                building = LLWA_building_riverway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_riverway
+                        country = c:CHI
+                        levels  = 1
+                        region  = STATE_HUNAN
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_JIANGXI = {
+        region_state:CHI = {
+            create_building = {
+                building = LLWA_building_riverway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_riverway
+                        country = c:CHI
+                        levels  = 1
+                        region  = STATE_JIANGXI
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_EASTERN_HUBEI = {
+        region_state:CHI = {
+            create_building = {
+                building = LLWA_building_riverway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_riverway
+                        country = c:CHI
+                        levels  = 2
+                        region  = STATE_EASTERN_HUBEI
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_SOUTHERN_ANHUI = {
+        region_state:CHI = {
+            create_building = {
+                building = LLWA_building_riverway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_riverway
+                        country = c:CHI
+                        levels  = 2
+                        region  = STATE_SOUTHERN_ANHUI
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    # Nanjing & Suzhou already done
+    
+    # Elbe River
+    s:STATE_BOHEMIA = {
+        region_state:AUS = {
+            create_building = {
+                building = LLWA_building_riverway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_riverway
+                        country = c:AUS
+                        levels  = 1
+                        region  = STATE_BOHEMIA
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_SAXONY = {
+        region_state:SAX = {
+            create_building = {
+                building = LLWA_building_riverway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_riverway
+                        country = c:SAX
+                        levels  = 2
+                        region  = STATE_SAXONY
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_ANHALT = {
+        region_state:PRU = {
+            create_building = {
+                building = LLWA_building_riverway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_riverway
+                        country = c:PRU
+                        levels  = 1
+                        region  = STATE_ANHALT
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+        region_state:ANH = {
+            create_building = {
+                building = LLWA_building_riverway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_riverway
+                        country = c:ANH
+                        levels  = 1
+                        region  = STATE_ANHALT
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+    }
+    s:STATE_ELBE = {
+        region_state:HAN = {
+            create_building = {
+                building = LLWA_building_riverway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_riverway
+                        country = c:HAN
+                        levels  = 1
+                        region  = STATE_ELBE
+                    }
+                }
+                activate_production_methods = {
+                    LLWA_pm_sailing_barges
+                    LLWA_pm_riverboats
+                }
+            }
+        }
+        region_state:HAM = {
+            create_building = {
+                building = LLWA_building_riverway
+                reserves = 1
+                add_ownership = {
+                    building = {
+                        type    = LLWA_building_riverway
+                        country = c:HAM
+                        levels  = 1
+                        region  = STATE_ELBE
+                    }
+                }
                 activate_production_methods = {
                     LLWA_pm_sailing_barges
                     LLWA_pm_riverboats
@@ -694,6 +997,7 @@
             OR = {
                 has_building = building_railway
                 has_building = LLWA_building_waterway
+                has_building = LLWA_building_riverway
                 has_building = LLWA_building_roadway
             }
         }
@@ -705,6 +1009,7 @@
                     amount = 1
                     has_building = building_railway
                     has_building = LLWA_building_waterway
+                    has_building = LLWA_building_riverway
                     has_building = LLWA_building_roadway
                 }
             }
@@ -721,6 +1026,7 @@
                     amount = 2
                     has_building = building_railway
                     has_building = LLWA_building_waterway
+                    has_building = LLWA_building_riverway
                     has_building = LLWA_building_roadway
                 }
             }

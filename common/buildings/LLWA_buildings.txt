@@ -15,7 +15,7 @@
         LLWA_pmg_private_expansion
     }
 
-    required_construction = construction_cost_high
+    required_construction = construction_cost_low
     
     # ai_value = 1000 # Roads are nice, but don't prioritize; 1000 is default weight as of 1.4
     
@@ -27,7 +27,7 @@
         }
         OR = {
             state = {
-                sg:transportation = { 
+                sg:transportation = {
                     state_goods_pricier > 0.75
                 }
             }
@@ -39,7 +39,7 @@
 
 LLWA_building_waterway = {
     building_group = bg_private_infrastructure
-    icon = "gfx/interface/icons/building_icons/LLWA_canal.dds"
+    icon = "gfx/interface/icons/building_icons/LLWA_water_canal.dds"
     background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_harbour.dds"
     
     ai_nationalization_desire = 0.5
@@ -55,15 +55,18 @@ LLWA_building_waterway = {
         LLWA_pmg_private_expansion
     }
 
-    required_construction = construction_cost_very_high
+    required_construction = {
+        add      = construction_cost_very_high
+        multiply = 3
+    }
     
-    ai_value = 1500 # Prioritize over other things but not rails
+    ai_value = 1000 # Fairly expensive so don't prioritize
     
     possible = {
         LLWA_st_can_have_canal = yes
     }
     
-    should_auto_expand = { 
+    should_auto_expand = {
         occupancy >= 0.8
         OR = {
             cash_reserves_ratio > 0.5
@@ -71,7 +74,54 @@ LLWA_building_waterway = {
         }
         OR = {
             state = {
-                sg:transportation = { 
+                sg:transportation = {
+                    state_goods_pricier > 0.5
+                }
+            }
+            state.market_access < 1
+        }
+        NOT = { is_under_construction = yes }
+    }
+}
+
+LLWA_building_riverway = {
+    building_group = bg_private_infrastructure
+    icon = "gfx/interface/icons/building_icons/LLWA_water_natural.dds"
+    background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_harbour.dds"
+    
+    ai_nationalization_desire = 0.5
+    ownership_type = self
+    
+    unlocking_technologies = {
+        urbanization
+    }
+
+    production_method_groups = {
+        LLWA_pmg_water_base
+        LLWA_pmg_water_traffic
+        LLWA_pmg_private_expansion
+    }
+
+    required_construction = construction_cost_medium
+    
+    ai_value = 1500 # Prioritize over other things but not rails
+    
+    possible = {
+        custom_tooltip = {
+            text = LLWA_tt_has_river
+            LLWA_st_on_river = yes
+        }
+    }
+    
+    should_auto_expand = {
+        occupancy >= 0.8
+        OR = {
+            cash_reserves_ratio > 0.5
+            is_subsidized = yes
+        }
+        OR = {
+            state = {
+                sg:transportation = {
                     state_goods_pricier > 0.5
                 }
             }
@@ -104,7 +154,7 @@ LLWA_building_airway = {
     
     ai_value = 1500 # Prioritize over other things but not rails
     
-    should_auto_expand = { 
+    should_auto_expand = {
         occupancy >= 0.8
         OR = {
             cash_reserves_ratio > 0.5
@@ -112,7 +162,7 @@ LLWA_building_airway = {
         }
         OR = {
             state = {
-                sg:transportation = { 
+                sg:transportation = {
                     state_goods_pricier > 0.5
                 }
             }
@@ -142,7 +192,7 @@ llwa_building_freight_depot = {
         LLWA_pmg_private_expansion
     }
 
-    required_construction = construction_cost_medium
+    required_construction = construction_cost_low
     
     ai_value = 5000
     
@@ -158,7 +208,7 @@ llwa_building_freight_depot = {
             is_subsidized = yes
         }
         state = {
-            sg:transportation = { 
+            sg:transportation = {
                 state_goods_cheaper > 0.1
             }
         }
@@ -228,7 +278,7 @@ llwa_building_exchange = {
         LLWA_pmg_private_expansion
     }
 
-    required_construction = construction_cost_medium
+    required_construction = construction_cost_low
     
     ai_value = 5000
     

@@ -82,6 +82,9 @@ LLWA_je_ai_manager = {
                         b:LLWA_building_waterway ?= {
                             weekly_profit < 0
                         }
+                        b:LLWA_building_riverway ?= {
+                            weekly_profit < 0
+                        }
                         b:LLWA_building_airway ?= {
                             weekly_profit < 0
                         }
@@ -138,6 +141,14 @@ LLWA_je_ai_manager = {
                     }
                 }
                 b:LLWA_building_waterway ?= {
+                    if = {
+                        limit = {
+                            weekly_profit < 0
+                        }
+                        set_subsidized = yes
+                    }
+                }
+                b:LLWA_building_riverway ?= {
                     if = {
                         limit = {
                             weekly_profit < 0
