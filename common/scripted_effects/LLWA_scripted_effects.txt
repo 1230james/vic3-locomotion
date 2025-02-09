@@ -166,7 +166,7 @@ LLWA_se_enqueue_infra_building_for_transportation = {
                         }
                         divide   = modifier:country_max_weekly_construction_progress_add
                         multiply = {
-                            add    = sg:transportation.state_goods_pricier
+                            add    = PREV.sg:transportation.state_goods_pricier
                             divide = 0.25
                         }
                         ceiling = yes
@@ -270,17 +270,36 @@ LLWA_se_enqueue_infra_building_for_transportation = {
                         }
                     }
                     can_construct_building = LLWA_building_riverway
-                    can_construct_building = LLWA_building_waterway
+                    AND = {
+                        can_construct_building = LLWA_building_waterway
+                        sg:transportation.state_goods_pricier >= 0.50
+                    }
                 }
             }
-            LLWA_se_start_priv_construction = { BUILDING = LLWA_building_waterway }
+            LLWA_se_start_priv_construction = { BUILDING = LLWA_building_roadway }
         }
     }
 }
 LLWA_se_start_priv_construction = {
     if = {
         limit = {
-            owner.modifier:country_disable_privatization_bool = yes
+            OR = {
+                owner.modifier:country_disable_privatization_bool = yes
+                
+                trigger_if = {
+                    limit = {
+                        has_building = $BUILDING$
+                    }
+                    b:$BUILDING$ = {
+                        has_active_production_method = LLWA_pm_no_private_expansion
+                    }
+                }
+                trigger_else = {
+                   NOT = {
+                        LLWA_st_is_private_expansion_standard = { BUILDING = $BUILDING$ }
+                    }
+                }
+            }
         }
         start_building_construction = $BUILDING$
     }
@@ -521,6 +540,54 @@ LLWA_se_state_refresh_logihubs = {
                     min      = 0
                 }
             }
+        }
+    }
+}
+
+# AI-specific processing
+# Country scope
+LLWA_se_manage_ai_country = {
+    every_scope_state = {
+        LLWA_se_reset_blocked_private_expansions = yes
+        
+        # Transportation deficit helper
+        LLWA_se_enqueue_infra_building_for_transportation = yes
+        
+        # Block private expansion for roads after researching railways
+        if = {
+            limit = {
+                owner = {
+                    has_technology_researched = railways
+                }
+                has_building = LLWA_building_roadway
+                NOT = {
+                    is_production_method_active = {
+                        building_type     = LLWA_building_roadway
+                        production_method = LLWA_pm_no_private_expansion
+                    }
+                }
+            }
+            activate_production_method = {
+                building_type     = LLWA_building_roadway
+                production_method = LLWA_pm_no_private_expansion
+            }
+        }
+        
+        # Re-enable subsidies for LLWA buildings losing money
+        trigger_event = {
+            id = LLWA_secret_ev.5
+        }
+        trigger_event = {
+            id = LLWA_secret_ev.5
+            days = 7
+        }
+        trigger_event = {
+            id = LLWA_secret_ev.5
+            days = 14
+        }
+        trigger_event = {
+            id = LLWA_secret_ev.5
+            days = 21
         }
     }
 }

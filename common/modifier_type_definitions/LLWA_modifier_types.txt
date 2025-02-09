@@ -82,6 +82,24 @@ state_llwa_building_exchange_max_level_add = {
     }
 }
 
+llwa_building_freight_depot_throughput_add = {
+    color = good
+    percent = yes
+    decimals = 0
+    game_data = {
+        ai_value = 0
+    }
+}
+
+llwa_building_exchange_throughput_add = {
+    color = good
+    percent = yes
+    decimals = 0
+    game_data = {
+        ai_value = 0
+    }
+}
+
 # Water distance tracking
 state_llwa_mt_dist_from_water_add = {
     color = good

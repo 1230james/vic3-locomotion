@@ -97,6 +97,7 @@
     LLWA_md_mapi_mapi_lvl:     "LLWA: MAPI Rebalance Enabled"
     LLWA_md_logihub_in_mult:   "$LLWA_building_logistics_hub$ Input"
     LLWA_md_logihub_out_mult:  "$LLWA_building_logistics_hub$ Output"
+    LLWA_declared_bankruptcy:  "$declared_bankruptcy$"
     
     # Modifier types
     goods_input_luxury_furniture_add:      "@luxury_furniture! $luxury_furniture$ input per level"
@@ -123,6 +124,12 @@
     state_llwa_building_exchange_max_level_add:      "$llwa_building_exchange$ Max Level"
     state_llwa_building_exchange_max_level_add_desc: "A bonus or penalty to the maximum level of $llwa_building_exchange$ buildings."
     
+    llwa_building_freight_depot_throughput_add:      "$llwa_building_freight_depot$ building [concept_throughput]"
+    llwa_building_freight_depot_throughput_add_desc: "A bonus or penalty to both input and output of $llwa_building_freight_depot$"
+    
+    llwa_building_exchange_throughput_add:      "$llwa_building_exchange$ building [concept_throughput]"
+    llwa_building_exchange_throughput_add_desc: "A bonus or penalty to both input and output of $llwa_building_exchange$"
+    
     # Game Rules
     rule_LLWA_gr_mapi_mode:  "#yellow LLWA#! | MAPI Rebalancing Features"
     rule_LLWA_gr_infra_mode: "#yellow LLWA#! | @transportation![Nbsp]$transportation$ for Infrastructure"
@@ -144,7 +151,5 @@
     
     # Unused strings - defined as empty to silence errors
     LLWA_md_dist_from_water:   ""
-    LLWA_je_ai_manager:        "LLWA AI Manager"
-    LLWA_je_ai_manager_reason: "This journal exists as a container for periodic AI-only logic. Please ignore it."
     state_llwa_mt_dist_from_water_add:      ""
     state_llwa_mt_dist_from_water_add_desc: ""

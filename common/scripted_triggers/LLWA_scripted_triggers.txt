@@ -37,43 +37,28 @@ LLWA_st_has_water_access = {
     }
 }
 
-LLWA_st_road_private_expansion_is_standard = {
+LLWA_st_is_private_expansion_standard = {
     any_scope_building = {
         filter = {
-            is_building_type = LLWA_building_roadway
+            is_building_type = $BUILDING$
         }
         percent < 0.5
         has_active_production_method = LLWA_pm_no_private_expansion
     }
 }
 
+# Keeping these for backwards compatibility with third parties
+LLWA_st_road_private_expansion_is_standard = {
+    LLWA_st_is_private_expansion_standard = { BUILDING = LLWA_building_roadway }
+}
 LLWA_st_rail_private_expansion_is_standard = {
-    any_scope_building = {
-        filter = {
-            is_building_type = building_railway
-        }
-        percent < 0.5
-        has_active_production_method = LLWA_pm_no_private_expansion
-    }
+    LLWA_st_is_private_expansion_standard = { BUILDING = building_railway }
 }
 LLWA_st_water_private_expansion_is_standard = {
-    any_scope_building = {
-        filter = {
-            is_building_type = LLWA_building_waterway
-        }
-        percent < 0.5
-        has_active_production_method = LLWA_pm_no_private_expansion
-    }
+    LLWA_st_is_private_expansion_standard = { BUILDING = LLWA_building_waterway }
 }
-
 LLWA_st_air_private_expansion_is_standard = {
-    any_scope_building = {
-        filter = {
-            is_building_type = LLWA_building_airway
-        }
-        percent < 0.5
-        has_active_production_method = LLWA_pm_no_private_expansion
-    }
+    LLWA_st_is_private_expansion_standard = { BUILDING = LLWA_building_airway }
 }
 
 LLWA_st_in_mountains = {
@@ -140,7 +125,7 @@ LLWA_st_on_river = {
         has_state_trait = state_trait_bengal_delta
         has_state_trait = state_trait_cauvery_delta
         has_state_trait = state_trait_brahmaputra_river
-        ﻿has_state_trait = state_trait_irrwaddy_delta
+        has_state_trait = state_trait_irrwaddy_delta
         has_state_trait = state_trait_mekong_delta
         has_state_trait = state_trait_chao_phraya_delta
         has_state_trait = state_trait_mekong_river

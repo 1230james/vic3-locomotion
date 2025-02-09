@@ -7,10 +7,95 @@
     }
 }
 
-LLWA_oa_state_handler = {
+# Need to evaluate having declared_bankruptcy modifier inside the effect because the trigger is evaluated immediately
+# even when firing with a delay
+LLWA_oa_weekly_country_pulse = {
+    trigger = {
+        has_game_rule = LLWA_grs_mapi_yes
+    }
     effect = {
-        LLWA_se_reset_blocked_private_expansions = yes
-        LLWA_se_enqueue_infra_building_for_transportation = yes
+        if = {
+            limit = {
+                has_modifier = declared_bankruptcy
+            }
+            remove_modifier = declared_bankruptcy
+            add_modifier    = {
+                name        = LLWA_declared_bankruptcy
+                years       = 10 # define:NEconomy|DECLARE_BANKRUPTCY_PENALTY_DURATION_YEARS
+                is_decaying = yes
+            }
+        }
+    }
+}
+
+LLWA_oa_monthly_country_pulse = {
+    effect = {
+        every_country = {
+            limit = {
+                NOT = {
+                    is_country_type = decentralized
+                }
+            }
+            
+            trigger_event = {
+                on_action = LLWA_oa_weekly_country_pulse
+            }
+            trigger_event = {
+                on_action = LLWA_oa_weekly_country_pulse
+                days = 7
+            }
+            trigger_event = {
+                on_action = LLWA_oa_weekly_country_pulse
+                days = 14
+            }
+            trigger_event = {
+                on_action = LLWA_oa_weekly_country_pulse
+                days = 21
+            }
+            
+            if = {
+                limit = {
+                    is_ai = yes
+                }
+                LLWA_se_manage_ai_country = yes
+            }
+            else = {
+                every_scope_state = {
+                    LLWA_se_reset_blocked_private_expansions = yes
+                }
+            }
+            
+            # MAPI modifiers failsafe
+            if = {
+                limit = {
+                    trigger_if = { # More efficient this way
+                        limit = {
+                            has_game_rule = LLWA_grs_mapi_yes
+                        }
+                        NOR = {
+                            has_modifier = LLWA_md_mapi_building_lvl
+                            has_modifier = LLWA_md_mapi_mapi_lvl
+                        }
+                        
+                    }
+                    trigger_else_if = {
+                        limit = {
+                            LLWA_st_MAPI_building_allowed = yes
+                        }
+                        NOT = {
+                            has_modifier = LLWA_md_mapi_building_lvl
+                        }
+                    }
+                    trigger_else = {
+                        always = no
+                    }
+                }
+                trigger_event = {
+                    id   = LLWA_secret_ev.1
+                    days = 1
+                }
+            }
+        }
     }
 }
 
@@ -91,10 +176,10 @@ on_production_method_changed = {
     }
 }
 
-# Root = State
-on_monthly_pulse_state = {
+# No root
+on_monthly_pulse = {
     on_actions = {
-        LLWA_oa_state_handler
+        LLWA_oa_monthly_country_pulse
     }
 }
 
@@ -102,11 +187,14 @@ on_monthly_pulse_state = {
 
 LLWA_oa_MAPI_law_activated = {
     trigger = {
-        game_date > 1836.1.1 # prevent unnecessary firing during history execution
+        has_game_started = yes # prevent unnecessary firing during history execution
         has_game_rule = LLWA_grs_mapi_yes
     }
     effect = {
         owner = { # actually fires in law scope
+            trigger_event = {
+                on_action = LLWA_oa_weekly_country_pulse
+            }
             trigger_event = {
                 id   = LLWA_secret_ev.1
                 days = 1
@@ -117,10 +205,13 @@ LLWA_oa_MAPI_law_activated = {
 
 LLWA_oa_MAPI_tech_researched = {
     trigger = {
-        game_date > 1836.1.1
+        has_game_started = yes
         has_game_rule = LLWA_grs_mapi_yes
     }
     effect = {
+        trigger_event = {
+            on_action = LLWA_oa_weekly_country_pulse
+        }
         trigger_event = {
             id   = LLWA_secret_ev.1
             days = 1
