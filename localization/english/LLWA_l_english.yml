@@ -43,12 +43,14 @@
     LLWA_pm_motor_buses:    "Motorbuses"
     
     # PMs - Ships
-    LLWA_pm_sailing_barges: "Sailing Barges"
-    LLWA_pm_steamboats:     "Steamships"
-    LLWA_pm_motor_vessels:  "Motor Vessels"
+    LLWA_pm_sailing_barges:  "Sailing Barges"
+    LLWA_pm_sail_steamboats: "Sail-steamships"
+    LLWA_pm_steamboats:      "Steamships"
+    LLWA_pm_motor_vessels:   "Motor Vessels"
     
     LLWA_pm_no_ferries:    "$pm_no_passenger_trains$"
     LLWA_pm_riverboats:    "Riverboats"
+    LLWA_pm_packet_ships:  "Packet Ships"
     LLWA_pm_steam_ferries: "Steamboats"
     LLWA_pm_motor_ferries: "Diesel Ferries"
     

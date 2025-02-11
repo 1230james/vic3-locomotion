@@ -16,18 +16,21 @@ LLWA_pm_spot_shipping = {
 
     building_modifiers = {
         workforce_scaled = {
-            goods_input_transportation_add = 5
+            goods_input_transportation_add = 10
             goods_output_llwa_market_conn_add = 15
         }
         level_scaled = {
-            building_employment_laborers_add = 4500
-            building_employment_clerks_add   = 500
+            building_employment_laborers_add = 2250
+            building_employment_clerks_add   = 250
         }
     }
 
     state_modifiers = {
         unscaled = {
-            state_market_access_price_impact = 0.03
+            state_market_access_price_impact = 0.01
+        }
+        workforce_scaled = {
+            state_market_access_price_impact = 0.001
         }
     }
 }
@@ -43,18 +46,21 @@ LLWA_pm_transport_lines = {
 
     building_modifiers = {
         workforce_scaled = {
-            goods_input_transportation_add = 15
-            goods_output_llwa_market_conn_add = 25
+            goods_input_transportation_add = 30
+            goods_output_llwa_market_conn_add = 40
         }
         level_scaled = {
-            building_employment_laborers_add = 4000
-            building_employment_clerks_add   = 1000
+            building_employment_laborers_add = 2000
+            building_employment_clerks_add   = 500
         }
     }
 
     state_modifiers = {
         unscaled = {
-            state_market_access_price_impact = 0.06
+            state_market_access_price_impact = 0.02
+        }
+        workforce_scaled = {
+            state_market_access_price_impact = 0.002
         }
     }
 }
@@ -70,18 +76,21 @@ LLWA_pm_logistics_company = {
 
     building_modifiers = {
         workforce_scaled = {
-            goods_input_transportation_add = 35
-            goods_output_llwa_market_conn_add = 45
+            goods_input_transportation_add = 50
+            goods_output_llwa_market_conn_add = 60
         }
         level_scaled = {
-            building_employment_laborers_add = 3000
-            building_employment_clerks_add   = 2000
+            building_employment_laborers_add = 1500
+            building_employment_clerks_add   = 1000
         }
     }
 
     state_modifiers = {
         unscaled = {
-            state_market_access_price_impact = 0.10
+            state_market_access_price_impact = 0.04
+        }
+        workforce_scaled = {
+            state_market_access_price_impact = 0.003
         }
     }
 }
@@ -95,17 +104,17 @@ LLWA_pm_commidities_listings = {
     building_modifiers = {
         workforce_scaled = {
             goods_input_services_add = 10
-            goods_output_llwa_market_conn_add = 20
+            goods_output_llwa_market_conn_add = 15
         }
         level_scaled = {
-            building_employment_clerks_add    = 4500
-            building_employment_academics_add = 500
+            building_employment_clerks_add      = 2250
+            building_employment_shopkeepers_add = 250
         }
     }
 
     state_modifiers = {
-        unscaled = {
-            state_market_access_price_impact = 0.02
+        workforce_scaled = {
+            state_market_access_price_impact = 0.001
         }
     }
 }
@@ -125,14 +134,17 @@ LLWA_pm_securities_trading = {
             goods_output_llwa_market_conn_add = 35
         }
         level_scaled = {
-            building_employment_clerks_add    = 4000
-            building_employment_academics_add = 1000
+            building_employment_clerks_add      = 2000
+            building_employment_shopkeepers_add = 500
         }
     }
 
     state_modifiers = {
         unscaled = {
-            state_market_access_price_impact = 0.05
+            state_market_access_price_impact = 0.02
+        }
+        workforce_scaled = {
+            state_market_access_price_impact = 0.001
         }
     }
 }
@@ -152,14 +164,17 @@ LLWA_pm_clearing_houses = {
             goods_output_llwa_market_conn_add = 55
         }
         level_scaled = {
-            building_employment_clerks_add    = 3000
-            building_employment_academics_add = 2000
+            building_employment_clerks_add      = 1500
+            building_employment_shopkeepers_add = 1000
         }
     }
 
     state_modifiers = {
         unscaled = {
-            state_market_access_price_impact = 0.09
+            state_market_access_price_impact = 0.05
+        }
+        workforce_scaled = {
+            state_market_access_price_impact = 0.002
         }
     }
 }
@@ -183,17 +198,18 @@ LLWA_pm_econ_journals = {
         workforce_scaled = {
             goods_input_services_add = 5
             goods_input_paper_add    = 5
-            goods_output_llwa_market_conn_add = 7
+            goods_output_llwa_market_conn_add = 10
         }
         level_scaled = {
-            building_employment_clerks_add    = 250
-            building_employment_academics_add = 100
+            building_employment_clerks_add      = 300
+            building_employment_academics_add   = 100
+            building_employment_shopkeepers_add = 100
         }
     }
 
     state_modifiers = {
         workforce_scaled = {
-            state_market_access_price_impact = 0.001
+            state_market_access_price_impact = 0.0005
         }
     }
 }
@@ -212,18 +228,22 @@ LLWA_pm_telegraphs = {
             goods_input_services_add = 10
             goods_input_paper_add    = 5
             goods_input_iron_add     = 5
-            goods_output_llwa_market_conn_add = 18
+            goods_output_llwa_market_conn_add = 20
         }
         level_scaled = {
-            building_employment_clerks_add     = 500
-            building_employment_academics_add  = 200
-            building_employment_machinists_add = 100
+            building_employment_clerks_add      = 200
+            building_employment_academics_add   = 100
+            building_employment_shopkeepers_add = 100
+            building_employment_machinists_add  = 100
         }
     }
 
     state_modifiers = {
+        unscaled = {
+            state_market_access_price_impact = 0.01
+        }
         workforce_scaled = {
-            state_market_access_price_impact = 0.002
+            state_market_access_price_impact = 0.0005
         }
     }
 }
@@ -242,18 +262,22 @@ LLWA_pm_telephones = {
             goods_input_services_add    = 15
             goods_input_telephones_add  = 5
             goods_input_electricity_add = 5
-            goods_output_llwa_market_conn_add = 35
+            goods_output_llwa_market_conn_add = 30
         }
         level_scaled = {
-            building_employment_clerks_add     = 1000
-            building_employment_academics_add  = 400
-            building_employment_machinists_add = 200
+            building_employment_clerks_add      = 100
+            building_employment_academics_add   = 200
+            building_employment_shopkeepers_add = 100
+            building_employment_machinists_add  = 100
         }
     }
 
     state_modifiers = {
+        unscaled = {
+            state_market_access_price_impact = 0.02
+        }
         workforce_scaled = {
-            state_market_access_price_impact = 0.004
+            state_market_access_price_impact = 0.001
         }
     }
 }
