@@ -22,7 +22,7 @@ LLWA_pm_sailing_barges = {
 }
 
 LLWA_pm_sail_steamboats = {
-    texture = "gfx/interface/icons/production_method_icons/reinforced_wooden_ships.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWA_sailsteamers.dds"
     
     unlocking_technologies = {
         watertube_boiler
@@ -131,7 +131,7 @@ LLWA_pm_riverboats = {
 }
 
 LLWA_pm_packet_ships = {
-    texture = "gfx/interface/icons/production_method_icons/LLWA_steamboats.dds"
+    texture = "gfx/interface/icons/production_method_icons/LLWA_packet_boats.dds"
     
     unlocking_production_methods = {
         LLWA_pm_sail_steamboats
