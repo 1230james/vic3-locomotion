@@ -7,3 +7,13 @@ texticon = {
 		fontsize = 18
 	}
 }
+
+texticon = {
+	icon = llwa_logi_conn
+	iconsize = {
+		texture = "gfx/interface/icons/goods_icons/LLWA_logi_conn.dds"
+		size = { 25 25 }
+		offset = { 0 7 }
+		fontsize = 18
+	}
+}

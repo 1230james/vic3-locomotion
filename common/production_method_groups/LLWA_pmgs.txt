@@ -17,6 +17,7 @@ LLWA_pmg_water_base = {
     
     production_methods = {
         LLWA_pm_sailing_barges
+        LLWA_pm_sail_steamboats
         LLWA_pm_steamboats
         LLWA_pm_motor_vessels
     }
@@ -55,6 +56,7 @@ LLWA_pmg_water_traffic = {
     production_methods = {
         LLWA_pm_no_ferries
         LLWA_pm_riverboats
+        LLWA_pm_packet_ships
         LLWA_pm_steam_ferries
         LLWA_pm_motor_ferries
     }

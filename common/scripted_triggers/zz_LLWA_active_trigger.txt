@@ -1,0 +1,6 @@
+﻿# Third-party modders:
+# See 00_LLWA_active_trigger.txt for usage notes
+
+LLWA_is_active_trigger = {
+    always = yes
+}

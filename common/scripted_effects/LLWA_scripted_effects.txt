@@ -1,15 +1,16 @@
-﻿@LOGIHUB_MKT_CONN_OUTPUT_PER_TRANSPORTATION = 0.6 # Match with LogiHub base PM
-@MARKET_CONNECTIVITY_COST = 50 # Match with goods definition
+﻿@LOGIHUB_CONN_OUTPUT_PER_TRANSPORTATION = 1 # Match with LogiHub base PM
+@LOGIHUB_CONN_COST = 35 # Match with goods definition
+@LOGIHUB_WORKFORCE_SIZE = 5000 # Match with LogiHub base PM
 
-@LOGIHUB_PROFIT_TARGET = 800
-@LOGIHUB_PROFIT_FLOOR  = 250  # If weekly profit is below this, increase extra output to reach @LOGIHUB_PROFIT_TARGET
-@LOGIHUB_PROFIT_CEIL   = 1500 #          ""         above this, decrease extra output to reach @LOGIHUB_PROFIT_TARGET
+@TRANSPORTATION_COST = 30 # Match with goods definition
+
+# If not trying to reach high output to raise wages & hire, math will try to target this amount of profitability
+@LOGIHUB_PROFITABILITY_TARGET = 15
 
 @LOGIHUB_MKT_CONN_WAGES_OUT_MIN = 1 # At least/at most these amounts will be created to account for wages
 @LOGIHUB_MKT_CONN_WAGES_OUT_MAX = 1000
 
-# The additional Market Connectivity created to cover wages can only change by this proportion of the current amount at a time
-@LOGIHUB_MKT_CONN_WAGES_MAX_DELTA_RATIO = 0.75
+@LOGIHUB_MINIMUM_WAGE = 480 # 480 => 5.0 annual minimum wage # (desired min wage) / 52 * (workforce size) = this
 
 # Update autonomous investment availability on PM change
 # Building scope
@@ -20,6 +21,7 @@ LLWA_se_manage_private_expansion = {
                 is_building_type = LLWA_building_roadway
                 is_building_type = building_railway
                 is_building_type = LLWA_building_waterway
+                is_building_type = LLWA_building_riverway
                 is_building_type = LLWA_building_airway
                 is_building_type = llwa_building_freight_depot
                 is_building_type = llwa_building_exchange
@@ -73,6 +75,14 @@ LLWA_se_reset_blocked_private_expansions = {
     if = {
         limit = {
             NOT = {
+                has_building = LLWA_building_riverway
+            }
+        }
+        set_available_for_autonomous_investment = bt:LLWA_building_riverway
+    }
+    if = {
+        limit = {
+            NOT = {
                 has_building = LLWA_building_airway
             }
         }
@@ -93,6 +103,217 @@ LLWA_se_reset_blocked_private_expansions = {
             }
         }
         set_available_for_autonomous_investment = bt:llwa_building_exchange
+    }
+}
+
+# Queue up infrastructure building if theres a transportation shortage
+# State scope
+LLWA_se_enqueue_infra_building_for_transportation = {
+    if = {
+        limit = {
+            OR = {
+                has_game_rule = LLWA_grs_infra_mode_yes
+                has_game_rule = LLWA_grs_mapi_yes
+            }
+            owner = { # AI only - player can deal with their own issues
+                is_ai = yes
+                NOT = {
+                    is_country_type = decentralized
+                }
+            }
+            NOR = { # Don't build more stuff if existing infrastructure isn't at full capacity
+                b:LLWA_building_airway ?= {
+                    OR = {
+                        is_under_construction = yes
+                        occupancy < 1
+                        building_has_goods_shortage = yes
+                    }
+                }
+                b:building_railway ?= {
+                    OR = {
+                        is_under_construction = yes
+                        occupancy < 1
+                        building_has_goods_shortage = yes
+                    }
+                }
+                b:LLWA_building_waterway ?= {
+                    OR = {
+                        is_under_construction = yes
+                        occupancy < 1
+                        building_has_goods_shortage = yes
+                    }
+                }
+                b:LLWA_building_riverway ?= {
+                    OR = {
+                        is_under_construction = yes
+                        occupancy < 1
+                        building_has_goods_shortage = yes
+                    }
+                }
+                b:LLWA_building_roadway ?= {
+                    OR = {
+                        is_under_construction = yes
+                        occupancy < 1
+                        building_has_goods_shortage = yes
+                    }
+                }
+            }
+            is_incorporated = yes
+            total_urbanization >= 250 # Don't bother with underdeveloped states
+            sg:transportation.state_goods_pricier >= 0.25
+            owner = {
+                OR = {
+                    modifier:country_disable_investment_pool_bool = yes
+                    construction_queue_num_queued_private_levels < {
+                        add = modifier:country_construction_add
+                        if = {
+                            limit = {
+                                is_construction_paused = no
+                                construction_queue_num_queued_government_levels > 0
+                            }
+                            multiply = modifier:country_private_construction_allocation_mult
+                        }
+                        divide   = modifier:country_max_weekly_construction_progress_add
+                        multiply = {
+                            add    = PREV.sg:transportation.state_goods_pricier
+                            divide = 0.25
+                        }
+                        ceiling = yes
+                        add     = 1
+                    }
+                }
+            }
+        }
+        
+        # Prioritize airports if super pricey
+        if = {
+            limit = {
+                can_construct_building = LLWA_building_airway
+                owner = {
+                    OR = {
+                        has_technology_researched = zeppelins
+                        has_technology_researched = military_aviation
+                    }
+                }
+                OR = { # Planes available & affordable OR emerging technology in developed areas
+                    AND = {
+                        market.mg:aeroplanes.market_goods_production >= 500
+                        sg:aeroplanes.state_goods_pricier <= 0.20
+                    }
+                    is_capital = yes
+                    total_urbanization >= 1000
+                }
+                sg:transportation.state_goods_pricier >= 0.40
+            }
+            LLWA_se_start_priv_construction = { BUILDING = LLWA_building_airway }
+        }
+        
+        # Prioritize railways > waterways
+        else_if = {
+            limit = {
+                can_construct_building = building_railway
+                OR = {
+                    market.mg:engines.market_goods_pricier <= 0.35
+                    sg:engines.state_goods_pricier <= 0.35
+                }
+                owner = {
+                    has_technology_researched = railways
+                }
+            }
+            LLWA_se_start_priv_construction = { BUILDING = building_railway }
+        }
+        
+        # Riverways/Waterways > Roadways
+        # Stop building them when we have good trains
+        else_if = {
+            limit = {
+                OR = {
+                    can_construct_building = LLWA_building_riverway
+                    AND = { # Canals are expensive so only build if we really need it
+                        can_construct_building = LLWA_building_waterway
+                        sg:transportation.state_goods_pricier >= 0.50
+                    }
+                }
+                owner = {
+                    has_technology_researched = urbanization
+                }
+                OR = {
+                    NOT = {
+                        has_building = building_railway
+                    }
+                    b:building_railway ?= {
+                        has_active_production_method = pm_early_trains
+                    }
+                }
+            }
+            if = {
+                limit = { can_construct_building = LLWA_building_riverway }
+                LLWA_se_start_priv_construction = { BUILDING = LLWA_building_riverway }
+            }
+            else = {
+                LLWA_se_start_priv_construction = { BUILDING = LLWA_building_waterway }
+            }
+        }
+        
+        # Roads only if literally no other option
+        else_if = {
+            limit = {
+                can_construct_building = LLWA_building_roadway
+                owner = {
+                    has_technology_researched = urbanization
+                }
+                NOR = {
+                    AND = {
+                        can_construct_building = LLWA_building_airway
+                        owner = {
+                            OR = {
+                                has_technology_researched = zeppelins
+                                has_technology_researched = military_aviation
+                            }
+                        }
+                    }
+                    AND = {
+                        can_construct_building = building_railway
+                        owner = {
+                            has_technology_researched = railways
+                        }
+                    }
+                    can_construct_building = LLWA_building_riverway
+                    AND = {
+                        can_construct_building = LLWA_building_waterway
+                        sg:transportation.state_goods_pricier >= 0.50
+                    }
+                }
+            }
+            LLWA_se_start_priv_construction = { BUILDING = LLWA_building_roadway }
+        }
+    }
+}
+LLWA_se_start_priv_construction = {
+    if = {
+        limit = {
+            OR = {
+                owner.modifier:country_disable_privatization_bool = yes
+                
+                trigger_if = {
+                    limit = {
+                        has_building = $BUILDING$
+                    }
+                    b:$BUILDING$ = {
+                        has_active_production_method = LLWA_pm_no_private_expansion
+                    }
+                }
+                trigger_else = {
+                   NOT = {
+                        LLWA_st_is_private_expansion_standard = { BUILDING = $BUILDING$ }
+                    }
+                }
+            }
+        }
+        start_building_construction = $BUILDING$
+    }
+    else = {
+        start_privately_funded_building_construction = $BUILDING$
     }
 }
 
@@ -163,12 +384,92 @@ LLWA_se_state_refresh_logihubs = {
                 name  = LLWA_logihub_mkt_conn_wages_out
                 value = {
                     add     = 2000
-                    divide  = @MARKET_CONNECTIVITY_COST
+                    divide  = @LOGIHUB_CONN_COST
                     ceiling = yes
                 }
             }
         }
         else = {
+            # Pre-calculate things
+            set_local_variable = {
+                name  = weekly_revenue
+                value = {
+                    add      = sg:llwa_logi_conn.state_goods_production
+                    multiply = @LOGIHUB_CONN_COST
+                }
+            }
+            set_local_variable = {
+                # (weekly profit) - (revenue) = expenses
+                # Sign will be NEGATIVE
+                name  = weekly_expenses
+                value = {
+                    add      = b:LLWA_building_logistics_hub.weekly_profit
+                    subtract = local_var:weekly_revenue
+                }
+            }
+            set_local_variable = {
+                # -1 * (productivity / 52 * workforce + revenue) = cost of goods
+                name  = weekly_cost_of_goods
+                value = {
+                    if = {
+                        limit = {
+                            b:LLWA_building_logistics_hub.earnings > 0
+                        }
+                        add      = b:LLWA_building_logistics_hub.earnings
+                        divide   = 52
+                        multiply = {
+                            add      = @LOGIHUB_WORKFORCE_SIZE
+                            multiply = b:LLWA_building_logistics_hub.occupancy
+                        }
+                        subtract = local_var:weekly_revenue
+                        multiply = -1
+                    }
+                    else = { # this method cannot account for shortages, so only use it for the fallback
+                        add      = b:LLWA_building_logistics_hub.modifier:goods_input_transportation_add
+                        multiply = b:LLWA_building_logistics_hub.modifier:goods_input_transportation_mult
+                        multiply = @TRANSPORTATION_COST
+                        multiply = {
+                            add  = 1
+                            add  = sg:transportation.state_goods_pricier
+                        }
+                    }
+                }
+            }
+            set_local_variable = {
+                name  = weekly_wages
+                value = {
+                    add      = local_var:weekly_expenses
+                    multiply = -1
+                    subtract = local_var:weekly_cost_of_goods
+                    min      = @LOGIHUB_MINIMUM_WAGE
+                }
+            }
+            set_local_variable = {
+                # abs(weekly expenses) * (1 + BUILDING_PROFIT_TARGET_TO_RAISE_WAGES)
+                name  = wage_raise_profit_target
+                value = {
+                    add      = local_var:weekly_expenses
+                    multiply = { # raise wages margin & flip sign
+                        add      = -1
+                        subtract = define:NEconomy|BUILDING_PROFIT_TARGET_TO_RAISE_WAGES
+                        subtract = 0.05 # +5% buffer
+                    }
+                }
+            }
+            set_local_variable = {
+                name  = profit_target
+                value = {
+                    # (revenue - cost of goods) / workforce * 52 = profitability
+                    # balance = revenue - cost of goods - wages
+                    # => revenue - cost of goods = balance + wages
+                    # => profitability / 52 * workforce - wages = target balance
+                    add      = @LOGIHUB_PROFITABILITY_TARGET
+                    divide   = 52
+                    multiply = @LOGIHUB_WORKFORCE_SIZE
+                    subtract = local_var:weekly_wages
+                }
+            }
+            
             if = { # Hit wage raising target to hire up
                 limit = {
                     b:LLWA_building_logistics_hub.occupancy < 0.90
@@ -182,81 +483,30 @@ LLWA_se_state_refresh_logihubs = {
                 }
                 set_variable = {
                     name  = LLWA_logihub_mkt_conn_wages_out
-                    value = { # (weekly profit) - (revenue) = expenses
-                        add      = b:LLWA_building_logistics_hub.weekly_profit
-                        subtract = {
-                            # Calculating the *current* mkt conn output because FOR SOME REASON it's still
-                            # workforce-scaled despite being in the unscaled modifier block 😑
-                            add  = {
-                                add      = b:LLWA_building_logistics_hub.modifier:goods_output_llwa_market_conn_add
-                                multiply = b:LLWA_building_logistics_hub.modifier:goods_output_llwa_market_conn_mult
-                                multiply = b:LLWA_building_logistics_hub.occupancy
-                            }
-                            multiply = @MARKET_CONNECTIVITY_COST
-                        }
-                        multiply = { # raise wages margin + 5% & flip sign
-                            add      = -1
-                            subtract = define:NEconomy|BUILDING_PROFIT_TARGET_TO_RAISE_WAGES
-                            subtract = 0.05
-                        }
-                        divide  = @MARKET_CONNECTIVITY_COST # convert value into units
-                        divide  = { # scale up for low occupancy
-                            add = b:LLWA_building_logistics_hub.occupancy
-                            min = 0.0001 # DIV/0 guard
-                        }
+                    value = {
+                        add     = local_var:wage_raise_profit_target
+                        add     = local_var:weekly_wages
+                        divide  = @LOGIHUB_CONN_COST # convert value into units
                         ceiling = yes
                         min     = {
                             add     = 2000
-                            divide  = @MARKET_CONNECTIVITY_COST
+                            divide  = @LOGIHUB_CONN_COST
                             ceiling = yes
                         }
                         max = @LOGIHUB_MKT_CONN_WAGES_OUT_MAX
                     }
                 }
             }
-            else_if = { # Nudge up or down to stay solvent but minimize profits
-                limit = {
-                    b:LLWA_building_logistics_hub.weekly_profit < @LOGIHUB_PROFIT_FLOOR
-                }
+            else = { # Set as low as possible
                 set_variable = {
                     name  = LLWA_logihub_mkt_conn_wages_out
                     value = {
-                        add = var:LLWA_logihub_mkt_conn_wages_out
-                        add = {
-                            add      = @LOGIHUB_PROFIT_TARGET
-                            subtract = b:LLWA_building_logistics_hub.weekly_profit
-                            divide   = @MARKET_CONNECTIVITY_COST
-                            max      = {
-                                add      = var:LLWA_logihub_mkt_conn_wages_out
-                                multiply = @LOGIHUB_MKT_CONN_WAGES_MAX_DELTA_RATIO
-                            }
-                        }
+                        add     = local_var:profit_target
+                        add     = local_var:weekly_wages
+                        divide  = @LOGIHUB_CONN_COST # convert value into units
                         ceiling = yes
-                        min     = @LOGIHUB_MKT_CONN_WAGES_OUT_MIN
-                        max     = @LOGIHUB_MKT_CONN_WAGES_OUT_MAX
-                    }
-                }
-            }
-            else_if = {
-                limit = {
-                    b:LLWA_building_logistics_hub.weekly_profit > @LOGIHUB_PROFIT_CEIL
-                }
-                set_variable = {
-                    name  = LLWA_logihub_mkt_conn_wages_out
-                    value = {
-                        add      = var:LLWA_logihub_mkt_conn_wages_out
-                        subtract = {
-                            add      = b:LLWA_building_logistics_hub.weekly_profit
-                            subtract = @LOGIHUB_PROFIT_TARGET
-                            divide   = @MARKET_CONNECTIVITY_COST
-                            max      = {
-                                add      = var:LLWA_logihub_mkt_conn_wages_out
-                                multiply = @LOGIHUB_MKT_CONN_WAGES_MAX_DELTA_RATIO
-                            }
-                        }
-                        ceiling = yes
-                        min     = @LOGIHUB_MKT_CONN_WAGES_OUT_MIN
-                        max     = @LOGIHUB_MKT_CONN_WAGES_OUT_MAX
+                        min = @LOGIHUB_MKT_CONN_WAGES_OUT_MIN
+                        max = @LOGIHUB_MKT_CONN_WAGES_OUT_MAX
                     }
                 }
             }
@@ -274,10 +524,10 @@ LLWA_se_state_refresh_logihubs = {
         set_local_variable = {
             name  = out_mult
             value = {
-                add      = @LOGIHUB_MKT_CONN_OUTPUT_PER_TRANSPORTATION
+                add      = @LOGIHUB_CONN_OUTPUT_PER_TRANSPORTATION
                 multiply = local_var:in_mult
                 add      = var:LLWA_logihub_mkt_conn_wages_out
-                divide   = @LOGIHUB_MKT_CONN_OUTPUT_PER_TRANSPORTATION
+                divide   = @LOGIHUB_CONN_OUTPUT_PER_TRANSPORTATION
             }
         }
         b:LLWA_building_logistics_hub = {
@@ -299,6 +549,54 @@ LLWA_se_state_refresh_logihubs = {
                     min      = 0
                 }
             }
+        }
+    }
+}
+
+# AI-specific processing
+# Country scope
+LLWA_se_manage_ai_country = {
+    every_scope_state = {
+        LLWA_se_reset_blocked_private_expansions = yes
+        
+        # Transportation deficit helper
+        LLWA_se_enqueue_infra_building_for_transportation = yes
+        
+        # Block private expansion for roads after researching railways
+        if = {
+            limit = {
+                owner = {
+                    has_technology_researched = railways
+                }
+                has_building = LLWA_building_roadway
+                NOT = {
+                    is_production_method_active = {
+                        building_type     = LLWA_building_roadway
+                        production_method = LLWA_pm_no_private_expansion
+                    }
+                }
+            }
+            activate_production_method = {
+                building_type     = LLWA_building_roadway
+                production_method = LLWA_pm_no_private_expansion
+            }
+        }
+        
+        # Re-enable subsidies for LLWA buildings losing money
+        trigger_event = {
+            id = LLWA_secret_ev.5
+        }
+        trigger_event = {
+            id = LLWA_secret_ev.5
+            days = 7
+        }
+        trigger_event = {
+            id = LLWA_secret_ev.5
+            days = 14
+        }
+        trigger_event = {
+            id = LLWA_secret_ev.5
+            days = 21
         }
     }
 }

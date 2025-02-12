@@ -1,15 +1,15 @@
 ﻿# Logistics Hub
 # Provides a base amount of input/output which will be scaled via script-driven modifiers
 #
-# If the Market Connectivity output is adjusted, remember to update @LOGIHUB_MKT_CONN_OUTPUT_PER_TRANSPORTATION in
+# If the Market Connectivity output is adjusted, remember to update @LOGIHUB_CONN_OUTPUT_PER_TRANSPORTATION in
 # LLWA_scripted_effects.txt
 LLWA_pm_logihub_base = {
     texture = "gfx/interface/icons/production_method_icons/trade_center.dds"
     building_modifiers = {
         unscaled = {
-            goods_input_transportation_add    = 1
-            goods_output_llwa_market_conn_add = 0.6 # 30 / 50 = 0.6
-            building_employment_laborers_add  = 5000
+            goods_input_transportation_add   = 1
+            goods_output_llwa_logi_conn_add  = 1 # (transport price) / (logi conn price) + buffer
+            building_employment_laborers_add = 5000
         }
     }
 }

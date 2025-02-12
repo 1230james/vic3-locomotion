@@ -15,8 +15,24 @@ LLWA_md_logihub_in_mult = {
 }
 
 LLWA_md_logihub_out_mult = {
-    icon = gfx/interface/icons/timed_modifier_icons/LLWA_market_conn.dds
-    goods_output_llwa_market_conn_mult = 1
+    icon = gfx/interface/icons/timed_modifier_icons/LLWA_logi_conn.dds
+    goods_output_llwa_logi_conn_mult = 1
+}
+
+LLWA_declared_bankruptcy = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
+    country_prestige_mult = -0.75
+    country_leverage_generation_mult = -0.75
+    country_loan_interest_rate_mult = 0.5
+    unit_offense_mult = -0.75
+    unit_defense_mult = -0.75
+    state_migration_pull_mult = -0.75
+    state_welfare_payments_mult = -1
+    # state_market_access_price_impact = -0.1
+    llwa_building_freight_depot_throughput_add = -0.10 # 1.8 bug: this gets triple-applied
+    llwa_building_exchange_throughput_add = -0.10
+    country_institution_size_change_speed_mult = -0.95
+    country_force_privatization_bool = yes
 }
 
 # Unused
