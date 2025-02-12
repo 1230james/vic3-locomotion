@@ -5,7 +5,7 @@
 @TRANSPORTATION_COST = 30 # Match with goods definition
 
 # If not trying to reach high output to raise wages & hire, math will try to target this amount of profitability
-@LOGIHUB_PROFITABILITY_TARGET  = 15
+@LOGIHUB_PROFITABILITY_TARGET = 15
 
 @LOGIHUB_MKT_CONN_WAGES_OUT_MIN = 1 # At least/at most these amounts will be created to account for wages
 @LOGIHUB_MKT_CONN_WAGES_OUT_MAX = 1000
@@ -21,6 +21,7 @@ LLWA_se_manage_private_expansion = {
                 is_building_type = LLWA_building_roadway
                 is_building_type = building_railway
                 is_building_type = LLWA_building_waterway
+                is_building_type = LLWA_building_riverway
                 is_building_type = LLWA_building_airway
                 is_building_type = llwa_building_freight_depot
                 is_building_type = llwa_building_exchange
@@ -70,6 +71,14 @@ LLWA_se_reset_blocked_private_expansions = {
             }
         }
         set_available_for_autonomous_investment = bt:LLWA_building_waterway
+    }
+    if = {
+        limit = {
+            NOT = {
+                has_building = LLWA_building_riverway
+            }
+        }
+        set_available_for_autonomous_investment = bt:LLWA_building_riverway
     }
     if = {
         limit = {
