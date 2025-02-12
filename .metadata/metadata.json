@@ -1,8 +1,9 @@
 {
     "name" : "Locomotion: Land, Water, & Air",
-    "id" : "",
-    "version" : "2.4.1",
-    "supported_game_version" : "1.7.*",
+    "id" : "xyz.1230james.locomotion",
+    "version" : "2.5.0",
+    "game_id" : "victoria3",
+    "supported_game_version" : "1.8.*",
     "short_description" : "",
     "tags" : [
         "Balance",

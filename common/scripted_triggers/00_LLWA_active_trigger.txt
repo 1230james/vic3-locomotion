@@ -1,0 +1,10 @@
+﻿# USAGE:
+# Copy and paste this file into the common/scripted_triggers folder of any mod that has LLWA interoperability.
+# Uncomment the definition for LLWA_is_active_trigger below.
+#
+# If LLWA is inactive, that trigger definition should be the one used by your mod, but if LLWA is active, it should be
+# overwritten with the definition below, allowing you to tell when LLWA is active or not dynamically.
+
+# LLWA_is_active_trigger = {
+#     always = no
+# }
