@@ -152,6 +152,6 @@
     setting_LLWA_grs_infra_mode_no_desc: "The #yellow $LLWA_building_logistics_hub$#! [concept_building] #n will not#! be created. [concept_buy_orders] for #yellow @transportation![Nbsp]$transportation$#! and [concept_infrastructure_usage] will not be connected."
     
     # Unused strings - defined as empty to silence errors
-    LLWA_md_dist_from_water:   ""
+    LLWA_md_dist_from_water: ""
     state_llwa_mt_dist_from_water_add:      ""
     state_llwa_mt_dist_from_water_add_desc: ""

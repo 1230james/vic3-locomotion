@@ -1,7 +1,8 @@
 ﻿l_spanish:
     # Buildings
     LLWA_building_roadway:  "Roadway"
-    LLWA_building_waterway: "Waterway"
+    LLWA_building_waterway: "Canal Waterway"
+    LLWA_building_riverway: "Natural Waterway"
     LLWA_building_airway:   "Aerodrome"
     
     llwa_building_freight_depot: "Shipping Lines"
@@ -44,12 +45,14 @@
     LLWA_pm_motor_buses:    "Motorbuses"
     
     # PMs - Ships
-    LLWA_pm_sailing_barges: "Sailing Barges"
-    LLWA_pm_steamboats:     "Steamships"
-    LLWA_pm_motor_vessels:  "Motor Vessels"
+    LLWA_pm_sailing_barges:  "Sailing Barges"
+    LLWA_pm_sail_steamboats: "Sail-steamships" # As in: https://commons.wikimedia.org/wiki/Category:Sail-steamers
+    LLWA_pm_steamboats:      "Steamships"
+    LLWA_pm_motor_vessels:   "Motor Vessels"
     
     LLWA_pm_no_ferries:    "$pm_no_passenger_trains$"
     LLWA_pm_riverboats:    "Riverboats"
+    LLWA_pm_packet_ships:  "Packet Boats"
     LLWA_pm_steam_ferries: "Steamboats"
     LLWA_pm_motor_ferries: "Diesel Ferries"
     
@@ -84,6 +87,14 @@
     
     # Goods
     llwa_market_conn: "Market Connectivity"
+    llwa_logi_conn:   "Local Connectivity"
+    
+    # Tooltips
+    LLWA_tt_has_river:        "Has a river state trait"
+    LLWA_tt_has_no_river:     "Does #b not#! have a river state trait"
+    LLWA_tt_has_no_mountains: "Does #b not#! have a mountain state trait"
+    
+    LLWA_st_can_have_canal: "$TRIGGER_AND$" # Game engine bug moment
     
     # Modifiers
     LLWA_md_mapi_building_lvl: "LLWA: MAPI Buildings Enabled"
@@ -113,6 +124,12 @@
     state_llwa_building_exchange_max_level_add:      "Nivel máx. $llwa_building_exchange$"
     state_llwa_building_exchange_max_level_add_desc: "Una bonificación o penalización al nivel máximo de los edificios que son $llwa_building_exchange$."
     
+    llwa_building_freight_depot_throughput_add:      "[concept_throughput] de $llwa_building_freight_depot$"
+    llwa_building_freight_depot_throughput_add_desc: "Una bonificación o penalización tanto al insumo como al producto final de $llwa_building_freight_depot$"
+
+    llwa_building_exchange_throughput_add:      "[concept_throughput] de $llwa_building_exchange$"
+    llwa_building_exchange_throughput_add_desc: "Una bonificación o penalización tanto al insumo como al producto final de $llwa_building_exchange$"
+    
     # Game Rules
     rule_LLWA_gr_mapi_mode:  "#yellow LLWA#! | MAPI Rebalancing Features"
     rule_LLWA_gr_infra_mode: "#yellow LLWA#! | @transportation![Nbsp]$transportation$ for Infrastructure"
@@ -133,8 +150,6 @@
     setting_LLWA_grs_infra_mode_no_desc: "The #yellow $LLWA_building_logistics_hub$#! [concept_building] #n will not#! be created. [concept_buy_orders] for #yellow @transportation![Nbsp]$transportation$#! and [concept_infrastructure_usage] will not be connected."
     
     # Unused strings - defined as empty to silence errors
-    LLWA_md_dist_from_water:   ""
-    LLWA_je_ai_manager:        "LLWA AI Manager"
-    LLWA_je_ai_manager_reason: "This journal exists as a container for periodic AI-only logic. Please ignore it."
+    LLWA_md_dist_from_water: ""
     state_llwa_mt_dist_from_water_add:      ""
     state_llwa_mt_dist_from_water_add_desc: ""
