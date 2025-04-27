@@ -1,7 +1,7 @@
 {
     "name" : "Locomotion: Land, Water, & Air",
     "id" : "xyz.1230james.locomotion",
-    "version" : "2.5.0",
+    "version" : "2.5.1",
     "game_id" : "victoria3",
     "supported_game_version" : "1.8.*",
     "short_description" : "",
