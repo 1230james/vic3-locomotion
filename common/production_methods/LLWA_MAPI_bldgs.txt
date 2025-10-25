@@ -17,11 +17,11 @@ LLWA_pm_spot_shipping = {
     building_modifiers = {
         workforce_scaled = {
             goods_input_transportation_add = 10
-            goods_output_llwa_market_conn_add = 15
+            goods_output_llwa_market_conn_add = 10
         }
         level_scaled = {
-            building_employment_laborers_add = 2250
-            building_employment_clerks_add   = 250
+            building_employment_laborers_add = 900
+            building_employment_clerks_add   = 100
         }
     }
 
@@ -47,11 +47,11 @@ LLWA_pm_transport_lines = {
     building_modifiers = {
         workforce_scaled = {
             goods_input_transportation_add = 30
-            goods_output_llwa_market_conn_add = 40
+            goods_output_llwa_market_conn_add = 25
         }
         level_scaled = {
-            building_employment_laborers_add = 2000
-            building_employment_clerks_add   = 500
+            building_employment_laborers_add = 750
+            building_employment_clerks_add   = 250
         }
     }
 
@@ -77,11 +77,11 @@ LLWA_pm_logistics_company = {
     building_modifiers = {
         workforce_scaled = {
             goods_input_transportation_add = 50
-            goods_output_llwa_market_conn_add = 60
+            goods_output_llwa_market_conn_add = 40
         }
         level_scaled = {
-            building_employment_laborers_add = 1500
-            building_employment_clerks_add   = 1000
+            building_employment_laborers_add = 600
+            building_employment_clerks_add   = 400
         }
     }
 
@@ -104,11 +104,11 @@ LLWA_pm_commidities_listings = {
     building_modifiers = {
         workforce_scaled = {
             goods_input_services_add = 10
-            goods_output_llwa_market_conn_add = 15
+            goods_output_llwa_market_conn_add = 10
         }
         level_scaled = {
-            building_employment_clerks_add      = 2250
-            building_employment_shopkeepers_add = 250
+            building_employment_clerks_add      = 800
+            building_employment_shopkeepers_add = 200
         }
     }
 
@@ -131,11 +131,11 @@ LLWA_pm_securities_trading = {
     building_modifiers = {
         workforce_scaled = {
             goods_input_services_add = 25
-            goods_output_llwa_market_conn_add = 35
+            goods_output_llwa_market_conn_add = 20
         }
         level_scaled = {
-            building_employment_clerks_add      = 2000
-            building_employment_shopkeepers_add = 500
+            building_employment_clerks_add      = 650
+            building_employment_shopkeepers_add = 350
         }
     }
 
@@ -161,11 +161,11 @@ LLWA_pm_clearing_houses = {
     building_modifiers = {
         workforce_scaled = {
             goods_input_services_add = 40
-            goods_output_llwa_market_conn_add = 55
+            goods_output_llwa_market_conn_add = 35
         }
         level_scaled = {
-            building_employment_clerks_add      = 1500
-            building_employment_shopkeepers_add = 1000
+            building_employment_clerks_add      = 500
+            building_employment_shopkeepers_add = 500
         }
     }
 
@@ -201,9 +201,8 @@ LLWA_pm_econ_journals = {
             goods_output_llwa_market_conn_add = 10
         }
         level_scaled = {
-            building_employment_clerks_add      = 300
-            building_employment_academics_add   = 100
-            building_employment_shopkeepers_add = 100
+            building_employment_clerks_add      = 50
+            building_employment_academics_add   = 50
         }
     }
 
@@ -231,10 +230,10 @@ LLWA_pm_telegraphs = {
             goods_output_llwa_market_conn_add = 20
         }
         level_scaled = {
-            building_employment_clerks_add      = 200
-            building_employment_academics_add   = 100
-            building_employment_shopkeepers_add = 100
-            building_employment_machinists_add  = 100
+            building_employment_clerks_add      = 50
+            building_employment_academics_add   = 50
+            building_employment_shopkeepers_add = 50
+            building_employment_machinists_add  = 50
         }
     }
 
@@ -266,8 +265,8 @@ LLWA_pm_telephones = {
         }
         level_scaled = {
             building_employment_clerks_add      = 100
-            building_employment_academics_add   = 200
-            building_employment_shopkeepers_add = 100
+            building_employment_academics_add   = 50
+            building_employment_shopkeepers_add = 50
             building_employment_machinists_add  = 100
         }
     }

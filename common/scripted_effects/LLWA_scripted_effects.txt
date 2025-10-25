@@ -1,6 +1,6 @@
 ﻿@LOGIHUB_CONN_OUTPUT_PER_TRANSPORTATION = 1 # Match with LogiHub base PM
 @LOGIHUB_CONN_COST = 35 # Match with goods definition
-@LOGIHUB_WORKFORCE_SIZE = 5000 # Match with LogiHub base PM
+@LOGIHUB_WORKFORCE_SIZE = 500 # Match with LogiHub base PM
 
 @TRANSPORTATION_COST = 30 # Match with goods definition
 
@@ -10,7 +10,7 @@
 @LOGIHUB_MKT_CONN_WAGES_OUT_MIN = 1 # At least/at most these amounts will be created to account for wages
 @LOGIHUB_MKT_CONN_WAGES_OUT_MAX = 1000
 
-@LOGIHUB_MINIMUM_WAGE = 480 # 480 => 5.0 annual minimum wage # (desired min wage) / 52 * (workforce size) = this
+@LOGIHUB_MINIMUM_WAGE = 48 # 48 => 5.0 annual minimum wage # (desired min wage) / 52 * (workforce size) = this
 
 # Update autonomous investment availability on PM change
 # Building scope
