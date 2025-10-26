@@ -17,3 +17,13 @@ texticon = {
 		fontsize = 18
 	}
 }
+
+texticon = {
+	icon = LLWA_pg_express_service
+	iconsize = {
+		texture = "gfx/interface/icons/goods_icons/LLWA_prestige_transportation.dds"
+		size = { 25 25 }
+		offset = { 0 7 }
+		fontsize = 18
+	}
+}

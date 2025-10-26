@@ -87,12 +87,29 @@
     llwa_market_conn: "Market Connectivity"
     llwa_logi_conn:   "Local Connectivity"
     
+    LLWA_pg_express_service: "Express Service"
+    
     # Tooltips
     LLWA_tt_has_river:        "Has a river state trait"
     LLWA_tt_has_no_river:     "Does #b not#! have a river state trait"
     LLWA_tt_has_no_mountains: "Does #b not#! have a mountain state trait"
     
     LLWA_st_can_have_canal: "$TRIGGER_AND$" # Game engine bug moment
+    
+    # Companies
+    LLWA_company_turnpike:  "Overland Transport Trust"
+    LLWA_company_ship_line: "Global Shipping Lines, Inc."
+    LLWA_company_railroad:  "National Railroad Corporation"
+    LLWA_company_airline:   "Trans Oceanic Air Lines" # FSAC shoutout
+    
+    LLWA_company_turnpike_dynamic_name_tag_singular:  "Overland Transport"
+    LLWA_company_turnpike_dynamic_name_tag_plural:    "Overland Transport"
+    LLWA_company_ship_line_dynamic_name_tag_singular: "Shipping Line"
+    LLWA_company_ship_line_dynamic_name_tag_plural:   "Shipping Lines"
+    LLWA_company_railroad_dynamic_name_tag_singular:  "Central Railway"
+    LLWA_company_railroad_dynamic_name_tag_plural:    "Central Railway"
+    LLWA_company_airline_dynamic_name_tag_singular:   "Air Line"
+    LLWA_company_airline_dynamic_name_tag_plural:     "Airways" # For variety
     
     # Modifiers
     LLWA_md_mapi_building_lvl: "LLWA: MAPI Buildings Enabled"
