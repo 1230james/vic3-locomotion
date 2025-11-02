@@ -1,5 +1,5 @@
 ﻿LLWA_company_turnpike = {
-    icon       = "gfx/interface/icons/company_icons/custom_companies_placeholder.dds"
+    icon       = "gfx/interface/icons/company_icons/LLWA_overland_logo.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/LLWA_comp_illu_roads.dds"
     
     category = shopkeeper_owned
@@ -22,12 +22,10 @@
     }
 
     possible_prestige_goods = {
-        LLWA_pg_express_service
+        # LLWA_pg_express_service # DO NOT USE - prestige goods do NOT work for local goods
     }
 
-    prestige_goods_trigger = {
-        always = yes
-    }
+    prestige_goods_trigger = {} # default is yes
     
     potential = {
         has_technology_researched = urbanization
@@ -101,7 +99,7 @@
 }
 
 LLWA_company_ship_line = {
-    icon       = "gfx/interface/icons/company_icons/custom_companies_placeholder.dds"
+    icon       = "gfx/interface/icons/company_icons/LLWA_shipping_logo.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
     
     category = capitalist_owned
@@ -125,12 +123,10 @@ LLWA_company_ship_line = {
     }
 
     possible_prestige_goods = {
-        LLWA_pg_express_service
+        # LLWA_pg_express_service
     }
 
-    prestige_goods_trigger = {
-        always = yes
-    }
+    prestige_goods_trigger = {}
     
     potential = {
         has_technology_researched = urbanization
@@ -203,7 +199,7 @@ LLWA_company_ship_line = {
 }
 
 LLWA_company_railroad = {
-    icon       = "gfx/interface/icons/company_icons/custom_companies_placeholder.dds"
+    icon       = "gfx/interface/icons/company_icons/LLWA_railroad_logo.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_railways.dds"
     
     category = capitalist_owned
@@ -226,12 +222,10 @@ LLWA_company_railroad = {
     }
 
     possible_prestige_goods = {
-        LLWA_pg_express_service
+        # LLWA_pg_express_service
     }
 
-    prestige_goods_trigger = {
-        always = yes
-    }
+    prestige_goods_trigger = {}
     
     potential = {
         has_technology_researched = railways
@@ -284,7 +278,7 @@ LLWA_company_railroad = {
 }
 
 LLWA_company_airline = {
-    icon       = "gfx/interface/icons/company_icons/custom_companies_placeholder.dds"
+    icon       = "gfx/interface/icons/company_icons/LLWA_airline_logo.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/LLWA_comp_illu_planes.dds"
     
     category = capitalist_owned
@@ -304,12 +298,10 @@ LLWA_company_airline = {
     }
 
     possible_prestige_goods = {
-        LLWA_pg_express_service
+        # LLWA_pg_express_service
     }
 
-    prestige_goods_trigger = {
-        always = yes
-    }
+    prestige_goods_trigger = {}
     
     potential = {
         OR = {
