@@ -1,0 +1,356 @@
+﻿LLWA_company_turnpike = {
+    icon       = "gfx/interface/icons/company_icons/LLWA_overland_logo.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/LLWA_comp_illu_roads.dds"
+    
+    category = shopkeeper_owned
+    flavored_company = no
+    uses_dynamic_naming = yes
+    
+    dynamic_company_type_names = {
+        dynamic_company_type_company
+        dynamic_company_type_guild
+    }
+    
+    building_types = {
+        LLWA_building_roadway
+        LLWA_building_waterway
+        LLWA_building_riverway
+    }
+
+    extension_building_types = {
+        building_railway
+    }
+
+    possible_prestige_goods = {
+        # LLWA_pg_express_service # DO NOT USE - prestige goods do NOT work for local goods
+    }
+
+    prestige_goods_trigger = {} # default is yes
+    
+    potential = {
+        has_technology_researched = urbanization
+    }
+    
+    attainable = {
+        always = yes
+    }
+    
+    possible = {
+        any_scope_state = {
+            any_scope_building = {
+                OR = {
+                    is_building_type = LLWA_building_roadway
+                    is_building_type = LLWA_building_waterway
+                    is_building_type = LLWA_building_riverway
+                }
+                level >= 5
+            }
+        }
+    }
+
+    prosperity_modifier = {
+        state_infrastructure_from_population_mult     = 0.05
+        state_infrastructure_from_population_max_mult = 0.05
+    }
+
+    ai_will_do = {
+        num_companies <= {
+            add      = max_num_companies
+            subtract = 2
+        }
+        any_scope_state = {
+            any_scope_building = {
+                OR = {
+                    is_building_type = LLWA_building_waterway
+                    is_building_type = LLWA_building_riverway
+                }
+                level >= 3
+            }
+        }
+    }
+    
+    ai_construction_targets = {
+        LLWA_building_riverway = {
+			level = 5
+			state_trigger = {
+				is_incorporated = yes
+                infrastructure_delta < 10
+			}
+		}
+        LLWA_building_waterway = {
+			level = 5
+			state_trigger = {
+				is_incorporated = yes
+                infrastructure_delta < 10
+                owner = {
+                    NOT = {
+                        any_scope_state = {
+                            LLWA_st_on_river = yes
+                        }
+                    }
+                }
+			}
+		}
+    }
+    
+    ai_weight = {
+        value = 0.5
+    }
+}
+
+LLWA_company_ship_line = {
+    icon       = "gfx/interface/icons/company_icons/LLWA_shipping_logo.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+    
+    category = capitalist_owned
+    flavored_company = no
+    uses_dynamic_naming = yes
+    
+    dynamic_company_type_names = {
+        dynamic_company_type_company
+        dynamic_company_type_corporation
+    }
+    
+    building_types = {
+        LLWA_building_waterway
+        LLWA_building_riverway
+        building_port
+    }
+
+    extension_building_types = {
+        building_railway
+        LLWA_building_airway
+    }
+
+    possible_prestige_goods = {
+        # LLWA_pg_express_service
+    }
+
+    prestige_goods_trigger = {}
+    
+    potential = {
+        has_technology_researched = urbanization
+    }
+    
+    attainable = {
+        always = yes
+    }
+    
+    possible = {
+        any_scope_state = {
+            any_scope_building = {
+                OR = {
+                    is_building_type = LLWA_building_waterway
+                    is_building_type = LLWA_building_riverway
+                    is_building_type = building_port
+                }
+                level >= 5
+            }
+        }
+    }
+
+    prosperity_modifier = {
+        state_trade_capacity_mult = 0.10
+    }
+
+    ai_will_do = {
+        num_companies <= {
+            add      = max_num_companies
+            subtract = 2
+        }
+        any_scope_state = {
+            any_scope_building = {
+                OR = {
+                    is_building_type = LLWA_building_waterway
+                    is_building_type = LLWA_building_riverway
+                }
+                level >= 3
+            }
+        }
+    }
+    
+    ai_construction_targets = {
+        LLWA_building_riverway = {
+			level = 5
+			state_trigger = {
+                is_incorporated = yes
+                infrastructure_delta < 10
+			}
+		}
+        LLWA_building_waterway = {
+			level = 5
+			state_trigger = {
+                is_incorporated = yes
+                infrastructure_delta < 10
+                owner = {
+                    NOT = {
+                        any_scope_state = {
+                            LLWA_st_on_river = yes
+                        }
+                    }
+                }
+			}
+		}
+    }
+    
+    ai_weight = {
+        value = 0.5
+    }
+}
+
+LLWA_company_railroad = {
+    icon       = "gfx/interface/icons/company_icons/LLWA_railroad_logo.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_railways.dds"
+    
+    category = capitalist_owned
+    flavored_company = no
+    uses_dynamic_naming = yes
+    
+    dynamic_company_type_names = {
+        dynamic_company_type_company
+        dynamic_company_type_corporation
+    }
+    
+    building_types = {
+        building_railway
+    }
+
+    extension_building_types = {
+        LLWA_building_roadway
+        LLWA_building_waterway
+        LLWA_building_riverway
+    }
+
+    possible_prestige_goods = {
+        # LLWA_pg_express_service
+    }
+
+    prestige_goods_trigger = {}
+    
+    potential = {
+        has_technology_researched = railways
+    }
+    
+    attainable = {
+        always = yes
+    }
+    
+    possible = {
+        any_scope_state = {
+            any_scope_building = {
+                is_building_type = building_railway
+                level >= 5
+            }
+        }
+    }
+
+    prosperity_modifier = {
+        building_motor_industry_throughput_add = 0.05
+        state_construction_mult = 0.05
+    }
+
+    ai_will_do = {
+        num_companies <= {
+            add      = max_num_companies
+            subtract = 2
+        }
+        any_scope_state = {
+            any_scope_building = {
+                is_building_type = building_railway
+                level >= 3
+            }
+        }
+    }
+    
+    ai_construction_targets = {
+        building_railway = {
+			level = 5
+			state_trigger = {
+                is_incorporated = yes
+                infrastructure_delta < 10
+			}
+		}
+    }
+    
+    ai_weight = {
+        value = 0.75
+    }
+}
+
+LLWA_company_airline = {
+    icon       = "gfx/interface/icons/company_icons/LLWA_airline_logo.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/LLWA_comp_illu_planes.dds"
+    
+    category = capitalist_owned
+    flavored_company = no
+    uses_dynamic_naming = yes
+    
+    dynamic_company_type_names = {
+        dynamic_company_type_company
+    }
+    
+    building_types = {
+        LLWA_building_airway
+    }
+
+    extension_building_types = {
+        building_port
+    }
+
+    possible_prestige_goods = {
+        # LLWA_pg_express_service
+    }
+
+    prestige_goods_trigger = {}
+    
+    potential = {
+        OR = {
+            has_technology_researched = zeppelins
+            has_technology_researched = military_aviation
+        }
+    }
+    
+    attainable = {
+        always = yes
+    }
+    
+    possible = {
+        any_scope_state = {
+            any_scope_building = {
+                is_building_type = LLWA_building_airway
+                level >= 5
+            }
+        }
+    }
+
+    prosperity_modifier = {
+        state_trade_advantage_mult = 0.25
+    }
+
+    ai_will_do = {
+        num_companies <= {
+            add      = max_num_companies
+            subtract = 2
+        }
+        any_scope_state = {
+            any_scope_building = {
+                is_building_type = LLWA_building_airway
+                level >= 3
+            }
+        }
+    }
+    
+    ai_construction_targets = {
+        LLWA_building_airway = {
+			level = 5
+			state_trigger = {
+                is_incorporated = yes
+                infrastructure_delta < 10
+			}
+		}
+    }
+    
+    ai_weight = {
+        value = 0.5
+    }
+}

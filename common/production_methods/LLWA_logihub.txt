@@ -9,7 +9,7 @@ LLWA_pm_logihub_base = {
         unscaled = {
             goods_input_transportation_add   = 1
             goods_output_llwa_logi_conn_add  = 1 # (transport price) / (logi conn price) + buffer
-            building_employment_laborers_add = 5000
+            building_employment_clerks_add = 500
         }
     }
 }

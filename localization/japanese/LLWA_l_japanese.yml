@@ -10,7 +10,7 @@
     
     LLWA_building_logistics_hub: "Logistics Hub"
     
-    LLWA_building_logistics_hub: "Logistics Hub"
+    LLWA_bg_logihub: "$LLWA_building_logistics_hub$"
     
     # PMGs
     LLWA_pmg_road_base:     "$pm_base$"
@@ -96,11 +96,27 @@
     
     LLWA_st_can_have_canal: "$TRIGGER_AND$" # Game engine bug moment
     
+    # Companies
+    LLWA_company_turnpike:  "Overland Transport Trust"
+    LLWA_company_ship_line: "Global Shipping Lines, Inc."
+    LLWA_company_railroad:  "Central Railway Corporation"
+    LLWA_company_airline:   "Trans Oceanic Air Lines" # FSAC shoutout
+    
+    LLWA_company_turnpike_dynamic_name_tag_singular:  "Overland Transport"
+    LLWA_company_turnpike_dynamic_name_tag_plural:    "Overland Transport"
+    LLWA_company_ship_line_dynamic_name_tag_singular: "Shipping Line"
+    LLWA_company_ship_line_dynamic_name_tag_plural:   "Shipping Lines"
+    LLWA_company_railroad_dynamic_name_tag_singular:  "Central Railway"
+    LLWA_company_railroad_dynamic_name_tag_plural:    "Central Railway"
+    LLWA_company_airline_dynamic_name_tag_singular:   "Air Line"
+    LLWA_company_airline_dynamic_name_tag_plural:     "Airways" # For variety
+    
     # Modifiers
     LLWA_md_mapi_building_lvl: "LLWA: MAPI Buildings Enabled"
     LLWA_md_mapi_mapi_lvl:     "LLWA: MAPI Rebalance Enabled"
     LLWA_md_logihub_in_mult:   "$LLWA_building_logistics_hub$ Input"
     LLWA_md_logihub_out_mult:  "$LLWA_building_logistics_hub$ Output"
+    LLWA_declared_bankruptcy:  "$declared_bankruptcy$"
     
     # Modifier types
     goods_input_luxury_furniture_add:      "@luxury_furniture!$luxury_furniture$需要"
@@ -112,11 +128,14 @@
     goods_output_llwa_market_conn_add:      "@llwa_market_conn!$llwa_market_conn$生産"
     goods_output_llwa_market_conn_add_desc: "施設によって生産される @llwa_market_conn! $llwa_market_conn$の量です"
     
+    goods_output_llwa_logi_conn_add:      "@llwa_logi_conn!$llwa_logi_conn$生産"
+    goods_output_llwa_logi_conn_add_desc: "施設によって生産される @llwa_logi_conn! $llwa_logi_conn$の量です"
+    
     goods_input_transportation_mult:      "@transportation!$transportation$需要"
     goods_input_transportation_mult_desc: "施設によって消費された @transportation! $transportation$の量です"
     
-    goods_output_llwa_market_conn_mult:      "$goods_output_llwa_market_conn_add$"
-    goods_output_llwa_market_conn_mult_desc: "$goods_output_llwa_market_conn_add_desc$"
+    goods_output_llwa_logi_conn_mult:      "$goods_output_llwa_logi_conn_add$"
+    goods_output_llwa_logi_conn_mult_desc: "$goods_output_llwa_logi_conn_add_desc$"
     
     state_llwa_building_freight_depot_max_level_add:      "$llwa_building_freight_depot$最大レベル"
     state_llwa_building_freight_depot_max_level_add_desc: "$llwa_building_freight_depot$施設の最大レベルに対するボーナスあるいはペナルティです。"

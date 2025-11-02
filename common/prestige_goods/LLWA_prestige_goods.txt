@@ -1,0 +1,6 @@
+﻿# DO NOT USE - prestige goods do NOT work for local goods
+# LLWA_pg_express_service = {
+#     base_good = transportation
+#     prestige_bonus = 0.1
+#     texture = "gfx/interface/icons/goods_icons/LLWA_prestige_transportation.dds"
+# }

@@ -1,11 +1,12 @@
 {
     "name" : "Locomotion: Land, Water, & Air",
     "id" : "xyz.1230james.locomotion",
-    "version" : "2.5.1",
+    "version" : "2.6.0",
     "game_id" : "victoria3",
-    "supported_game_version" : "1.8.*",
+    "supported_game_version" : "1.11.*",
     "short_description" : "",
     "tags" : [
+        "1.10", "1.11",
         "Balance",
         "Expansion",
         "Economy And Buildings",

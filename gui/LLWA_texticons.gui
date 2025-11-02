@@ -1,19 +1,29 @@
 texticon = {
-	icon = llwa_market_conn
-	iconsize = {
-		texture = "gfx/interface/icons/goods_icons/LLWA_market_conn.dds"
-		size = { 25 25 }
-		offset = { 0 7 }
-		fontsize = 18
-	}
+    icon = llwa_market_conn
+    iconsize = {
+        texture = "gfx/interface/icons/goods_icons/LLWA_market_conn.dds"
+        size = { 25 25 }
+        offset = { 0 7 }
+        fontsize = 18
+    }
 }
 
 texticon = {
-	icon = llwa_logi_conn
-	iconsize = {
-		texture = "gfx/interface/icons/goods_icons/LLWA_logi_conn.dds"
-		size = { 25 25 }
-		offset = { 0 7 }
-		fontsize = 18
-	}
+    icon = llwa_logi_conn
+    iconsize = {
+        texture = "gfx/interface/icons/goods_icons/LLWA_logi_conn.dds"
+        size = { 25 25 }
+        offset = { 0 7 }
+        fontsize = 18
+    }
 }
+
+# texticon = {
+#     icon = LLWA_pg_express_service
+#     iconsize = {
+#         texture = "gfx/interface/icons/goods_icons/LLWA_prestige_transportation.dds"
+#         size = { 25 25 }
+#         offset = { 0 7 }
+#         fontsize = 18
+#     }
+# }
