@@ -10,7 +10,7 @@
     
     LLWA_building_logistics_hub: "Logistics Hub"
     
-    LLWA_building_logistics_hub: "Logistics Hub"
+    LLWA_bg_logihub: "$LLWA_building_logistics_hub$"
     
     # PMGs
     LLWA_pmg_road_base:     "$pm_base$"
@@ -116,6 +116,7 @@
     LLWA_md_mapi_mapi_lvl:     "LLWA: MAPI Rebalance Enabled"
     LLWA_md_logihub_in_mult:   "$LLWA_building_logistics_hub$ Input"
     LLWA_md_logihub_out_mult:  "$LLWA_building_logistics_hub$ Output"
+    LLWA_declared_bankruptcy:  "$declared_bankruptcy$"
     
     # Modifier types
     goods_input_luxury_furniture_add:      "Wykorzystanie @luxury_furniture! mebli luksusowych"
@@ -127,11 +128,14 @@
     goods_output_llwa_market_conn_add:      "@llwa_market_conn! $llwa_market_conn$ output per level"
     goods_output_llwa_market_conn_add_desc: "The amount of @llwa_market_conn! $llwa_market_conn$ consumed by buildings"
     
+    goods_output_llwa_logi_conn_add:      "@llwa_logi_conn! $llwa_logi_conn$ output per level"
+    goods_output_llwa_logi_conn_add_desc: "The amount of @llwa_logi_conn! $llwa_logi_conn$ produced by buildings"
+    
     goods_input_transportation_mult:      "@transportation! $transportation$ input"
     goods_input_transportation_mult_desc: "The amount of @transportation! $transportation$ consumed by buildings"
     
-    goods_output_llwa_market_conn_mult:      "@llwa_market_conn! $llwa_market_conn$ output"
-    goods_output_llwa_market_conn_mult_desc: "$goods_output_llwa_market_conn_add_desc$"
+    goods_output_llwa_logi_conn_mult:      "@llwa_logi_conn! $llwa_logi_conn$ output"
+    goods_output_llwa_logi_conn_mult_desc: "$goods_output_llwa_logi_conn_add_desc$"
     
     state_llwa_building_freight_depot_max_level_add:      "$llwa_building_freight_depot$ – poziom maksymalny"
     state_llwa_building_freight_depot_max_level_add_desc: "$llwa_building_freight_depot$"

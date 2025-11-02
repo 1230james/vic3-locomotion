@@ -10,6 +10,8 @@
     
     LLWA_building_logistics_hub: "Logistik-Knotenpunkt"
     
+    LLWA_bg_logihub: "$LLWA_building_logistics_hub$"
+    
     # PMGs
     LLWA_pmg_road_base:     "$pm_base$"
     LLWA_pmg_rail_base:     "$pm_base$"
@@ -135,6 +137,7 @@
     LLWA_md_mapi_mapi_lvl:     "LLWA: MP-Änderung aktiviert"
     LLWA_md_logihub_in_mult:   "$LLWA_building_logistics_hub$-Zufuhr"
     LLWA_md_logihub_out_mult:  "$LLWA_building_logistics_hub$-Ausstoß"
+    LLWA_declared_bankruptcy:  "$declared_bankruptcy$"
     
     # Modifier types
     goods_input_luxury_furniture_add:      "@luxury_furniture! Luxusmöbel-Zufuhr pro Stufe"
@@ -146,11 +149,14 @@
     goods_output_llwa_market_conn_add:      "@llwa_market_conn! $llwa_market_conn$-Ausstoß pro Stufe"
     goods_output_llwa_market_conn_add_desc: "Die Menge an @llwa_market_conn! $llwa_market_conn$, die das Gebäude produziert."
     
+    goods_output_llwa_logi_conn_add:      "@llwa_logi_conn! $llwa_logi_conn$-Ausstoß pro Stufe"
+    goods_output_llwa_logi_conn_add_desc: "Die Menge an @llwa_logi_conn! $llwa_logi_conn$, die das Gebäude produziert."
+    
     goods_input_transportation_mult:      "@transportation! $transportation$-Zufuhr"
     goods_input_transportation_mult_desc: "Die Menge an @transportation! $transportation$, die das Gebäude verbraucht."
     
-    goods_output_llwa_market_conn_mult:      "@llwa_market_conn! $llwa_market_conn$-Ausstoß"
-    goods_output_llwa_market_conn_mult_desc: "$goods_output_llwa_market_conn_add_desc$"
+    goods_output_llwa_logi_conn_mult:      "@llwa_logi_conn! $llwa_logi_conn$-Ausstoß"
+    goods_output_llwa_logi_conn_mult_desc: "$goods_output_llwa_logi_conn_add_desc$"
     
     state_llwa_building_freight_depot_max_level_add:      "$llwa_building_freight_depot$-Maximalstufe"
     state_llwa_building_freight_depot_max_level_add_desc: "Ein Bonus oder Abzug auf die maximale Stufe von $llwa_building_freight_depot$-Gebäuden."

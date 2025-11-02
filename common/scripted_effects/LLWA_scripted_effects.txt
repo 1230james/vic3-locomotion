@@ -293,7 +293,7 @@ LLWA_se_start_priv_construction = {
     if = {
         limit = {
             OR = {
-                owner.modifier:country_disable_privatization_bool = yes
+                owner.modifier:country_disable_non_company_privatization_bool = yes
                 
                 trigger_if = {
                     limit = {

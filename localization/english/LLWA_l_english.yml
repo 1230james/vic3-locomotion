@@ -10,6 +10,8 @@
     
     LLWA_building_logistics_hub: "Logistics Hub"
     
+    LLWA_bg_logihub: "$LLWA_building_logistics_hub$"
+    
     # PMGs
     LLWA_pmg_road_base:     "$pm_base$"
     LLWA_pmg_rail_base:     "$pm_base$"
