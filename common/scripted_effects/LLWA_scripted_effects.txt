@@ -553,7 +553,7 @@ LLWA_se_state_refresh_logihubs = {
     }
 }
 
-# AI-specific processing
+# AI-specific processing, will be run once monthly
 # Country scope
 LLWA_se_manage_ai_country = {
     every_scope_state = {
@@ -583,20 +583,23 @@ LLWA_se_manage_ai_country = {
         }
         
         # Re-enable subsidies for LLWA buildings losing money
+        # As of 1.11 (more like ~1.8 but script updated for 1.11): DO NOT RUN WEEKLY; entering a game of whack-a-mole
+        # with the AI apparently causes a bad knock-on effect that stalls the AI's ability to spend out. Reducing the
+        # processing of subsidies to once monthly to limit this impact.
         trigger_event = {
             id = LLWA_secret_ev.5
         }
-        trigger_event = {
-            id = LLWA_secret_ev.5
-            days = 7
-        }
-        trigger_event = {
-            id = LLWA_secret_ev.5
-            days = 14
-        }
-        trigger_event = {
-            id = LLWA_secret_ev.5
-            days = 21
-        }
+        # trigger_event = {
+        #     id = LLWA_secret_ev.5
+        #     days = 7
+        # }
+        # trigger_event = {
+        #     id = LLWA_secret_ev.5
+        #     days = 14
+        # }
+        # trigger_event = {
+        #     id = LLWA_secret_ev.5
+        #     days = 21
+        # }
     }
 }
