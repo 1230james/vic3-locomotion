@@ -55,7 +55,7 @@ goods_input_transportation_mult = {
 }
 
 # MAPI-related
-state_market_access_price_impact = { # tweak decimals amount & ai value
+REPLACE:state_market_access_price_impact = { # tweak decimals amount & ai value
     color = neutral
     percent = yes
     decimals = 2
@@ -102,6 +102,7 @@ llwa_building_exchange_throughput_add = {
 
 # Water distance tracking
 state_llwa_mt_dist_from_water_add = {
+    script_only = yes
     color = good
     percent = no
     decimals = 0
