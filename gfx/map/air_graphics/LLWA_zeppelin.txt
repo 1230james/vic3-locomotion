@@ -1,4 +1,4 @@
-﻿zeppelin_01 = {
+﻿REPLACE:zeppelin_01 = {
 	entities = {
 		
 		skin_1 = {

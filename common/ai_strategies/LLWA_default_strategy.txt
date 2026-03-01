@@ -1,0 +1,10 @@
+﻿INJECT:ai_strategy_default = {
+    subsidies = {
+        LLWA_building_roadway  = nice_to_have
+        LLWA_building_waterway = must_have
+        LLWA_building_riverway = must_have
+        LLWA_building_airway   = nice_to_have
+        llwa_building_freight_depot = should_have
+        llwa_building_exchange = should_have
+    }
+}

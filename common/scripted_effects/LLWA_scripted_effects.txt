@@ -586,9 +586,12 @@ LLWA_se_manage_ai_country = {
         # As of 1.11 (more like ~1.8 but script updated for 1.11): DO NOT RUN WEEKLY; entering a game of whack-a-mole
         # with the AI apparently causes a bad knock-on effect that stalls the AI's ability to spend out. Reducing the
         # processing of subsidies to once monthly to limit this impact.
-        trigger_event = {
-            id = LLWA_secret_ev.5
-        }
+        #
+        # As of 1.12: default AI strategy can now be injected into (i.e. changes appended without overwriting the entire
+        # thing) so we are now just doing that instead of risking the whole whack-a-mole nonsense
+        # trigger_event = {
+        #     id = LLWA_secret_ev.5
+        # }
         # trigger_event = {
         #     id = LLWA_secret_ev.5
         #     days = 7
