@@ -3,10 +3,10 @@
     "id" : "xyz.1230james.locomotion",
     "version" : "2.6.2",
     "game_id" : "victoria3",
-    "supported_game_version" : "1.12.*",
+    "supported_game_version" : "1.13.*",
     "short_description" : "",
     "tags" : [
-        "1.12",
+        "1.12", "1.13",
         "Balance",
         "Expansion",
         "Economy And Buildings",
