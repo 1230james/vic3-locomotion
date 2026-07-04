@@ -17,7 +17,37 @@
 
     required_construction = construction_cost_low
     
-    # ai_value = 1000 # Roads are nice, but don't prioritize; 1000 is default weight as of 1.4
+    ai_value = {
+        value = 0
+        
+        if = {
+            limit = {
+                NOR = {
+                    can_construct_building = LLWA_building_riverway
+                    AND = {
+                        can_construct_building = LLWA_building_waterway
+                        sg:transportation = {
+                            state_goods_has_local_goods_shortage = yes
+                        }
+                        owner ?= {
+                            modifier:country_construction_add >= {
+                                add      = modifier:country_max_weekly_construction_progress_add
+                                multiply = 5
+                            }
+                        }
+                    }
+                    owner ?= {
+                        OR = {
+                            has_technology_researched = railways
+                            has_technology_researched = zeppelins
+                            has_technology_researched = military_aviation
+                        }
+                    }
+                }
+            }
+            add = 2000 # Pointless unless there's no other options
+        }
+    }
     
     should_auto_expand = { # Requires higher reserves ratio + transportation price to discourage road expansion
         occupancy >= 0.8
@@ -60,7 +90,30 @@ LLWA_building_waterway = {
         multiply = 3
     }
     
-    ai_value = 1000 # Fairly expensive so don't prioritize
+    ai_value = {
+        value = 0
+        
+        # Fairly expensive so don't prioritize unless desperate
+        if = {
+            limit = {
+                owner ?= {
+                    NOR = {
+                        has_technology_researched = railways
+                        has_technology_researched = zeppelins
+                        has_technology_researched = military_aviation
+                    }
+                    modifier:country_construction_add >= {
+                        add      = modifier:country_max_weekly_construction_progress_add
+                        multiply = 5
+                    }
+                }
+                sg:transportation = {
+                    state_goods_has_local_goods_shortage = yes
+                }
+            }
+            add = 2000
+        }
+    }
     
     possible = {
         LLWA_st_can_have_canal = yes
@@ -104,7 +157,35 @@ LLWA_building_riverway = {
 
     required_construction = construction_cost_medium
     
-    ai_value = 1500 # Prioritize over other things but not rails
+    ai_value = {
+        value = 500
+        
+        # Prioritize unless we have railways or air travel
+        if = {
+            limit = {
+                owner ?= {
+                    NOR = {
+                        has_technology_researched = railways
+                        has_technology_researched = zeppelins
+                        has_technology_researched = military_aviation
+                    }
+                }
+            }
+            add = 1500
+        }
+        
+        # Stop entirely once we have good trains
+        if = {
+            limit = {
+                b:building_railway ?= {
+                    NOT = {
+                        has_active_production_method = pm_early_trains
+                    }
+                }
+            }
+            multiply = 0
+        }
+    }
     
     possible = {
         custom_tooltip = {
