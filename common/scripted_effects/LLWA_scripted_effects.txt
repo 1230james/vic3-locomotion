@@ -164,22 +164,65 @@ LLWA_se_enqueue_infra_building_for_transportation = {
             owner = {
                 OR = {
                     modifier:country_disable_investment_pool_bool = yes
-                    construction_queue_num_queued_private_levels < {
-                        add = modifier:country_construction_add
-                        if = {
-                            limit = {
-                                is_construction_paused = no
-                                construction_queue_num_queued_government_levels > 0
+                    AND = {
+                        # Don't enqueue more levels if the current private queue is above a threshold scaling based on
+                        # how expensive transportation is
+                        construction_queue_num_queued_private_levels < {
+                            add = modifier:country_construction_add
+                            if = {
+                                limit = {
+                                    is_construction_paused = no
+                                    construction_queue_num_queued_government_levels > 0
+                                }
+                                multiply = modifier:country_private_construction_allocation_mult
                             }
-                            multiply = modifier:country_private_construction_allocation_mult
+                            divide   = modifier:country_max_weekly_construction_progress_add
+                            multiply = {
+                                add    = PREV.sg:transportation.state_goods_pricier
+                                divide = 0.25
+                            }
+                            ceiling = yes
+                            add     = 1
                         }
-                        divide   = modifier:country_max_weekly_construction_progress_add
-                        multiply = {
-                            add    = PREV.sg:transportation.state_goods_pricier
-                            divide = 0.25
+                        
+                        # Don't enqueue more levels if the investment pool if investment funding is too low & can't
+                        # comfortably fund new buildings
+                        construction_queue_num_queued_private_levels < {
+                            # Get total amount of IP funds NOT earmarked for items in the queue already
+                            add = investment_pool
+                            subtract = {
+                                add = {
+                                    add = investment_pool_gross_income
+                                    subtract = investment_pool_net_income
+                                    save_temporary_value_as = ip_weekly_expenses
+                                }
+                                multiply = construction_queue_private_duration
+                                save_temporary_value_as = ip_saved_for_current_queue
+                            }
+                            subtract = scope:ip_weekly_expenses # 1 week buffer
+                            min = 0 # Can't have negative money in IP, obviously
+                            
+                            # Divide by a REALLY ROUGH ESTIMATE of the cost of one building * the weeks it would take
+                            # to finish constructing a very high cost building
+                            divide = {
+                                add = scope:ip_weekly_expenses
+                                divide = {
+                                    add = construction_queue_private_duration
+                                    min = 1
+                                }
+                                multiply = {
+                                    add = construction_cost_very_high
+                                    divide = {
+                                        add = modifier:country_max_weekly_construction_progress_add
+                                        min = 1
+                                    }
+                                    ceiling = yes
+                                }
+                                min = 1 # DIV/0 guard
+                            }
+                            
+                            ceiling = yes
                         }
-                        ceiling = yes
-                        add     = 1
                     }
                 }
             }
@@ -231,7 +274,9 @@ LLWA_se_enqueue_infra_building_for_transportation = {
                     can_construct_building = LLWA_building_riverway
                     AND = { # Canals are expensive so only build if we really need it
                         can_construct_building = LLWA_building_waterway
-                        sg:transportation.state_goods_pricier >= 0.50
+                        sg:transportation = {
+                            state_goods_has_local_goods_shortage = yes
+                        }
                     }
                 }
                 owner = {
@@ -281,7 +326,9 @@ LLWA_se_enqueue_infra_building_for_transportation = {
                     can_construct_building = LLWA_building_riverway
                     AND = {
                         can_construct_building = LLWA_building_waterway
-                        sg:transportation.state_goods_pricier >= 0.50
+                        sg:transportation = {
+                            state_goods_has_local_goods_shortage = yes
+                        }
                     }
                 }
             }
