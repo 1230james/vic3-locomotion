@@ -258,6 +258,7 @@ LLWA_se_enqueue_infra_building_for_transportation = {
                 OR = {
                     market.mg:engines.market_goods_pricier <= 0.35
                     sg:engines.state_goods_pricier <= 0.35
+                    sg:transportation.state_goods_pricier >= 0.50 # We're desperate
                 }
                 owner = {
                     has_technology_researched = railways
@@ -272,10 +273,14 @@ LLWA_se_enqueue_infra_building_for_transportation = {
             limit = {
                 OR = {
                     can_construct_building = LLWA_building_riverway
-                    AND = { # Canals are expensive so only build if we really need it
+                    AND = { # Canals are expensive so only build if we really need it & it wouldn't stall our construction queue
                         can_construct_building = LLWA_building_waterway
                         sg:transportation = {
                             state_goods_has_local_goods_shortage = yes
+                        }
+                        modifier:country_construction_add >= {
+                            add      = modifier:country_max_weekly_construction_progress_add
+                            multiply = 5
                         }
                     }
                 }
@@ -328,6 +333,10 @@ LLWA_se_enqueue_infra_building_for_transportation = {
                         can_construct_building = LLWA_building_waterway
                         sg:transportation = {
                             state_goods_has_local_goods_shortage = yes
+                        }
+                        modifier:country_construction_add >= {
+                            add      = modifier:country_max_weekly_construction_progress_add
+                            multiply = 5
                         }
                     }
                 }
